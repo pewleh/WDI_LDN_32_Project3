@@ -4,13 +4,13 @@ const events = require('../controllers/events');
 
 
 router.route('/events')
-  .get(events.index);
-  // .post(secureRoute, events.create);
+  .get(events.index)
+  .post(events.create);
 
-// router.route('/events/:id')
-//   .get(events.show)
-//   .put(secureRoute, events.update)
-//   .delete(secureRoute, events.delete);
+router.route('/events/:id')
+  .get(events.show)
+  .put(events.update)
+  .delete(events.delete);
 
 
 
