@@ -9,6 +9,7 @@ import EventsNewCtrl from './controllers/events/new';
 import EventsShowCtrl from './controllers/events/show';
 import EventsEditCtrl from './controllers/events/edit';
 
+import 'bulma';
 import Event from './services/Event';
 
 angular.module('starGazer', ['ui.router', 'ngMessages'])
