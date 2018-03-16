@@ -3,10 +3,7 @@ EventsIndexCtrl.$inject = ['Event'];
 function EventsIndexCtrl(Event){
   const vm = this;
 
-  vm.allEvents = [
-    {name: 'luna', type: 'solar'},
-    {name: 'gala', type: 'solar'}
-  ];
+  vm.allEvents = [];
 
 
   Event.find()
