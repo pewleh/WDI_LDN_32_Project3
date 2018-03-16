@@ -2,10 +2,7 @@ import angular from 'angular';
 import '@uirouter/angularjs';
 import 'angular-messages';
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c0a19a2bcc224398b957a562a428849dedf49644
 import Router from './config/router';
 
 import EventsIndexCtrl from './controllers/events/index';
