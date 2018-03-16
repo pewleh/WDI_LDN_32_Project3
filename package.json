@@ -12,7 +12,9 @@
   "author": "Students",
   "license": "ISC",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.0",
+    "angular-messages": "^1.6.9",
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",

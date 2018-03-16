@@ -6,14 +6,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
-
   $stateProvider
     .state('eventsIndex', {
-      url: '/events',
+      url: '/events/index',
       templateUrl: 'views/events/index.html',
       controller: 'EventsIndexCtrl as eventsIndex'
     });
-  
+
   $urlRouterProvider.otherwise('/events');
 }
 
