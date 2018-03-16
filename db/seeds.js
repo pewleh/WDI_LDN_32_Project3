@@ -5,9 +5,13 @@ const Event = require('../models/event');
 // const dataRequests = require('../lib/dataRequests');
 
 const rp = require('request-promise');
+
 const allEvents = [];
 let asteroids = null;
 let datesQueried = null;
+
+let satellites = null;
+
 
 mongoose.connect(dbURI, (err, db) => {
 
@@ -41,20 +45,15 @@ mongoose.connect(dbURI, (err, db) => {
     })
     .then(() => Event.create(allEvents))
     .then(events => console.log(`${events.length}`))
+    .then(() => {
+      return rp({
+        url: 'https://api.satellites.calum.org/rest/v1/25544/next-pass?lat=51.51794662&lon=-0.0749192&alt=0',
+        json: true
+      })
+        .then(response => {
+          satellites = response;  // all data
+          console.log(satellites);
+        });
+    })
     .finally(() => mongoose.connection.close());
-
-
-
-
-  // .then(() => console.log(asteroids))
-
-
-  // Asteroid.create(dataRequests.neoAsteroids)
-  //   .then(asteroids => console.log(`${asteroids.length} places created`))
-  //   .catch(err => console.log(err))
-  //   .finally(() => mongoose.connection.close());
-
-  // Feels like this should work
-  //     .then(() => console.log(dataRequests.neoAsteroids()))
-  // .finally(() => mongoose.connection.close());
 });
