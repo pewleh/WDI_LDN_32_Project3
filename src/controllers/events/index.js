@@ -7,7 +7,7 @@ function EventsIndexCtrl(Event){
 
 
   Event.find()
-    .then(res => vm.allEvents = res.data[0]);
+    .then(res => vm.allEvents = res.data);
   // .then(res => console.log(res.data[0]));
 }
 export default EventsIndexCtrl;
