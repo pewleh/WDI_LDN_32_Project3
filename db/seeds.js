@@ -19,6 +19,7 @@ const allEvents = [];
 let asteroids = null;
 let datesQueried = null;
 let satellites = null;
+const satellitesClean = [];
 
 
 mongoose.connect(dbURI, (err, db) => {
@@ -51,17 +52,29 @@ mongoose.connect(dbURI, (err, db) => {
         });
     })
     .then(() => Event.create(allEvents))
-    .then(events => console.log(`${events.length}`))
+    .then(events => console.log(`${events.length} Asteroids Created`))
     .then(() => {
       return rp({
-        url: 'https://api.satellites.calum.org/rest/v1/25544/next-pass?lat=51.51794662&lon=-0.0749192&alt=0',
-        json: true
+        url: 'https://api.satellites.calum.org/rest/v1/multi/next-pass?lat=51.51794662&lon=-0.0749192&alt=0',
+        json: true,
+        method: 'POST',
+        body: {'norad-ids': ['25544','27607','39444','24278','40909']}
       })
         .then(response => {
           satellites = response;  // all data
-          console.log(satellites);
+
+          satellites.passes.forEach(satellite => {
+            satellite.date = satellite.start; // This needs to be fixed
+            satellite.startTime = satellite.start;
+            satellite.endTime = satellite.end;
+            satellite.type = 'Satellite';
+            satellite.visibility = 'Naked Eye';
+            satellitesClean.push(satellite);
+          });
         });
     })
+    .then(() => Event.create(satellitesClean))
+    .then((events) => console.log(`${events.length} Satellites created`))
     .then(() => Event.create(eventData))
     .then(events => console.log(`${events.length} events created`))
     .catch(err => console.log(err))
