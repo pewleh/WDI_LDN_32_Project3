@@ -1,14 +1,27 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
-const port = process.env.PORT || 4000;
-const router = require('./config/router');
-const { dbURI } = require('./config/environments');
 
+
+const router = require('./config/router');
+const { dbURI, port } = require('./config/environments');
+const bodyParser = require('body-parser');
+
+
+
+const app = express();
+app.use(express.static(`${__dirname}/public`));
 
 mongoose.connect(dbURI);
+app.use(bodyParser.json());
 
-app.use(express.static(`${__dirname}/public`));
-app.use(router);
+app.use('/api', router);
+
+app.use((err, req, res, next) => {
+  if(err.name === 'ValidationError') {
+    return res.status(422).json({ message: 'Unprocessible Entity' });
+  }
+  res.status(500).json({ message: 'Internal Server Error' });
+  next();
+});
 
 app.listen(port, () => console.log(`Up and running on port ${port}`));
