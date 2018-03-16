@@ -14,11 +14,13 @@ function secureState($q, $auth, $state, $rootScope) {
 }
 
 
-Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
-;
-function Router($stateProvider, $urlRouterProvider, $locationProvider) {
+Router.$inject = ['$stateProvider', '$urlRouterProvider'/*, '$locationProvider'*/];
+function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
 
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode({
+  //   enabled: true,
+  //   requireBase: false
+  // });
 
   $stateProvider
     .state('eventsIndex', {
@@ -37,7 +39,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'EventsShowCtrl as eventsShow'
     })
     .state('eventsEdit', {
-      url: '/events/edit/id/edit',
+      url: '/events/:id/edit',
       templateUrl: 'views/events/edit.html',
       controller: 'EventsEditCtrl as eventsEdit'
     });
