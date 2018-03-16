@@ -20,10 +20,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
+<<<<<<< HEAD
 
   //enables to access html5mode // removes the #! from URL ->
   $locationProvider.html5Mode(true);
 
+=======
+>>>>>>> development
   $stateProvider
     .state('eventsIndex', {
       url: '/events/index',

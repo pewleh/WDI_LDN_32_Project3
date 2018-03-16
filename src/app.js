@@ -1,8 +1,14 @@
-
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'angular-messages';
 
+<<<<<<< HEAD
+import angular from 'angular';
+import '@uirouter/angularjs';
+import 'angular-messages';
+
+=======
+>>>>>>> development
 import Router from './config/router';
 
 import EventsIndexCtrl from './controllers/events/index';
