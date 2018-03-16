@@ -1,11 +1,11 @@
 const express = require('express');
-const router = require('./config/router');
-
 const mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+
+
+const router = require('./config/router');
+const { dbURI, port } = require('./config/environments');
 const bodyParser = require('body-parser');
 
-const { dbURI, port } = require('./config/environment');
 
 
 const app = express();
