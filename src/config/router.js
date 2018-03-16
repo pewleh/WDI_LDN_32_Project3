@@ -14,22 +14,17 @@ function secureState($q, $auth, $state, $rootScope) {
 }
 
 
-Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
-;
-function Router($stateProvider, $urlRouterProvider, $locationProvider) {
+Router.$inject = ['$stateProvider', '$urlRouterProvider'/*, '$locationProvider'*/];
+function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
 
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode({
+  //   enabled: true,
+  //   requireBase: false
+  // });
 
-<<<<<<< HEAD
-
-  //enables to access html5mode // removes the #! from URL ->
-  $locationProvider.html5Mode(true);
-
-=======
->>>>>>> development
   $stateProvider
     .state('eventsIndex', {
-      url: '/events/index',
+      url: '/events',
       templateUrl: 'views/events/index.html',
       controller: 'EventsIndexCtrl as eventsIndex'
     })
@@ -44,9 +39,19 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'EventsShowCtrl as eventsShow'
     })
     .state('eventsEdit', {
-      url: '/events/edit/id/edit',
+      url: '/events/:id/edit',
       templateUrl: 'views/events/edit.html',
       controller: 'EventsEditCtrl as eventsEdit'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'views/auth/login.html',
+      controller: 'AuthLoginCtrl as authLogin'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'views/auth/register.html',
+      controller: 'AuthRegisterCtrl as authRegister'
     });
 
   $urlRouterProvider.otherwise('/events');

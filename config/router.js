@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const events = require('../controllers/events');
+
 const locations = require('../controllers/locations');
+
 const secureRoute = require('../lib/secureRoute');
 const auth = require('../controllers/auth');
 
