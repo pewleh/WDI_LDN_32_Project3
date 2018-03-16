@@ -10,8 +10,8 @@ const commentSchema = new mongoose.Schema({
 const eventSchema = new mongoose.Schema({
   name: {type: String, minlength: 2, required: true},
   date: {type: String, minlength: 2, required: true},
-  startTime: {type: String, minlength: 2, required: true},
-  endTime: {type: String, minlength: 2, required: true},
+  startTime: {type: String, minlength: 2},
+  endTime: {type: String, minlength: 2},
   type: {type: String, minlength: 2, required: true}, // limit options
   visibility: {type: String, minlength: 2, required: true},
   location: {type: String, minlength: 2}, // Only necessary for events at specific locations (maybe planetariums?)
