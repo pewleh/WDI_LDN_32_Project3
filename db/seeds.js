@@ -18,15 +18,13 @@ const rp = require('request-promise');
 const allEvents = [];
 let asteroids = null;
 let datesQueried = null;
-
 let satellites = null;
 
 
 mongoose.connect(dbURI, (err, db) => {
-
   db.dropDatabase()
-    // .then(() => console.log(dataRequests.neoAsteroids()))
-    .then(() => console.log('connected to db'))
+  // .then(() => console.log(dataRequests.neoAsteroids()))
+    .then(console.log('connected to db and cleared it'))
     .then(() => {
       return rp({
         url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2018-03-19&api_key=${process.env.NASA_API_KEY}`,
