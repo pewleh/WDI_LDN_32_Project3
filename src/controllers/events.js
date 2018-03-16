@@ -1,0 +1,1 @@
+// secureState.$inject = ['$state'];
