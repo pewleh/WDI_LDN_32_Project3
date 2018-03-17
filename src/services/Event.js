@@ -2,7 +2,7 @@ Event.$inject = ['$http'];
 
 function Event($http) {
 
-  function find() {
+  function findEvent() {
     return $http.get('/api/events');
   }
 
@@ -21,8 +21,8 @@ function Event($http) {
   function remove(event) {
     return $http.delete(`/api/events/${event._id}`);
   }
-  
-  this.find = find;
+
+  this.findEvent = findEvent;
   this.create = create;
   this.findById = findById;
   this.remove = remove;

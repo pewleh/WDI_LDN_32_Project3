@@ -6,8 +6,8 @@ const { dbURI } = require('../config/environments');
 const Event = require('../models/event');
 const eventData = require('./data/events');
 
-const Location = require('../models/location');
-const locationData = require('./data/locations');
+const Place = require('../models/place');
+const placeData = require('./data/places');
 
 const User = require('../models/User');
 const userData = require('./data/users');
@@ -78,8 +78,8 @@ mongoose.connect(dbURI, (err, db) => {
     .then(() => Event.create(eventData))
     .then(events => console.log(`${events.length} events created`))
     .catch(err => console.log(err))
-    .then(() => Location.create(locationData))
-    .then(locations => console.log(`${locations.length} locations created`))
+    .then(() => Place.create(placeData))
+    .then(places => console.log(`${places.length} places created`))
     .catch(err => console.log(err))
     .then(() => User.create(userData))
     .then(users => console.log(`${users.length} users created`))

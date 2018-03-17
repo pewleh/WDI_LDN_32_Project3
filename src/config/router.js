@@ -1,21 +1,23 @@
 // secureState.$inject = ['$state'];
-secureState.$inject = ['$q', '$auth', '$state' ,'$rootScope'];
+// secureState.$inject = ['$q', '$auth', '$state' ,'$rootScope'];
+//
+// function secureState($q, $auth, $state, $rootScope) {
+//   return new $q((resolve) => {
+//     if($auth.isAuthenticated()) return resolve();
+//
+//     $rootScope.$broadcast('flashMessage', {
+//       type: 'danger',
+//       content: 'You must be logged in to make changes.'
+//     });
+//     $state.go('login');
+//   });
+// }
 
-function secureState($q, $auth, $state, $rootScope) {
-  return new $q((resolve) => {
-    if($auth.isAuthenticated()) return resolve();
 
-    $rootScope.$broadcast('flashMessage', {
-      type: 'danger',
-      content: 'You must be logged in to make changes.'
-    });
-    $state.go('login');
-  });
-}
-
-
-Router.$inject = ['$stateProvider', '$urlRouterProvider'/*, '$locationProvider'*/];
-function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
+// Router.$inject = ['$stateProvider', '$urlRouterProvider'/*, '$locationProvider'*/];
+// function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
+Router.$inject = ['$stateProvider', '$urlRouterProvider'];
+function Router($stateProvider, $urlRouterProvider) {
 
   // $locationProvider.html5Mode({
   //   enabled: true,
@@ -42,6 +44,11 @@ function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
       url: '/events/:id/edit',
       templateUrl: 'views/events/edit.html',
       controller: 'EventsEditCtrl as eventsEdit'
+    })
+    .state('placesIndex', {
+      url: '/places',
+      templateUrl: 'views/places/index.html',
+      controller: 'PlacesIndexCtrl as placesIndex'
     });
 
   $urlRouterProvider.otherwise('/events');

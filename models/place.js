@@ -7,19 +7,19 @@ const commentSchema = new mongoose.Schema({
   approved: { type: Boolean, default: false }
 });
 
-const locationSchema = new mongoose.Schema({
+const placeSchema = new mongoose.Schema({
   name: {type: String, minlength: 2, required: true},
   image: {type: String, minlength: 2, required: true}, // needs a pattern
   type: {type: String, minlength: 2, required: true}, // Park/Planetarium
   openingTime: {type: String },
-  closingTime: {type: String }, 
+  closingTime: {type: String },
   outdoor: {type: Boolean, required: true}, // Do we need this if we have type
   location: {type: String, minlength: 2},
   comments: [commentSchema],
   userImages: [{ content: String }]
 });
 
-locationSchema.virtual('averageRating')
+placeSchema.virtual('averageRating')
   .get(function calculateRating() {
     let currentRating = 0;
     this.comments.forEach(comment => {
@@ -35,4 +35,4 @@ locationSchema.virtual('averageRating')
 // Maybe pull some data from other APIs, such as Moon phases?
 
 
-module.exports = mongoose.model('Location', locationSchema);
+module.exports = mongoose.model('Place', placeSchema);
