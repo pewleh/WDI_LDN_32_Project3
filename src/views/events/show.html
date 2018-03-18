@@ -1,17 +1,39 @@
-<div class="card">
-  <div class="card-image">
-    <figure class="image">
-      <img ng-src="{{ eventsShow.event.image }}" alt="{{ eventsShow.event.name }}" />
-    </figure>
-  </div>
-  <div class="card-content">
-    <h4>Event Name: {{ eventsShow.event.name }}</h4>
+<div class="container">
+  <h2 class="title is-2">Event Name: {{ eventsShow.event.name }}</h2>
+  <div class="container eventinfo">
+
+    <h4 class="subtitle is-4">Type: {{ eventsShow.event.type }}</h4>
+
     <p>Date: {{ eventsShow.event.date }}</p>
     <p>Start Time: {{ eventsShow.event.startTime }}</p>
     <p>End Time: {{ eventsShow.event.endTime }}</p>
-    <p>Type: {{ eventsShow.event.type }}</p>
     <p>Visibility: {{ eventsShow.event.visibility }}</p>
 
+
     <a ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
+
     <button class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
+
   </div>
+  <div class="container image">
+    <figure class="image">
+      <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}" />
+      <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="{{ eventsShow.event.name }}" />
+    </figure>
+  </div>
+
+  <div class="container commentsection">
+      <h3 class="subtitle">Hear what your fellow stargazers have to say</h3>
+
+      <ul>
+        <li ng-repeat="comment in eventsShow.event.comments">{{comment}}</li>
+      </ul>
+
+      <form ng-submit="eventsShow.submitComment()">
+        <div class="field">
+        </div>
+        <textarea class="textarea" name="content" ng-model="eventsShow.comment"></textarea>
+        <button class="button is-primary">Submit</button>
+      </form>
+  </div>
+</div>

@@ -15,7 +15,13 @@ function Event($http) {
   }
 
   function update(event){
+    console.log(event._id);
     return $http.put(`/api/events/${event._id}`, event);
+  }
+
+  function createComment(comment, eventId){
+    console.log(eventId);
+    return $http.put(`/api/events/${eventId}.comments`, comment);
   }
 
   function remove(event) {
@@ -27,5 +33,6 @@ function Event($http) {
   this.findById = findById;
   this.remove = remove;
   this.update = update;
+  this.createComment = createComment;
 }
 export default Event;
