@@ -1,28 +1,15 @@
-<!-- <h1> Events coming soon </h1>
-<div class="nav">
-</div>
-<div class="mainEvents">
-</div>
-<div class="container">
-  <div class="eventContainer">
-      <div class="mapImage">{{ eventsIndex.event.location }}</div>
-          <h1>{{ eventsIndex.event.name }}</h1>
-          <p>{{ eventsIndex.event.}}
-  </div>
-</div> -->
-
-
 <ul class="columns is-multiline">
   <li class="column is-one-quarter" ng-repeat="event in eventsIndex.allEvents">
-    <div class="card">
-      <div class="card-content">
-        <p>Event Name: {{ event.name }}</p>
-        <p>Date: {{ event.date }}</p>
-        <p>Start Time: {{ event.startTime }}</p>
-        <p>End Time: {{ event.endTime }}</p>
-        <p>Type: {{ event.type }}</p>
-        <p>visibility: {{ event.visibility }}</p>
+    <a ui-sref="eventsShow({ id: event._id })">
+      <div class="card">
+        <div class="card-content">
+          <p>Event Name: {{ event.name }}</p>
+          <p>Date: {{ event.date }}</p>
+          <p>Start Time: {{ event.startTime }}</p>
+          <p>End Time: {{ event.endTime }}</p>
+          <p>Type: {{ event.type }}</p>
+          <p>visibility: {{ event.visibility }}</p>
+        </div>
       </div>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>

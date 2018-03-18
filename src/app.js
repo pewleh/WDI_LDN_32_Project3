@@ -9,6 +9,8 @@ import EventsNewCtrl from './controllers/events/new';
 import EventsShowCtrl from './controllers/events/show';
 import EventsEditCtrl from './controllers/events/edit';
 import PlacesIndexCtrl from './controllers/places/index';
+import PlacesNewCtrl from './controllers/places/new';
+import PlacesShowCtrl from './controllers/places/show';
 
 import 'bulma';
 import Event from './services/Event';
@@ -21,5 +23,7 @@ angular.module('starGazer', ['ui.router', 'ngMessages'])
   .controller('EventsShowCtrl', EventsShowCtrl)
   .controller('EventsEditCtrl', EventsEditCtrl)
   .controller('PlacesIndexCtrl', PlacesIndexCtrl)
+  .controller('PlacesNewCtrl', PlacesNewCtrl)
+  .controller('PlacesShowCtrl', PlacesShowCtrl)
   .service('Event', Event)
   .service('Place', Place);
