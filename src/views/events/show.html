@@ -1,11 +1,17 @@
-
-  <div>
-    <h4>{{ eventsShow.event.name }}</h4>
-    <p>{{ eventsShow.event.location }}</p>
-    <p>{{ event.type }}</p>
-
-
-    <a ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
-    <button class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
+<div class="card">
+  <div class="card-image">
+    <figure class="image">
+      <img ng-src="{{ eventsShow.event.image }}" alt="{{ eventsShow.event.name }}" />
+    </figure>
   </div>
-</div>
+  <div class="card-content">
+    <h4>Event Name: {{ eventsShow.event.name }}</h4>
+    <p>Date: {{ eventsShow.event.date }}</p>
+    <p>Start Time: {{ eventsShow.event.startTime }}</p>
+    <p>End Time: {{ eventsShow.event.endTime }}</p>
+    <p>Type: {{ eventsShow.event.type }}</p>
+    <p>Visibility: {{ eventsShow.event.visibility }}</p>
+
+    <!-- <a ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a> -->
+    <!-- <button class="button is-danger" ng-click="eventsShow.remove()">Delete</button> -->
+  </div>

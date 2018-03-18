@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image">
+      <img ng-src="{{ placesShow.place.image }}" alt="{{ placesShow.place.name }}" />
+    </figure>
+  </div>
+  <div class="card-content">
+    <h4>{{ placesShow.place.name }}</h4>
+    <p>{{ placesShow.place.address }}</p>
+    <p>{{ place.rating }} ⭐️</p>
+
+    <google-map zoom="14" center="placesShow.place.location"></google-map>
+
+    <a ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+    <button class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+
+    <p>{{ placesShow.directions }}</p>
+  </div>
+</div>

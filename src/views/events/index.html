@@ -4,7 +4,8 @@
 <div class="container events-list">
   <ul class="columns is-multiline">
     <li class="column is-one-quarter" ng-repeat="event in eventsIndex.allEvents">
-      <a ng-href="#!/events/{{ event._id }}">
+      <a ui-sref="eventsShow({ id: event._id })">
+
         <div class="card">
           <div class="card-content">
             <p>Event Name: {{ event.name }}</p>

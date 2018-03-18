@@ -9,7 +9,7 @@ const auth = require('../controllers/auth');
 
 router.route('/events')
   .get(events.index)
-  .post(secureRoute, events.create);
+  .post(events.create);
 
 router.route('/events/:id')
   .get(events.show)
@@ -22,7 +22,13 @@ router.post('/login', auth.login);
 
 
 router.route('/places')
-  .get(places.index);
+  .get(places.index)
+  .post(places.create);
+
+router.route('/places/:id')
+  .get(places.show)
+  .put(places.update)
+  .delete(places.delete);
 
 router.route('/*')
   .all((req, res) => res.status(404).json({ message: 'Not found' }));

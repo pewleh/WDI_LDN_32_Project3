@@ -1,0 +1,38 @@
+<section class="section">
+  <div class="container">
+    <form name="placesNew.form" ng-submit="placesNew.handleSubmit()" novalidate>
+      <div class="field">
+        <label for="name">Place Name</label>
+        <input class="input" placeholder="Place Name" name="name" ng-model="placesNew.newPlace.name" required />
+        <div ng-messages="placesNew.form.name.$error" ng-if="placesNew.form.name.$dirty || placesNew.form.$submitted">
+          <div class="notification is-danger" ng-message="required">This field is required</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="name">Location</label>
+        <input class="input" placeholder="Location" name="address" ng-model="placesNew.newPlaces.location" required />
+        <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
+          <div class="notification is-danger" ng-message="required">This field is required</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="name">Type of place</label>
+        <div class="control">
+          <div class="select">
+            <select name="type" ng-model="placesNew.newPlace.type" required>
+              <option selected disabled value="">Please choose</option>
+              <option value="park">Park</option>
+            </select>
+          </div>
+        </div>
+        <div ng-messages="placesNew.form.type.$error" ng-if="placesNew.form.type.$touched || placesNew.form.$submitted">
+          <div class="notification is-danger" ng-message="required">This field is required</div>
+        </div>
+      </div>
+
+      <button class="button is-primary">Submit</button>
+    </form>
+  </div>
+</section>
