@@ -1,28 +1,22 @@
-<!-- <h1> Events coming soon </h1>
-<div class="nav">
-</div>
-<div class="mainEvents">
-</div>
-<div class="container">
-  <div class="eventContainer">
-      <div class="mapImage">{{ eventsIndex.event.location }}</div>
-          <h1>{{ eventsIndex.event.name }}</h1>
-          <p>{{ eventsIndex.event.}}
-  </div>
-</div> -->
+<h1 class="title is-1 has-text-centered">Find your next stargazing adventure</h1>
 
 
-<ul class="columns is-multiline">
-  <li class="column is-one-quarter" ng-repeat="event in eventsIndex.allEvents">
-    <div class="card">
-      <div class="card-content">
-        <p>Event Name: {{ event.name }}</p>
-        <p>Date: {{ event.date }}</p>
-        <p>Start Time: {{ event.startTime }}</p>
-        <p>End Time: {{ event.endTime }}</p>
-        <p>Type: {{ event.type }}</p>
-        <p>visibility: {{ event.visibility }}</p>
-      </div>
-    </div>
-  </li>
-</ul>
+<div class="container events-list">
+  <ul class="columns is-multiline">
+    <li class="column is-one-quarter" ng-repeat="event in eventsIndex.allEvents">
+      <a ng-href="#!/events/{{ event._id }}">
+        <div class="card">
+          <div class="card-content">
+            <p>Event Name: {{ event.name }}</p>
+            <p>Date: {{ event.date }}</p>
+            <p>Start Time: {{ event.startTime }}</p>
+            <p>End Time: {{ event.endTime }}</p>
+            <p>Type: {{ event.type }}</p>
+            <p>visibility: {{ event.visibility }}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</div>
