@@ -40,11 +40,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/events/show.html',
       controller: 'EventsShowCtrl as eventsShow'
     })
-    .state('eventsEdit', {
-      url: '/events/:id/edit',
-      templateUrl: 'views/events/edit.html',
-      controller: 'EventsEditCtrl as eventsEdit'
-    })
+    // .state('eventsEdit', {
+    //   url: '/events/:id/edit',
+    //   templateUrl: 'views/events/edit.html',
+    //   controller: 'EventsEditCtrl as eventsEdit'
+    // })
     .state('placesIndex', {
       url: '/places',
       templateUrl: 'views/places/index.html',
