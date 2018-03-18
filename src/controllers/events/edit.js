@@ -1,7 +1,6 @@
 EventsEditCtrl.$inject = ['Event', '$state'];
 
-
-function EventsEditCtrl(Place, $state) {
+function EventsEditCtrl(Event, $state) {
   this.event = {};
 
   Event.findById($state.params.id)

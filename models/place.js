@@ -9,11 +9,11 @@ const commentSchema = new mongoose.Schema({
 
 const placeSchema = new mongoose.Schema({
   name: {type: String, minlength: 2, required: true},
-  image: {type: String, minlength: 2, required: true}, // needs a pattern
+  image: {type: String, minlength: 2 }, // needs a pattern, also needs required: true
   type: {type: String, minlength: 2, required: true}, // Park/Planetarium
   openingTime: {type: String },
   closingTime: {type: String },
-  outdoor: {type: Boolean, required: true}, // Do we need this if we have type
+  outdoor: {type: Boolean}, // Do we need this if we have type
   location: {type: String, minlength: 2},
   comments: [commentSchema],
   userImages: [{ content: String }]

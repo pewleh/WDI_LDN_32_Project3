@@ -3,7 +3,7 @@ const events = require('../controllers/events');
 
 const places = require('../controllers/places');
 
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 const auth = require('../controllers/auth');
 
 

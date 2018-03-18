@@ -4,8 +4,6 @@ function EventsShowCtrl(Event, $state) {
   this.event = {};
   this.comment = '';
 
-  console.log('show');
-
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
 

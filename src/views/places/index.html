@@ -1,5 +1,6 @@
 <ul class="columns is-multiline">
-  <li class="column is-one-quarter" ng-repeat="place in placesIndex">
+  <li class="column is-one-quarter" ng-repeat="place in placesIndex.allPlaces">
+    <a ui-sref="placesShow({ id: place._id })">
     <div class="card">
       <div class="card-image">
         <figure class="image">

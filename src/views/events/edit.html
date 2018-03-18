@@ -6,8 +6,18 @@
   </div>
 
   <div class="field">
-    <label for="name">Location</label>
-    <input class="input" placeholder="location" name="location" ng-model="eventsEdit.event.location"/>
+    <label for="name">Event Date</label>
+    <input class="input" placeholder="Event Date" name="date" ng-model="eventsEdit.event.date" />
+  </div>
+
+  <div class="field">
+    <label for="name">Event Start Time</label>
+    <input class="input" placeholder="Event Start Time" name="startTime" ng-model="eventsEdit.event.startTime" />
+  </div>
+
+  <div class="field">
+    <label for="name">Event End Time</label>
+    <input class="input" placeholder="Event End Time" name="endTime" ng-model="eventsEdit.event.endTime" />
   </div>
 
   <div class="field">
@@ -16,17 +26,17 @@
       <div class="select">
         <select name="type" ng-model="eventsEdit.event.type">
           <option selected disabled value="">Please choose</option>
-          <option value="satellites">Satellites</option>
-          <option value="astroids">Astroids</option>
-          <option value="stars">Stars</option>
+          <option value="Satellite">Satellite</option>
+          <option value="Astroid">Astroid</option>
+          <option value="Atars">Stars</option>
         </select>
       </div>
     </div>
   </div>
 
   <div class="field">
-    <label for="name">Description </label>
-    <input class="input" placeholder="Description" name="description" ng-model="eventsEdit.event.description" />
+    <label for="name">Visibility</label>
+    <input class="input" placeholder="Visibility" name="visibility" ng-model="eventsEdit.event.visibility" />
   </div>
 
 
