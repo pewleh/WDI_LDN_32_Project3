@@ -3,7 +3,7 @@ const events = require('../controllers/events');
 
 const places = require('../controllers/places');
 
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 const auth = require('../controllers/auth');
 
 
@@ -13,8 +13,8 @@ router.route('/events')
 
 router.route('/events/:id')
   .get(events.show)
-  .put(secureRoute, events.update)
-  .delete(secureRoute, events.delete);
+  .put(events.update)
+  .delete(events.delete);
 
 
 router.post('/register', auth.register);

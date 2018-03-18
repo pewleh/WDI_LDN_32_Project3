@@ -1,0 +1,26 @@
+<form ng-submit="placesEdit.handleSubmit()">
+
+  <div class="field">
+    <label for="name">Place Name</label>
+    <input class="input" placeholder="Place Name" name="name" ng-model="placesEdit.place.name" />
+  </div>
+
+  <div class="field">
+    <label for="name">Location</label>
+    <input class="input" placeholder="location" name="location" ng-model="placesEdit.place.location"/>
+  </div>
+
+  <div class="field">
+    <label for="name">Type of Place</label>
+    <div class="control">
+      <div class="select">
+        <select name="type" ng-model="placesEdit.place.type">
+          <option selected disabled value="">Please choose</option>
+          <option value="Park">Park</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <button class="button is-primary">Submit</button>
+</form>

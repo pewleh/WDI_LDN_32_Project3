@@ -59,6 +59,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/places/:id',
       templateUrl: 'views/places/show.html',
       controller: 'PlacesShowCtrl as placesShow'
+    })
+    .state('placesEdit', {
+      url: '/places/:id/edit',
+      templateUrl: 'views/places/edit.html',
+      controller: 'PlacesEditCtrl as placesEdit'
     });
 
   $urlRouterProvider.otherwise('/events');

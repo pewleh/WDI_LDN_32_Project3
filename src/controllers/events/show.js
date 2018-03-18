@@ -2,13 +2,12 @@ EventsShowCtrl.$inject = ['Event', '$state'];
 function EventsShowCtrl(Event, $state) {
   this.event = {};
 
-  console.log('show');
-
   Event.findById($state.params.id)
     .then(res => this.event = res.data);
 
   function remove() {
-    Event.remove(this.event('placesIndex'));
+    Event.remove(this.event)
+      .then(() => $state.go('eventsIndex'));
   }
 
   this.remove = remove;
