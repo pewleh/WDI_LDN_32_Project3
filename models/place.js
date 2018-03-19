@@ -14,7 +14,8 @@ const placeSchema = new mongoose.Schema({
   openingTime: {type: String },
   closingTime: {type: String },
   outdoor: {type: Boolean}, // Do we need this if we have type
-  location: {type: String, minlength: 2},
+  location: {},
+  weather: {},
   comments: [commentSchema],
   userImages: [{ content: String }]
 });
