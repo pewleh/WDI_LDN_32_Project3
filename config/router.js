@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const events = require('../controllers/events');
 
+const events = require('../controllers/events');
 const places = require('../controllers/places');
+const users = require('../controllers/users');
 
 const secureRoute = require('../lib/secureRoute');
 const auth = require('../controllers/auth');
@@ -17,10 +18,6 @@ router.route('/events/:id')
   .delete(secureRoute, events.delete);
 
 
-router.post('/register', auth.register);
-router.post('/login', auth.login);
-
-
 router.route('/places')
   .get(places.index)
   .post(secureRoute, places.create);
@@ -29,6 +26,16 @@ router.route('/places/:id')
   .get(places.show)
   .put(secureRoute, places.update)
   .delete(secureRoute, places.delete);
+
+
+router.post('/register', auth.register);
+
+router.post('/login', auth.login);
+
+router.route('/users/:id')
+  .get(users.show)
+  .put(secureRoute, users.update)
+  .delete(secureRoute, users.delete);
 
 router.route('/*')
   .all((req, res) => res.status(404).json({ message: 'Not found' }));

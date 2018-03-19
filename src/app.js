@@ -30,6 +30,8 @@ import PlacesEditCtrl from './controllers/places/edit';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 
+// User controllers
+import UsersProfileCtrl from './controllers/users/profile';
 // Directives
 import googleMap from './directives/google-map';
 import autoComplete from './directives/auto-complete';
@@ -37,6 +39,7 @@ import autoComplete from './directives/auto-complete';
 // Services
 import Event from './services/Event';
 import Place from './services/Place';
+import User from './services/User';
 
 // Registrations on App
 angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
@@ -52,8 +55,9 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .controller('PlacesEditCtrl', PlacesEditCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
-  // .directive('autocomplete', autocomplete)
+  .controller('UsersProfileCtrl', UsersProfileCtrl)
   .service('Event', Event)
   .service('Place', Place)
+  .service('User', User)
   .directive('autoComplete', autoComplete)
   .directive('googleMap', googleMap);
