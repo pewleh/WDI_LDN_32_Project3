@@ -68,12 +68,12 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: 'views/auth/login.html',
-      controller: 'LoginCtrl as login'
+      controller: 'AuthLoginCtrl as authLogin'
     })
     .state('register', {
       url: '/register',
       templateUrl: 'views/auth/register.html',
-      controller: 'RegisterCtrl as register'
+      controller: 'AuthRegisterCtrl as authRegister'
     });
 
   $urlRouterProvider.otherwise('/events');

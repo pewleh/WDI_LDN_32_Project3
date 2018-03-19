@@ -24,8 +24,8 @@ import PlacesShowCtrl from './controllers/places/show';
 import PlacesEditCtrl from './controllers/places/edit';
 
 // Auth Controllers
-import LoginCtrl from './controllers/auth/login';
-import RegisterCtrl from './controllers/auth/register';
+import AuthLoginCtrl from './controllers/auth/login';
+import AuthRegisterCtrl from './controllers/auth/register';
 
 // Services
 import Event from './services/Event';
@@ -43,7 +43,7 @@ angular.module('starGazer', ['ui.router', 'ngMessages'])
   .controller('PlacesNewCtrl', PlacesNewCtrl)
   .controller('PlacesShowCtrl', PlacesShowCtrl)
   .controller('PlacesEditCtrl', PlacesEditCtrl)
-  .controller('LoginCtrl', LoginCtrl)
-  .controller('RegisterCtrl', RegisterCtrl)
+  .controller('AuthLoginCtrl', AuthLoginCtrl)
+  .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .service('Event', Event)
   .service('Place', Place);
