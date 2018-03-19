@@ -21,7 +21,11 @@ const placeData = {
   image: 'https://enbaca.com/web/assets/image-resources/avatar.png',
   type: 'Park',
   outdoor: true,
-  location: 'Greenwich'
+  address: 'Greenwich',
+  location: {
+    lat: 51.4769095,
+    lng: 0.0014643
+  }
 };
 
 const updatedPlaceData =   {
@@ -29,7 +33,11 @@ const updatedPlaceData =   {
   image: 'https://enbaca.com/web/assets/image-resources/avatar.png',
   type: 'Park',
   outdoor: true,
-  location: 'Earth'
+  address: 'Earth',
+  location: {
+    lat: 51.4769095,
+    lng: 0.0014643
+  }
 };
 
 
