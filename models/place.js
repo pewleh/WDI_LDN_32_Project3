@@ -16,10 +16,10 @@ const placeSchema = new mongoose.Schema({
   description: {type: String},
   name: {type: String, minlength: 2, required: true},
   image: {type: String, minlength: 2 }, // needs a pattern, also needs required: true
-  type: {type: String, minlength: 2, required: true}, // Park/Planetarium
+  type: {type: String, minlength: 2, required: true}, // Park/observatory/National Trust
   openingTime: {type: String },
-  closingTime: {type: String },
-  outdoor: {type: Boolean}, // Do we need this if we have type
+  closingTime: {type: String }, // <- If we use these and leave them blank, are they gonna look weird on the SHOW page?
+  outdoor: {type: Boolean}, // Do we need this if we have type <-
   weather: {},
   comments: [commentSchema],
   userImages: [{ content: String }]

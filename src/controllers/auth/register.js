@@ -11,7 +11,7 @@ function AuthRegisterCtrl($auth, $state, $rootScope){
       .then(() => {
         $rootScope.$broadcast('flashMessage', {
           type: 'success',
-          content: 'Thank you for signing up. Please log in.'
+          content: 'All set!' //Dont think we need to ask it to login since it directs you straight to login.
         });
         $state.go('login');
       });
