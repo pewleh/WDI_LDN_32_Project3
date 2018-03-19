@@ -10,7 +10,7 @@ function googleMap() {
     },
     link($scope, $element) {
 
-      console.log($scope.center);
+      // console.log($scope.center);
 
       const map = new google.maps.Map($element[0], {
         zoom: 14,

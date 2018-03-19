@@ -8,9 +8,9 @@ function PlacesNewCtrl(Place, $state) {
 
   function handleSubmit() {
     console.log(this.newPlace);
-    // if(this.form.$invalid) return false;
-    // Place.create(this.newPlace)
-    //   .then(() => $state.go('placesIndex'));
+    if(this.form.$invalid) return false;
+    Place.create(this.newPlace)
+      .then(() => $state.go('placesIndex'));
   }
   this.handleSubmit = handleSubmit;
 }
