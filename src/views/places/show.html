@@ -3,10 +3,31 @@
     <h4>Place Name: {{ placesShow.place.name }}</h4>
     <p>Type: {{ placesShow.place.type }}</p>
     <p>Outdoor: {{ placesShow.place.outdoor }}</p>
-    <p>Location: {{ placesShow.place.location }}</p>
+    <p>Location Lat: {{ placesShow.place.location.lat }}</p>
+    <p>Location Lng: {{ placesShow.place.location.lng }}</p>
+    <p>Address: {{ placesShow.place.address }}</p>
 
     <a ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
     <button class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+
+    <hr>
+
+    <!--  table Weather Option-->
+
+    <table>
+      <thead>
+        <td>Day</td>
+        <td>Summary</td>
+        <td>Phase of the Moon</td>
+      </thead>
+      <tr ng-repeat="day in placesShow.place.weather.data">
+        <td>{{day.time*1000 | date}}</td>
+        <td>{{day.summary}}</td>
+        <td>{{day.moonPhase}}</td>
+      </tr>
+    </table>
+
   </div>
 
-<google-map center="{ lat: 51.5, lng: -0.07 }"></google-map>
+<!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
+<google-map zoom="14" center="placesShow.place.location"></google-map>
