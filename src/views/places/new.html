@@ -11,8 +11,8 @@
       </div>
 
       <div class="field">
-        <label for="address">Location</label>
-        <input class="input" placeholder="Location" name="address" ng-model="placesNew.newPlace.location" required />
+        <label for="location">Location</label>
+        <input class="input" placeholder="Location" name="location" ng-model="placesNew.newPlace.location" required />
         <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
         </div>

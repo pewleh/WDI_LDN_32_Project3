@@ -6,21 +6,27 @@
   </div>
 
   <div class="field">
-    <label for="name">Location</label>
+    <label for="location">Location</label>
     <input class="input" placeholder="location" name="location" ng-model="placesEdit.place.location"/>
   </div>
 
   <div class="field">
-    <label for="name">Type of Place</label>
+    <label for="image">Image</label>
+    <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
+  </div>
+
+  <div class="field">
+    <label for="type">Type of place</label>
     <div class="control">
       <div class="select">
-        <select name="type" ng-model="placesEdit.place.type">
+        <select name="type" ng-model="placesNew.newPlace.type" required>
           <option selected disabled value="">Please choose</option>
-          <option value="Park">Park</option>
+          <option value="park">Park</option>
+          <option value="observatory">Observatory</option>
+          <option value="other">Other</option>
         </select>
       </div>
     </div>
-  </div>
 
   <button class="button is-primary">Submit</button>
 </form>

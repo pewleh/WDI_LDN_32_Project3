@@ -6,22 +6,22 @@
   </div>
 
   <div class="field">
-    <label for="name">Event Date</label>
+    <label for="date">Event Date</label>
     <input class="input" placeholder="Event Date" name="date" ng-model="eventsEdit.event.date" />
   </div>
 
   <div class="field">
-    <label for="name">Event Start Time</label>
+    <label for="startTime">Event Start Time</label>
     <input class="input" placeholder="Event Start Time" name="startTime" ng-model="eventsEdit.event.startTime" />
   </div>
 
   <div class="field">
-    <label for="name">Event End Time</label>
+    <label for="endTime">Event End Time</label>
     <input class="input" placeholder="Event End Time" name="endTime" ng-model="eventsEdit.event.endTime" />
   </div>
 
   <div class="field">
-    <label for="name">Type of Event</label>
+    <label for="type">Type of Event</label>
     <div class="control">
       <div class="select">
         <select name="type" ng-model="eventsEdit.event.type">
@@ -35,9 +35,16 @@
   </div>
 
   <div class="field">
-    <label for="name">Visibility</label>
-    <input class="input" placeholder="Visibility" name="visibility" ng-model="eventsEdit.event.visibility" />
-  </div>
+    <label for="visibility">Visibility</label>
+    <div class="control">
+      <div class="select">
+        <select name="visibility" ng-model="eventsNew.newEvent.visibility" required>
+          <option selected disabled value="">Please choose</option>
+          <option value="Naked Eye">Naked Eye</option>
+          <option value="Telescope">Telescope</option>
+        </select>
+      </div>
+    </div>
 
 
   <button class="button is-primary">Submit</button>
