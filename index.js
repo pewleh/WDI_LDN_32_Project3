@@ -24,6 +24,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.listen(port, () => console.log(`Up and running on port ${port}`));
+app.listen(port, () => console.log(`We come in peace on ${port}`));
 
 module.exports = app;
