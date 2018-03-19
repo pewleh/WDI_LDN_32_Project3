@@ -4,9 +4,9 @@
 
     <h4 class="subtitle is-4">Type: {{ eventsShow.event.type }}</h4>
 
-    <p>Date: {{ eventsShow.event.date }}</p>
-    <p>Start Time: {{ eventsShow.event.startTime }}</p>
-    <p>End Time: {{ eventsShow.event.endTime }}</p>
+    <p>Date: {{ eventsShow.event.date | date}}</p>
+    <p>Start Time: {{ eventsShow.event.startTime | date: 'shortTime'}}</p>
+    <p>End Time: {{ eventsShow.event.endTime | date: 'shortTime'}}</p>
     <p>Visibility: {{ eventsShow.event.visibility }}</p>
 
 
