@@ -1,5 +1,5 @@
 const Event = require('../models/event');
-const { secret } = require('../config/environment');
+const { secret } = require('../config/environments');
 
 function indexRoute(req, res, next) {
   Event.find()

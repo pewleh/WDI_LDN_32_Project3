@@ -27,6 +27,9 @@ import PlacesEditCtrl from './controllers/places/edit';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 
+// Directives
+import autocomplete from './directives/autocomplete';
+
 // Services
 import Event from './services/Event';
 import Place from './services/Place';
@@ -45,5 +48,6 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .controller('PlacesEditCtrl', PlacesEditCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
+  .directive('autocomplete', autocomplete)
   .service('Event', Event)
   .service('Place', Place);
