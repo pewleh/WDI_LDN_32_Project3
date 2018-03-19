@@ -42,7 +42,6 @@ function getAsteroids() {
     .then(response => {
       asteroids = response;  // all data
       datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
-
       datesQueried.forEach( (date, index) => {
         // this creates an array of objects where each object is one days events
         const daysEvents = Object.values(asteroids.near_earth_objects)[index];

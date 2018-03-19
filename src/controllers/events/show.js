@@ -18,7 +18,9 @@ function EventsShowCtrl(Event, $state) {
     Event.findById(vm.event._id)
       .then(event => {
         event.data.comments.push(vm.comment);
+        console.log(event.data);
         Event.update(event.data);
+        console.log(event);
       })
       .then(() => $state.go($state.current, {}, {reload: true}));
 
