@@ -2,6 +2,8 @@
 
 const Event = require('../../models/event');
 
+let event;
+
 const eventData = {
   name: 'ISS Flyover',
   date: '17/03/2018',
@@ -11,18 +13,17 @@ const eventData = {
   visibility: 'Naked Eye'
 };
 
-
-describe('GET/events', () => {
+describe('GET /api/events/event._id', () => {
   beforeEach(done => {
     Event.remove({})
       .then(() => Event.create(eventData))
+      .then(eventData => event = eventData)
       .then(() => done());
   });
 
   it('should return response of 200', done => {
     api
-      .get('/api/events')
-      .send(eventData)
+      .get(`/api/places/${event._id}`)
       .end((err, res) => {
         expect(res.status).to.eq(200);
         done();
