@@ -64,6 +64,16 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/places/:id/edit',
       templateUrl: 'views/places/edit.html',
       controller: 'PlacesEditCtrl as placesEdit'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'views/auth/login.html',
+      controller: 'LoginCtrl as login'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'views/auth/register.html',
+      controller: 'RegisterCtrl as register'
     });
 
   $urlRouterProvider.otherwise('/events');
