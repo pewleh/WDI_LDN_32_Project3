@@ -4,8 +4,6 @@ import '@uirouter/angularjs';
 import 'angular-messages';
 import 'satellizer';
 
-// Our own dependencies
-import googleMap from './directives/google-map';
 
 // 3rd Party Extras
 import 'bulma';
@@ -33,7 +31,8 @@ import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 
 // Directives
-// import autocomplete from './directives/autocomplete';
+import googleMap from './directives/google-map';
+import autoComplete from './directives/auto-complete';
 
 // Services
 import Event from './services/Event';
@@ -56,4 +55,5 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   // .directive('autocomplete', autocomplete)
   .service('Event', Event)
   .service('Place', Place)
+  .directive('autoComplete', autoComplete)
   .directive('googleMap', googleMap);
