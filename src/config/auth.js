@@ -5,7 +5,7 @@ function Auth ($authProvider){
   $authProvider.loginUrl = '/api/login';
 
   $authProvider.facebook({
-    clientId: '197293207537960',
+    clientId: '2022981871052298',
     url: 'api/facebook'
   });
 }
