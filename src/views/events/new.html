@@ -12,31 +12,25 @@
       </div>
 
       <div class="field">
-        <label for="name">Event Date</label>
-        <input class="input" placeholder="Event Date" name="name" ng-model="eventsNew.newEvent.date" required />
+        <label for="date">Event Date</label>
+        <input class="input" placeholder="Event Date" name="date" ng-model="eventsNew.newEvent.date" required />
         <div ng-messages="eventsNew.form.name.$error" ng-if="placesNew.form.date.$dirty || eventsNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
         </div>
       </div>
 
       <div class="field">
-        <label for="name">Start Time</label>
-        <input class="input" placeholder="Start Time" name="name" ng-model="eventsNew.newEvent.startTime" required />
-        <div ng-messages="eventsNew.form.startTime.$error" ng-if="placesNew.form.startTime.$dirty || eventsNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
+        <label for="startTime">Start Time</label>
+        <input class="input" placeholder="Start Time (if applicable)" name="startTime" ng-model="eventsNew.newEvent.startTime" />
       </div>
 
       <div class="field">
-        <label for="name">End Time</label>
-        <input class="input" placeholder="End Time" name="name" ng-model="eventsNew.newEvent.endTime" required />
-        <div ng-messages="eventsNew.form.endTime.$error" ng-if="placesNew.form.endTime.$dirty || eventsNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
+        <label for="endTime">End Time</label>
+        <input class="input" placeholder="End Time (if applicable)" name="endTime" ng-model="eventsNew.newEvent.endTime" />
       </div>
 
       <div class="field">
-        <label for="name">Type of event</label>
+        <label for="type">Type of event</label>
         <div class="control">
           <div class="select">
             <select name="type" ng-model="eventsNew.newEvent.type" required>
@@ -61,9 +55,17 @@
       </div> -->
 
       <div class="field">
-        <label for="name">Visibility</label>
-        <input class="input" placeholder="Start Time" name="name" ng-model="eventsNew.newEvent.visibility" required />
-        <div ng-messages="eventsNew.form.visibility.$error" ng-if="placesNew.form.visibility.$dirty || eventsNew.form.$submitted">
+        <label for="visibility">Visibility</label>
+        <div class="control">
+          <div class="select">
+            <select name="visibility" ng-model="eventsNew.newEvent.visibility" required>
+              <option selected disabled value="">Please choose</option>
+              <option value="Naked Eye">Naked Eye</option>
+              <option value="Telescope">Telescope</option>
+            </select>
+          </div>
+        </div>
+        <div ng-messages="eventsNew.form.type.$error" ng-if="eventsNew.form.type.$touched || eventsNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
         </div>
       </div>

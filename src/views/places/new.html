@@ -11,7 +11,7 @@
       </div>
 
       <div class="field">
-        <label for="name">Location</label>
+        <label for="address">Location</label>
         <input class="input" placeholder="Location" name="address" ng-model="placesNew.newPlace.location" required />
         <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="field">
-        <label for="name">Image</label>
+        <label for="image">Image</label>
         <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
         <div ng-messages="placesNew.form.image.$error" ng-if="placesNew.form.image.$dirty || placesNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
@@ -28,12 +28,14 @@
       </div>
 
       <div class="field">
-        <label for="name">Type of place</label>
+        <label for="type">Type of place</label>
         <div class="control">
           <div class="select">
             <select name="type" ng-model="placesNew.newPlace.type" required>
               <option selected disabled value="">Please choose</option>
               <option value="park">Park</option>
+              <option value="observatory">Observatory</option>
+              <option value="other">Other</option>
             </select>
           </div>
         </div>
