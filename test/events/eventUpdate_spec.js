@@ -46,7 +46,6 @@ describe('PUT /api/events/event._id', () => {
       .then(() => User.create(userData))
       .then(user => {
         token = jtoken.sign({ sub: user._id }, secret, {expiresIn: '24h'});
-      //.sign is the method that creates the token            //payload
       })
       .then(done);
   });
@@ -71,6 +70,4 @@ describe('PUT /api/events/event._id', () => {
         done();
       });
   });
-
-
 });

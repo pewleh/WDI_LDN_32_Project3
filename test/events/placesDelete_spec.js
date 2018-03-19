@@ -1,12 +1,12 @@
 /* global api, describe, it, expect, beforeEach */
-const Event = require('../../models/event');
+
+const Place = require('../../models/place');
 const User = require('../../models/user');
 const jtoken = require('jsonwebtoken');
 const { secret } = require('../../config/environments');
 
 let token;
-
-let event;
+let place;
 
 const userData = {
   username: 'tester',
@@ -15,35 +15,32 @@ const userData = {
   passwordConfirmation: 'tester'
 };
 
-const eventData = {
-  name: 'ISS Flyover',
-  date: '17/03/2018',
-  startTime: '22:12',
-  endTime: '22:16',
-  type: 'Satellite',
-  visibility: 'Naked Eye'
+const placeData ={
+  name: 'Greenwich Park',
+  image: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+  type: 'Park',
+  outdoor: true,
+  location: 'Greenwich'
 };
 
-
-describe('DELETE /api/events/event._id', () => {
+describe('DELETE /api/places/place._id', () => {
   beforeEach(done => {
     Promise.all([
       User.remove({}),
-      Event.remove({})
+      Place.remove({})
     ])
-      .then(() => Event.create(eventData))
-      .then(eventData => event = eventData)
+      .then(() => Place.create(placeData))
+      .then(placeData => place = placeData)
       .then(() => User.create(userData))
       .then(user => {
         token = jtoken.sign({ sub: user._id }, secret, {expiresIn: '24h'});
-        //.sign is the method that creates the token            //payload
       })
       .then(done);
   });
 
-  it('should return a responce of 204', done => {
+  it('should return a response of 204', done => {
     api
-      .delete(`/api/events/${event._id}`)
+      .delete(`/api/places/${place._id}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
         expect(res.status).to.eq(204);
