@@ -2,14 +2,14 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'angular-messages';
-// import 'satellizer';
+import 'satellizer';
 
 // 3rd Party Extras
 import 'bulma';
 
 // Config Files
 import Router from './config/router';
-// import Auth from './config/auth';
+import Auth from './config/auth';
 
 // Events Controllers
 import EventsIndexCtrl from './controllers/events/index';
@@ -32,9 +32,9 @@ import Event from './services/Event';
 import Place from './services/Place';
 
 // Registrations on App
-angular.module('starGazer', ['ui.router', 'ngMessages'])
+angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .config(Router)
-  // .config(Auth)
+  .config(Auth)
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
   .controller('EventsShowCtrl', EventsShowCtrl)
