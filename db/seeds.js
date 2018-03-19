@@ -21,58 +21,74 @@ let datesQueried = null;
 let satellites = null;
 const satellitesClean = [];
 
+function addWeather() {
+  placeData.forEach(place => {
+    place.weather = { data: 'none'};
+    // get weather for the place
+    rp({
+      url: `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${place.location.lat},${place.location.lng}`,
+      qs: { units: 'si' },
+      json: true
+    })
+      .then(response => place.weather = response.daily); // Attach daily weather data to the place.
+  });
+}
+
+function getAsteroids() {
+  return rp({
+    url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2018-03-19&api_key=${process.env.NASA_API_KEY}`,
+    json: true
+  })
+    .then(response => {
+      asteroids = response;  // all data
+      datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
+
+      datesQueried.forEach( (date, index) => {
+        // this creates an array of objects where each object is one days events
+        const daysEvents = Object.values(asteroids.near_earth_objects)[index];
+
+        // this turns each event into an object that we can push into the DB
+        daysEvents.forEach((event) => {
+          // This assigns each event within that array its matching date
+          event.date = event.close_approach_data[0].close_approach_date;
+          event.missDistance = event.close_approach_data[0].miss_distance.kilometers;
+          event.visibility = 'telescope';
+          event.type = 'Asteroid';
+          allEvents.push(event);
+        });
+      });
+    });
+}
+
+function getSatellites() {
+  return rp({
+    url: 'https://api.satellites.calum.org/rest/v1/multi/next-pass?lat=51.51794662&lon=-0.0749192&alt=0',
+    json: true,
+    method: 'POST',
+    body: {'norad-ids': ['25544','27607','39444','24278','40909']}
+  })
+    .then(response => {
+      satellites = response;  // all data
+
+      satellites.passes.forEach(satellite => {
+        satellite.date = satellite.start; // This needs to be fixed
+        satellite.startTime = satellite.start;
+        satellite.endTime = satellite.end;
+        satellite.type = 'Satellite';
+        satellite.visibility = 'Naked Eye';
+        satellitesClean.push(satellite);
+      });
+    });
+}
 
 mongoose.connect(dbURI, (err, db) => {
+  addWeather();
   db.dropDatabase()
-  // .then(() => console.log(dataRequests.neoAsteroids()))
-    .then(console.log('connected to db and cleared it'))
-    .then(() => {
-      return rp({
-        url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2018-03-19&api_key=${process.env.NASA_API_KEY}`,
-        json: true
-      })
-        .then(response => {
-          asteroids = response;  // all data
-          datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
-
-          datesQueried.forEach( (date, index) => {
-            // this creates an array of objects where each object is one days events
-            const daysEvents = Object.values(asteroids.near_earth_objects)[index];
-
-            // this turns each event into an object that we can push into the DB
-            daysEvents.forEach((event) => {
-              // This assigns each event within that array its matching date
-              event.date = event.close_approach_data[0].close_approach_date;
-              event.missDistance = event.close_approach_data[0].miss_distance.kilometers;
-              event.visibility = 'telescope';
-              event.type = 'Asteroid';
-              allEvents.push(event);
-            });
-          });
-        });
-    })
+    .then(() => console.log('connected to db and cleared it'))
+    .then(() => getAsteroids())
     .then(() => Event.create(allEvents))
     .then(events => console.log(`${events.length} Asteroids Created`))
-    .then(() => {
-      return rp({
-        url: 'https://api.satellites.calum.org/rest/v1/multi/next-pass?lat=51.51794662&lon=-0.0749192&alt=0',
-        json: true,
-        method: 'POST',
-        body: {'norad-ids': ['25544','27607','39444','24278','40909']}
-      })
-        .then(response => {
-          satellites = response;  // all data
-
-          satellites.passes.forEach(satellite => {
-            satellite.date = satellite.start; // This needs to be fixed
-            satellite.startTime = satellite.start;
-            satellite.endTime = satellite.end;
-            satellite.type = 'Satellite';
-            satellite.visibility = 'Naked Eye';
-            satellitesClean.push(satellite);
-          });
-        });
-    })
+    .then(() => getSatellites())
     .then(() => Event.create(satellitesClean))
     .then((events) => console.log(`${events.length} Satellites created`))
     .then(() => Event.create(eventData))
