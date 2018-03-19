@@ -3,14 +3,10 @@
     <h4>Place Name: {{ placesShow.place.name }}</h4>
     <p>Type: {{ placesShow.place.type }}</p>
     <p>Outdoor: {{ placesShow.place.outdoor }}</p>
-<<<<<<< HEAD
     <p>Location Lat: {{ placesShow.place.location.lat }}</p>
     <p>Location Lng: {{ placesShow.place.location.lng }}</p>
     <p>Address: {{ placesShow.place.address }}</p>
 
-=======
-    <p>Location: {{ placesShow.place.location }}</p>
->>>>>>> development
     <a ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
     <button class="button is-danger" ng-click="placesShow.remove()">Delete</button>
 

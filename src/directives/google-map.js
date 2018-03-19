@@ -16,13 +16,14 @@ function googleMap() {
         center: $scope.center
       });
 
-      new google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: $scope.center,
         map: map
       });
 
       $scope.$watch('center', () => {
         map.setCenter($scope.center);
+        marker.setPosition($scope.center);
       });
       console.log($scope.center);
     }
