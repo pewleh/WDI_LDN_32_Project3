@@ -9,6 +9,7 @@ import 'satellizer';
 import 'bulma';
 import './assets/scss/style.scss';
 
+import MainCtrl from './controllers/main';
 
 // Config Files
 import Router from './config/router';
@@ -42,6 +43,7 @@ import Place from './services/Place';
 angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .config(Router)
   .config(Auth)
+  .controller('MainCtrl', MainCtrl)
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
   .controller('EventsShowCtrl', EventsShowCtrl)

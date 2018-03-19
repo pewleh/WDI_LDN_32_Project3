@@ -5,20 +5,35 @@
   <title>WDI32 Group Project</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiCQ4etWjHrEIjLlWe_HjK0Lo_U5rDD0c&libraries=places"></script>
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
+
+  <!-- <nav class="navbar">
+    <div id="mobile-menu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
+        <a class="navbar-item" ui-sref="eventsNew">New Event</a>
+        <a class="navbar-item" ui-sref="placesIndex">All Places</a>
+        <a class="navbar-item" ui-sref="placesNew">New Place</a>
+        <a class="navbar-item" ui-sref="login">Log In</a>
+        <a class="navbar-item" ui-sref="register">Sign Up</a>
+        <a class="navbar-item" ng-click="main.logout()">Logout</a>
+      </div>
+    </div>
+  </nav> -->
 
   <nav class="navbar">
-  <div id="mobile-menu" class="navbar-menu">
-    <div class="navbar-end">
-      <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
-      <a class="navbar-item" ui-sref="eventsNew">New Event</a>
-      <a class="navbar-item" ui-sref="placesIndex">All Places</a>
-      <a class="navbar-item" ui-sref="placesNew">New Place</a>
-      <a class="navbar-item" ui-sref="login">Log In</a>
-      <a class="navbar-item" ui-sref="register">Sign Up</a>
+    <div id="mobile-menu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
+        <a class="navbar-item" ui-sref="eventsNew" ng-if="main.isAuthenticated()">New Event</a>
+        <a class="navbar-item" ui-sref="placesIndex">All Places</a>
+        <a class="navbar-item" ui-sref="placesNew" ng-if="main.isAuthenticated()">New Place</a>
+        <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">Log In</a>
+        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">Sign Up</a>
+        <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Log out</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <ui-view></ui-view>
 
