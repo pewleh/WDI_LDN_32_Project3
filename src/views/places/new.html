@@ -18,6 +18,14 @@
         </div>
       </div>
 
+      <my-google-autocomplete id="address" name="address"
+      ng-model="vm.formValues.address"
+      google-model="vm.formValues.googleAddress"
+      on-select="vm.onSelectGoogleAddress($item)"
+      autocomplete="off"
+      required>
+      </my-google-autocomplete>
+
       <div class="field">
         <label for="image">Image</label>
         <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
@@ -44,7 +52,7 @@
         </div>
       </div>
 
-      <button class="button is-primary">Submit</button>
+      <button type="button" class="button is-primary">Submit</button>
     </form>
   </div>
 </section>
