@@ -13,6 +13,7 @@ const placeSchema = new mongoose.Schema({
     lng: { type: Number }
   },
   address: { type: String },
+  description: {type: String},
   name: {type: String, minlength: 2, required: true},
   image: {type: String, minlength: 2 }, // needs a pattern, also needs required: true
   type: {type: String, minlength: 2, required: true}, // Park/Planetarium
