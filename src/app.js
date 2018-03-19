@@ -4,8 +4,13 @@ import '@uirouter/angularjs';
 import 'angular-messages';
 import 'satellizer';
 
+// Our own dependencies
+import googleMap from './directives/google-map';
+
 // 3rd Party Extras
 import 'bulma';
+import './assets/scss/style.scss';
+
 
 // Config Files
 import Router from './config/router';
@@ -46,4 +51,5 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .service('Event', Event)
-  .service('Place', Place);
+  .service('Place', Place)
+  .directive('googleMap', googleMap);
