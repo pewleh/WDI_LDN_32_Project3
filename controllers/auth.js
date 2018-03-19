@@ -1,8 +1,8 @@
 const User = require('../models/user');
 const jtoken = require('jsonwebtoken');
-const { secret } = require('../config/environment');
+const { secret } = require('../config/environments');
 
-function register(req, res, next){
+function register(req, res, next) {
   User.create(req.body)
     .then(user => {
       const token = jtoken.sign({ sub: user._id }, secret, { expiresIn: '24h'});
