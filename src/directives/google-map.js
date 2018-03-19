@@ -10,7 +10,6 @@ function googleMap() {
     },
     link($scope, $element) {
 
-      // console.log($scope.center);
 
       const map = new google.maps.Map($element[0], {
         zoom: 14,
@@ -25,6 +24,7 @@ function googleMap() {
       $scope.$watch('center', () => {
         map.setCenter($scope.center);
       });
+      console.log($scope.center);
     }
   };
 }

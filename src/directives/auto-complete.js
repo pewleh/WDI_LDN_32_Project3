@@ -4,7 +4,7 @@
 function autoComplete() {
   return {
     restrict: 'C',
-    link($scope, $element, $rootScope) {
+    link($scope, $element) {
       const address = new google.maps.places.Autocomplete($element[0]);
       // console.log(address);
       google.maps.event.addListener(address, 'place_changed', function () {
@@ -20,8 +20,8 @@ function autoComplete() {
         // console.log(lat);
         // console.log(lng);
         // console.log($scope);
-        $rootScope.placesNew.newPlace.address = address.gm_accessors_.place.fd.formattedPrediction;
-        console.log(placesNew.newPlace.address);
+        $scope.placesNew.newPlace.address = address.gm_accessors_.place.fd.formattedPrediction;
+        // console.log(placesNew.newPlace.address);
       });
     }
   };
