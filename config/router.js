@@ -3,13 +3,13 @@ const events = require('../controllers/events');
 
 const places = require('../controllers/places');
 
-// const secureRoute = require('../lib/secureRoute');
+const secureRoute = require('../lib/secureRoute');
 const auth = require('../controllers/auth');
 
 
 router.route('/events')
   .get(events.index)
-  .post(events.create);
+  .post(secureRoute, events.create);
 
 router.route('/events/:id')
   .get(events.show)
