@@ -7,10 +7,20 @@
   height: 300px;
 }
 
-u {
-    text-decoration: none;
-    border-bottom: 1px solid black;
-  }​
+.collection-google-map {
+  // width: 300px;
+  height: 300px;
+}
+
+.infoWindow {
+  height: 100px;
+  width: auto;
+}
+
+// u {
+//     text-decoration: none;
+//     border-bottom: 1px solid black;
+//   }​
 
 
 .registerForm{
@@ -18,21 +28,10 @@ u {
   margin-left: 60px;
 }
 .registerTitle{
-  margin-left: 180px;
+  text-align: center;
   font-size: 60px;
   padding-bottom: 40px;
-}
-
-.benefitsTitle{
-  font-size: 45px;
-  margin-left: 40px;
-}
-.benefits{
-  font-size: 20px;
-
-}
-li{
-  margin-bottom: 10px;
+  // text-decoration: overline;
 }
 
 .regBorder{
@@ -50,7 +49,7 @@ li{
 
 .loginContainer{
   width:700px;
-  margin-left: 25%;
+  margin-left: 30%;
 }
 
 .loginTitle{
@@ -73,7 +72,7 @@ li{
     font-size: 70px;
     padding: 50px;
     height: 500px;
-    margin-bottom: 40px;
+    margin-bottom: 200px;
     .showTitle{
       font-size: 45px;
       margin-top: 150px;
@@ -87,8 +86,12 @@ li{
       margin-left: 60px;
     }
     .showButtons{
-      margin-top: 30%;
-      margin-left: 36%;
+      margin-top: 35%;
+      margin-left: 28%;
+    }
+    .showEventButtons{
+      margin-top: 52%;
+      margin-left: 7%;
     }
     .showImage{
       position: absolute;
@@ -99,6 +102,10 @@ li{
 .commentButton{
   float:right;
 }
+.commentSection{
+  margin-top: 100px;
+}
+
 
 .showDescription{
   font-size: 20px;
@@ -109,7 +116,7 @@ li{
 .googleBorder{
   width: 550px;
   margin-left: 58%;
-  margin-bottom: 20px;
+  margin-top: 10%;
   padding:20px;
 }
 .showGoogle{
@@ -121,4 +128,15 @@ table{
 }
 .titleContainer{
   width:670px;
+}
+
+.dropDowns{
+  display: inline-flex;
+}
+
+
+//Profiles begin.
+
+.profilePic{
+  border-radius: 50%
 }
