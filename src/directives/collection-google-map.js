@@ -17,14 +17,15 @@ function googleMap() {
       });
 
       $scope.$watch('place', () => {
-        console.log($scope.place);
         $scope.place.forEach(place => showMarkers(place));
       });
 
       function showMarkers(place) {
+        console.log(place.weather.data[0].icon);
         const marker = new google.maps.Marker({
           position: { lat: place.location.lat, lng: place.location.lng },
-          map: map
+          map: map,
+          icon: `/assets/images/weather-SVG/${place.weather.data[0].icon}.svg`
         });
         marker.addListener('click', () => {
           showInfoWindow(place, marker);
@@ -42,3 +43,5 @@ function googleMap() {
 }
 
 export default googleMap;
+
+/* <h1>${place.weather.data.day.moonPhase}</h1> */
