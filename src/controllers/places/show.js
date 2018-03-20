@@ -1,14 +1,14 @@
-PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$cookies'];
+PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$window'];
 
-function PlacesShowCtrl(Place, User, $state, $cookies) {
+function PlacesShowCtrl(Place, User, $state, $window) {
 
   const vm = this;
 
   this.place = {};
-  this.currentUser = $cookies.get('userId');
+  this.currentUser = $window.localStorage.getItem('userId');
   this.comment = {
     user: this.currentUser,
-    subject: $state.params.id
+    place: $state.params.id
   };
 
   Place.findById($state.params.id)
@@ -18,7 +18,6 @@ function PlacesShowCtrl(Place, User, $state, $cookies) {
     User.findById(vm.currentUser)
       .then(user => {
         user.data.favoriteLocations.push($state.params.id);
-        console.log(user.data);
         User.update(user.data);
       });
   }
@@ -33,14 +32,11 @@ function PlacesShowCtrl(Place, User, $state, $cookies) {
   function submitComment() {
     Place.findById(vm.place._id)
       .then(place => {
-        console.log(vm.place);
-        console.log(place);
         place.data.comments.push(vm.comment);
         Place.update(place.data);
       })
       .then(() => User.findById(vm.currentUser))
       .then(user => {
-        console.log(user.data);
         user.data.comments.push(vm.comment);
         User.update(user.data);
       })

@@ -26,7 +26,7 @@
   <div class="container comments">
     <h3 class="subtitle is-3">See your comments</h3>
     <ul>
-      <li ng-repeat="comment in usersProfile.user.comments">{{comment.content}}</li>
+      <li ng-repeat="comment in usersProfile.user.comments" ><strong>{{ comment.event.name }} {{ comment.place.name }}</strong> - {{ comment.content }}</li>
     </ul>
   </div>
 
