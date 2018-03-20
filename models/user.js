@@ -8,6 +8,12 @@ const messageSchema = new mongoose.Schema({
   approved: { type: Boolean, default: false }
 });
 
+const commentSchema = new mongoose.Schema({
+  content: {type: String, required: true},
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'},
+  approved: { type: Boolean, default: false }
+});
+
 const schema = new mongoose.Schema({
   username: { type: String, required: true },
   avatar: { type: String, default: 'https://enbaca.com/web/assets/image-resources/avatar.png'},
@@ -15,8 +21,8 @@ const schema = new mongoose.Schema({
   email: { type: String, required: true, unique: true }, // needs a pattern!
   password: { type: String, required: true },
   favoriteEvents: [{ type: mongoose.Schema.ObjectId, ref: 'Event'}],
-  favoriteLocations: [{ type: mongoose.Schema.ObjectId, ref: 'Location'}],
-  comments: [],
+  favoriteLocations: [{ type: mongoose.Schema.ObjectId, ref: 'Place'}],
+  comments: [commentSchema],
   messages: [messageSchema]
 });
 

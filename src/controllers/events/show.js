@@ -31,7 +31,6 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
         User.update(user.data);
       })
       .then(() => $state.go($state.current, {}, {reload: true}));
-
   }
 
   this.submitComment = submitComment;
