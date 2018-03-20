@@ -1,6 +1,9 @@
-AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
+AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope', '$cookies'];
 
-function AuthLoginCtrl($auth, $state, $rootScope){
+// Require User model
+
+
+function AuthLoginCtrl($auth, $state, $rootScope, $cookies){
   this.credentials = {};
 
   function authenticate(provider){
@@ -10,7 +13,8 @@ function AuthLoginCtrl($auth, $state, $rootScope){
   function handleSubmit(){
     $auth.login(this.credentials)
       .then(res => {
-
+        $cookies.put('userId', `${res.data.id}`);
+        $cookies.put('admin', `${res.data.admin}`);
         $rootScope.$broadcast('flashMessage', {
           type: 'success',
           content: res.data.message

@@ -1,8 +1,11 @@
-EventsShowCtrl.$inject = ['Event', '$state'];
-function EventsShowCtrl(Event, $state) {
+EventsShowCtrl.$inject = ['Event', 'User', '$state', '$cookies'];
+function EventsShowCtrl(Event, User, $state, $cookies) {
   const vm = this;
   this.event = {};
-  this.comment = '';
+  this.currentUser = $cookies.get('userId');
+  this.comment = {
+    user: this.currentUser
+  };
 
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
@@ -28,6 +31,18 @@ function EventsShowCtrl(Event, $state) {
 
   this.submitComment = submitComment;
 
+  function addFavoriteEvent() {
+    User.findById(vm.currentUser)
+      .then(user => {
+        console.log(user.data);
+        user.data.favoriteEvents.push($state.params.id);
+        console.log(user.data);
+        User.update(user.data);
+      });
+  }
+
+  this.addFavoriteEvent = addFavoriteEvent;
+
   function isAsteroid() {
     if(vm.event.type === 'Asteroid') {
       return true;
@@ -43,6 +58,7 @@ function EventsShowCtrl(Event, $state) {
   }
 
   this.isSatellite = isSatellite;
+
 }
 
 export default EventsShowCtrl;
