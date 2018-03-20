@@ -1,7 +1,6 @@
 /* global google */
-googleMap.$inject = ['Place'];
 
-function googleMap(Place) {
+function googleMap() {
   return {
     restrict: 'E',
     replace: true,
@@ -12,53 +11,32 @@ function googleMap(Place) {
     },
     link($scope, $element) {
 
-      let infoWindow;
-
-      const latLng = { lat: 50, lng: 2 };
       const map = new google.maps.Map($element[0], {
-        zoom: 4,
-        center: latLng
+        zoom: 8,
+        center: { lat: 51.515328, lng: -0.072031 }
       });
 
-      // console.log()
+      $scope.$watch('place', () => {
+        console.log($scope.place);
+        $scope.place.forEach(place => showMarkers(place));
+      });
 
-      function getPlaceData() {
-        Place.findPlace()
-          .then(() => console.log('hello'))
-          .then(placeData => placeData.forEach(setPlaceMarker));
-      }
-
-      function setPlaceMarker(map, position, place) {
-        const placeLocation = { lat: place.location.lat, lng: place.lng };
-
+      function showMarkers(place) {
         const marker = new google.maps.Marker({
-          position: placeLocation,
-          map: map,
-          place: place
+          position: { lat: place.location.lat, lng: place.location.lng },
+          map: map
         });
-
         marker.addListener('click', () => {
-          createInfoWindowForMarker(marker, place);
+          showInfoWindow(place, marker);
         });
       }
-
-      function createInfoWindowForMarker(marker, place) {
+      function showInfoWindow(place, marker) {
         if (infoWindow) infoWindow.close();
-        infoWindow = new google.maps.InfoWindow({
-          content: `<h3>${place.name}</h3>`
-        });
+        const infoWindow = new google.maps.InfoWindow();
+        infoWindow.setContent('hello');
         infoWindow.open(map, marker);
         map.setCenter(marker.getPosition());
       }
-
-      setPlaceMarker(map, new google.maps.LatLng(51.508515, -0.125487), place);
-      setPlaceMarker(map, new google.maps.LatLng(52.370216, 4.895168), place);
-
-      $scope.$watch('center', () => {
-        // map.setCenter($scope.center);
-        // marker.setPosition(markers);
-      });
-      getPlaceData();
     }
   };
 }
