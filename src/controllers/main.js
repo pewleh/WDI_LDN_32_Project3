@@ -8,11 +8,15 @@ function MainCtrl($auth, $state, $rootScope, $timeout, $cookies) {
 
   vm.userId = $cookies.get('userId');
   vm.admin = $cookies.get('admin');
-  
+
   function logout() {
+    $cookies.remove('userId');
+    $cookies.remove('admin');
     $auth.logout();
     $state.go('eventsIndex');
   }
+
+  vm.logout = logout;
 
   $rootScope.$on('flashMessage', (e, data) => {
     vm.flashMessage = data;
@@ -20,14 +24,6 @@ function MainCtrl($auth, $state, $rootScope, $timeout, $cookies) {
     $timeout(() => vm.flashMessage = null, 3000);
   });
 
-  function log() {
-    console.log($cookies);
-    console.log($cookies.get('userId'));
-    console.log($cookies.get('admin'));
-  }
-
-  vm.logout = logout;
-  vm.log = log;
 }
 
 export default MainCtrl;

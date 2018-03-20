@@ -7,8 +7,13 @@
     <p>Location Lng: {{ placesShow.place.location.lng }}</p>
     <p>Address: {{ placesShow.place.address }}</p>
 
-    <a ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
-    <button class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+
+
+    <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+
+    <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
+
+    <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
 
     <hr>
 

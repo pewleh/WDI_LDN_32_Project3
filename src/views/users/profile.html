@@ -9,9 +9,19 @@
   <div class="container favorites">
     <h3 class="subtitle is-3">See your favorites</h3>
     <ul>
-      <li ng-repeat="favorite in usersProfile.user.favorites">{{favorite.name}}</li>
+      <li>Your Events</li>
+      <li ng-repeat="event in usersProfile.user.favoriteEvents">{{event}}</li>
+    </ul>
+
+    <hr>
+    
+    <ul>
+      <li>Your Places</li>
+      <li ng-repeat="location in usersProfile.user.favoriteLocations">{{location}}</li>
     </ul>
   </div>
+
+  <hr>
 
   <div class="container comments">
     <h3 class="subtitle is-3">See your comments</h3>
@@ -20,6 +30,6 @@
     </ul>
   </div>
 
-  <a ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
-  <button class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
+  <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
+  <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
 </div>

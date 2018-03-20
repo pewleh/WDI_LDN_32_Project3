@@ -4,7 +4,8 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
   this.event = {};
   this.currentUser = $cookies.get('userId');
   this.comment = {
-    user: this.currentUser
+    user: this.currentUser,
+    subject: $state.params.id
   };
 
   Event.findById($state.params.id)
@@ -21,9 +22,13 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
     Event.findById(vm.event._id)
       .then(event => {
         event.data.comments.push(vm.comment);
-        console.log(event.data);
         Event.update(event.data);
-        console.log(event);
+      })
+      .then(() => User.findById(vm.currentUser))
+      .then(user => {
+        console.log(user.data);
+        user.data.comments.push(vm.comment);
+        User.update(user.data);
       })
       .then(() => $state.go($state.current, {}, {reload: true}));
 
@@ -34,9 +39,7 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
   function addFavoriteEvent() {
     User.findById(vm.currentUser)
       .then(user => {
-        console.log(user.data);
         user.data.favoriteEvents.push($state.params.id);
-        console.log(user.data);
         User.update(user.data);
       });
   }
