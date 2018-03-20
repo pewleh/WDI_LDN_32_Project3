@@ -1,7 +1,6 @@
 // 3rd Party Dependencies
 import angular from 'angular';
 import '@uirouter/angularjs';
-import 'angular-cookies';
 import 'angular-messages';
 import 'satellizer';
 
@@ -45,7 +44,7 @@ import Place from './services/Place';
 import User from './services/User';
 
 // Registrations on App
-angular.module('starGazer', ['ui.router', 'ngMessages', 'ngCookies', 'satellizer'])
+angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)

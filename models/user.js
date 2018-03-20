@@ -11,6 +11,8 @@ const messageSchema = new mongoose.Schema({
 const commentSchema = new mongoose.Schema({
   content: {type: String, required: true},
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
+  event: { type: mongoose.Schema.ObjectId, ref: 'Event'},
+  place: { type: mongoose.Schema.ObjectId, ref: 'Place'},
   approved: { type: Boolean, default: false }
 });
 
