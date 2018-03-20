@@ -1,34 +1,43 @@
-<div class="container columns">
-  <div class="container signup column is-half-desktop has-text-centered">
-    <form ng-submit="authRegister.handleSubmit()">
-      <div class="field">
-        <label for="username">Username</label>
-        <input class="input" placeholder="Username" name="username" ng-model="authRegister.user.username" />
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input class="input" placeholder="Email" name="email" ng-model="authRegister.user.email" />
-      </div>
-      <div class="field">
-        <label for="password">Password</label>
-        <input type="password" class="input" placeholder="Password" name="password" ng-model="authRegister.user.password" />
-      </div>
-      <div class="field">
-        <label for="passwordConfirmation">Password Confirmation</label>
-        <input type="password" class="input" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
-      </div>
+<div class="container">
+  <h1 class="registerTitle"><u>Register below</u></h1>
+  <div class="container columns">
+    <div class="container signup column is-half-desktop has-text-centered">
+      <form class="registerForm" ng-submit="authRegister.handleSubmit()">
+        <div class="field">
+          <label for="username">Username</label>
+          <input class="input" placeholder="Username" name="username" ng-model="authRegister.user.username" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" placeholder="Email" name="email" ng-model="authRegister.user.email" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" class="input" placeholder="Password" name="password" ng-model="authRegister.user.password" />
+        </div>
+        <div class="field">
+          <label for="passwordConfirmation">Password Confirmation</label>
+          <input type="password" class="input" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
+        </div>
 
-      <button class="button is-primary">Submit</button>
-    </form>
-  </div>
-  <div class="container benefits column is-half-desktop has-text-centered">
-    <h1 class="title is-1">Benefits of joining us</h1>
-    <ul>
-      <li>Favorite Events and Locations</li>
-      <li>Add your own Events</li>
-      <li>Share your favorite spots</li>
-      <li>Share your pictures</li>
-      <li>Be a part of the community!</li>
-    </ul>
+        <button class="button is-primary">Submit</button>
+      </form>
+    </div>
+    <div class="container column is-half-desktop has-text-centered">
+      <div class="regOuterBorder">
+        <h1 class="benefitsTitle">Do more together!</h1>
+        <div class="regBorder">
+          <ul class="benefits">
+            <li> o Build up your own profile</li>
+            <li> o Create your own events</li>
+            <li> o Share your favorite spots</li>
+            <li> o Post event pictures</li>
+            <li> o Become a part of the community!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Consider filling the white space with either "personal images"-->

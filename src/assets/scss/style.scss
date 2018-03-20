@@ -1,4 +1,67 @@
+*{
+  font-family: 'Cormorant Garamond', serif;
+}
+
 .google-map {
   // width: 300px;
   height: 300px;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid black;
+  }​
+
+
+.registerForm{
+  width: 580px;
+  margin-left: 60px;
+}
+.registerTitle{
+  margin-left: 180px;
+  font-size: 60px;
+  padding-bottom: 40px;
+}
+
+.benefitsTitle{
+  font-size: 45px;
+  margin-left: 40px;
+}
+.benefits{
+  font-size: 20px;
+
+}
+li{
+  margin-bottom: 10px;
+}
+
+.regBorder{
+  border: 1px dotted grey;
+  width: 400px;
+  margin-left: 160px;
+  padding:10px;
+}
+
+.regOuterBorder{
+  border: 1px dotted grey;
+  width: 700px;
+  margin-left: 100px;
+}
+
+.loginContainer{
+  width:700px;
+  margin-left: 25%;
+}
+
+.loginTitle{
+  font-size: 50px;
+  margin-left: 28%;
+  margin-bottom: 27px;
+}
+
+.indexTitle{
+  font-size: 32px;
+}
+.indexSubtitle{
+  font-size: 20px;
 }
