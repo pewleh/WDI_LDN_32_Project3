@@ -33,7 +33,7 @@ function googleMap() {
       function showInfoWindow(place, marker) {
         if (infoWindow) infoWindow.close();
         const infoWindow = new google.maps.InfoWindow();
-        infoWindow.setContent('hello');
+        infoWindow.setContent(`<div><img src=${place.name}><h1>${place.type}</h1><h1>${place.address}</h1><a href="/#!/places/${place._id}">Show More</a></div>`);
         infoWindow.open(map, marker);
         map.setCenter(marker.getPosition());
       }

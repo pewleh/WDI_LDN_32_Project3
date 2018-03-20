@@ -23,21 +23,10 @@ u {
   margin-left: 60px;
 }
 .registerTitle{
-  margin-left: 180px;
+  text-align: center;
   font-size: 60px;
   padding-bottom: 40px;
-}
-
-.benefitsTitle{
-  font-size: 45px;
-  margin-left: 40px;
-}
-.benefits{
-  font-size: 20px;
-
-}
-li{
-  margin-bottom: 10px;
+  text-decoration: overline;
 }
 
 .regBorder{
@@ -55,7 +44,7 @@ li{
 
 .loginContainer{
   width:700px;
-  margin-left: 25%;
+  margin-left: 30%;
 }
 
 .loginTitle{
@@ -126,4 +115,9 @@ table{
 }
 .titleContainer{
   width:670px;
+}
+
+.dropDowns{
+  display: inline-flex;
+
 }
