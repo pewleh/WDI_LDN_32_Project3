@@ -16,6 +16,7 @@ const schema = new mongoose.Schema({
   password: { type: String, required: true },
   favoriteEvents: [{ type: mongoose.Schema.ObjectId, ref: 'Event'}],
   favoriteLocations: [{ type: mongoose.Schema.ObjectId, ref: 'Location'}],
+  comments: [],
   messages: [messageSchema]
 });
 

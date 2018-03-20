@@ -12,8 +12,11 @@
         margin-left: 15%">
       </figure>
       <div class="showButtons">
-        <a ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
-        <button class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+        <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+
+        <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
+
+        <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
       </div>
     </div>
   </div>
@@ -22,6 +25,7 @@
 <br>
   <p>Type: <strong>{{ placesShow.place.type }}</strong></p>
   <p>Outdoors:<strong> {{ placesShow.place.outdoor }}</strong></p>
+
 
     <hr>
     <!--  table Weather Option-->
