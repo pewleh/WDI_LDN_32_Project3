@@ -12,10 +12,15 @@
   height: 300px;
 }
 
-u {
-    text-decoration: none;
-    border-bottom: 1px solid black;
-  }​
+.infoWindow {
+  height: 100px;
+  width: auto;
+}
+
+// u {
+//     text-decoration: none;
+//     border-bottom: 1px solid black;
+//   }​
 
 
 .registerForm{
@@ -26,7 +31,7 @@ u {
   text-align: center;
   font-size: 60px;
   padding-bottom: 40px;
-  text-decoration: overline;
+  // text-decoration: overline;
 }
 
 .regBorder{
