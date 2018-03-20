@@ -1,11 +1,11 @@
-EventsShowCtrl.$inject = ['Event', 'User', '$state', '$cookies'];
-function EventsShowCtrl(Event, User, $state, $cookies) {
+EventsShowCtrl.$inject = ['Event', 'User', '$state', '$window'];
+function EventsShowCtrl(Event, User, $state, $window) {
   const vm = this;
   this.event = {};
-  this.currentUser = $cookies.get('userId');
+  this.currentUser = $window.localStorage.getItem('userId');
   this.comment = {
     user: this.currentUser,
-    subject: $state.params.id
+    event: $state.params.id
   };
 
   Event.findById($state.params.id)
@@ -19,6 +19,7 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
   this.remove = remove;
 
   function submitComment() {
+    console.log($window.localStorage.getItem('userId'));
     Event.findById(vm.event._id)
       .then(event => {
         event.data.comments.push(vm.comment);
@@ -26,12 +27,10 @@ function EventsShowCtrl(Event, User, $state, $cookies) {
       })
       .then(() => User.findById(vm.currentUser))
       .then(user => {
-        console.log(user.data);
         user.data.comments.push(vm.comment);
         User.update(user.data);
       })
       .then(() => $state.go($state.current, {}, {reload: true}));
-
   }
 
   this.submitComment = submitComment;

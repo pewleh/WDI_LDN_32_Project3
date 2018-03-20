@@ -1,17 +1,17 @@
 /* global navigator */
 
-MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout', '$cookies'];
+MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout', '$window'];
 
-function MainCtrl($auth, $state, $rootScope, $timeout, $cookies) {
+function MainCtrl($auth, $state, $rootScope, $timeout, $window) {
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  vm.userId = $cookies.get('userId');
-  vm.admin = $cookies.get('admin');
+  vm.userId = $window.localStorage.getItem('userId');
+  vm.admin = $window.localStorage.getItem('admin');
 
   function logout() {
-    $cookies.remove('userId');
-    $cookies.remove('admin');
+    $window.localStorage.removeItem('userId');
+    $window.localStorage.removeItem('admin');
     $auth.logout();
     $state.go('eventsIndex');
   }

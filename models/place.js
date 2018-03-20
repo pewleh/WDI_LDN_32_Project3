@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  rating: { type: Number, min: 0, max: 5, required: true },
-  content: {type: String},
+  content: {type: String, required: true},
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   approved: { type: Boolean, default: false }
 });

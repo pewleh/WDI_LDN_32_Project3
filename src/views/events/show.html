@@ -6,37 +6,39 @@
     </div>
     <div class="container image">
       <figure class="showImage">
-            <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"  style="
-            width: 550px;
-            border-radius:  15px;
-            margin-left: 15%"/>
-        <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="(2014 RF11)" class="ng-scope"  style="
-        width: 550px;
-        border-radius:  15px;
-        margin-left: 15%"/>
+          <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"  style="width: 550px; border-radius:  15px;margin-left: 15%"/>
+        <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
       </figure>
-      <div class="showEventButtons">
-            <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
-            <button ng-if="main.userId" class="button is-primary" ng-click="eventsShow.addFavoriteEvent()">Favorite</button>
-            <button ng-if="main.admin" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
+      <div class="event showButtons">
+        <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
+        <button ng-if="main.userId" class="button is-primary" ng-click="eventsShow.addFavoriteEvent()">Favorite</button>
+        <button ng-if="main.admin" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
+      </div>
     </div>
+
+  <div class="container info">
+    <h4 class="subtitle is-4"></h4>
+    <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+    <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+    <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
   </div>
 
-  <h4 class="subtitle is-4"></h4>
-  <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-  <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-  <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
-</div>
-<div class="container commentSection">
-  <h3 class="subtitle">What's on your mind?</h3>
-  <ul>
-    <li ng-repeat="comment in eventsShow.event.comments">{{comment}}</li>
-  </ul>
-  <form ng-if="main.userId" ng-submit="eventsShow.submitComment()">
-    <div class="field">
+  </div>
+  <div class="container eventCommentSection">
+    <div class="container display">
+      <h3 class="subtitle">What others have said:</h3>
+      <ul>
+        <li ng-repeat="comment in eventsShow.event.comments" ui-sref="profile({ id: comment.user._id })">{{ comment.user.username }} - {{ comment.content }}</li>
+      </ul>
     </div>
-    <textarea class="textarea" name="content" ng-model="eventsShow.comment.content"></textarea>
-    <button class="button is-primary commentButton">Submit</button>
-  </form>
-</div>
+
+    <div class="container write">
+      <form ng-if="main.userId" ng-submit="eventsShow.submitComment()">
+        <h3 class="subtitle">What's on your mind?</h3>
+        <textarea class="textarea" name="content" ng-model="eventsShow.comment.content"></textarea>
+        <button class="button is-primary commentButton">Submit</button>
+      </form>
+    </div>
+
+  </div>
 </div>

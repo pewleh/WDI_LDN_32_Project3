@@ -15,6 +15,7 @@ function createRoute(req, res, next) {
 
 function showRoute(req, res, next) {
   Place.findById(req.params.id)
+    .populate('comments.user')
     .then(place => res.json(place))
     .catch(next);
 }

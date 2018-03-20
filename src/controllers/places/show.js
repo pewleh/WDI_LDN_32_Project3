@@ -1,9 +1,15 @@
-PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$cookies'];
+PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$window'];
 
-function PlacesShowCtrl(Place, User, $state, $cookies) {
+function PlacesShowCtrl(Place, User, $state, $window) {
+
   const vm = this;
+
   this.place = {};
-  this.currentUser = $cookies.get('userId');
+  this.currentUser = $window.localStorage.getItem('userId');
+  this.comment = {
+    user: this.currentUser,
+    place: $state.params.id
+  };
 
   Place.findById($state.params.id)
     .then(res => this.place = res.data);
@@ -12,7 +18,6 @@ function PlacesShowCtrl(Place, User, $state, $cookies) {
     User.findById(vm.currentUser)
       .then(user => {
         user.data.favoriteLocations.push($state.params.id);
-        console.log(user.data);
         User.update(user.data);
       });
   }
@@ -23,6 +28,22 @@ function PlacesShowCtrl(Place, User, $state, $cookies) {
     Place.remove(this.place)
       .then(() => $state.go('placesIndex'));
   }
+
+  function submitComment() {
+    Place.findById(vm.place._id)
+      .then(place => {
+        place.data.comments.push(vm.comment);
+        Place.update(place.data);
+      })
+      .then(() => User.findById(vm.currentUser))
+      .then(user => {
+        user.data.comments.push(vm.comment);
+        User.update(user.data);
+      })
+      .then(() => $state.go($state.current, {}, {reload: true}));
+  }
+
+  this.submitComment = submitComment;
 
   this.remove = remove;
 }

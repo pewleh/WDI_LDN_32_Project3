@@ -6,10 +6,7 @@
     </div>
     <div class="container image">
       <figure class="showImage">
-        <img src="{{ placesShow.place.image }}" style="
-        width: 550px;
-        border-radius:  15px;
-        margin-left: 15%">
+        <img src="{{ placesShow.place.image }}" style="width: 550px; border-radius:  15px; margin-left: 15%">
       </figure>
       <div class="showButtons">
         <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
@@ -46,4 +43,23 @@
 </div>
 <div class="googleBorder">
 <google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
+</div>
+
+<div class="container commentsection">
+
+  <div class="container display">
+    <h3 class="subtitle">See what others have said</h3>
+    <ul>
+      <li ng-repeat="comment in placesShow.place.comments" ui-sref="profile({ id: comment.user._id })">{{ comment.user.username }} - {{ comment.content }}</li>
+    </ul>
+  </div>
+
+  <div class="container write">
+    <form ng-if="main.userId" ng-submit="placesShow.submitComment()">
+      <h3 class="subtitle">What's on your mind?</h3>
+      <textarea class="textarea" name="content" ng-model="placesShow.comment.content"></textarea>
+      <button class="button is-primary commentButton">Submit</button>
+    </form>
+  </div>
+
 </div>
