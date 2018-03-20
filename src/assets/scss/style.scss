@@ -1,4 +1,152 @@
+*{
+  font-family: 'Cormorant Garamond', serif;
+}
+
 .google-map {
-  // width: 300px;
+  width: 300px;
   height: 300px;
+}
+
+.collection-google-map {
+  height:300px;
+}
+
+.infoWindow {
+  height: 100px;
+  width: auto;
+}
+
+.registerForm{
+  width: 580px;
+  margin-left: 60px;
+}
+.registerTitle{
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 40px;
+  text-decoration: overline;
+}
+
+.regBorder{
+  border: 1px dotted grey;
+  width: 400px;
+  margin-left: 160px;
+  padding:10px;
+}
+
+.regOuterBorder{
+  border: 1px dotted grey;
+  width: 700px;
+  margin-left: 100px;
+}
+
+.loginContainer{
+  width:700px;
+  margin-left: 30%;
+}
+
+.loginTitle{
+  font-size: 50px;
+  margin-left: 28%;
+  margin-bottom: 27px;
+}
+
+.indexTitle{
+  font-size: 32px;
+}
+.indexSubtitle{
+  font-size: 20px;
+}
+.container{
+  height:650px;
+
+  .showContainer{
+    display: inline-flex;
+    font-size: 70px;
+    padding: 50px;
+    height: 500px;
+    margin-bottom: 200px;
+    .showTitle{
+      font-size: 45px;
+      margin-top: 150px;
+      text-align: center;
+
+    }
+    .showSubtitle{
+      font-size: 25px;
+      width: 500px;
+      text-align: center;
+      margin-left: 60px;
+    }
+    .showButtons{
+      margin-top: 35%;
+      margin-left: 28%;
+    }
+    .showEventButtons{
+      margin-top: 52%;
+      margin-left: 7%;
+    }
+    .showImage{
+      position: absolute;
+      top: 70px;
+    }
+  }
+}
+.event{
+  position: absolute;
+  top: 26%;
+}
+.commentButton{
+  float:right;
+}
+
+.display{
+  height: 20%;
+}
+
+
+.showDescription{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.googleBorder{
+  width: 550px;
+  margin-left: 58%;
+  margin-top: 10%;
+  padding:20px;
+}
+.showGoogle{
+  width: 500px;
+  border-radius: 5%;
+}
+table{
+  font-size: 20px;
+}
+.titleContainer{
+  width:670px;
+}
+
+.dropDowns{
+  display: inline-flex;
+}
+
+
+//Profiles begin.
+
+.profilePic{
+  border-radius: 50%;
+  margin-left: 10%;
+}
+.username{
+  font-size: 55px;
+  margin-left: 18.5%;
+  padding: 10px;
+}
+
+.preferences{
+  float: right;
+  margin-right: 25%;
+  margin-top: -20%;
 }

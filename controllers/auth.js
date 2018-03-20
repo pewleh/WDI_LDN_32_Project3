@@ -23,6 +23,8 @@ function login(req, res){
       const token = jtoken.sign({ sub: user._id }, secret, { expiresIn: '6h'});
       res.json({
         message: `Welcome back ${user.username}!`,
+        id: user._id,
+        admin: user.admin,
         token
       });
     });

@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  rating: { type: Number, min: 0, max: 5, required: true },
-  content: {type: String},
+  content: {type: String, required: true},
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   approved: { type: Boolean, default: false }
 });
 
 const placeSchema = new mongoose.Schema({
+  location: {
+    lat: { type: Number },
+    lng: { type: Number }
+  },
+  address: { type: String },
+  description: {type: String},
   name: {type: String, minlength: 2, required: true},
   image: {type: String, minlength: 2 }, // needs a pattern, also needs required: true
-  type: {type: String, minlength: 2, required: true}, // Park/Planetarium
+  type: {type: String, minlength: 2, required: true}, // Park/observatory/National Trust
   openingTime: {type: String },
-  closingTime: {type: String },
-  outdoor: {type: Boolean}, // Do we need this if we have type
-  location: {},
+  closingTime: {type: String }, // <- If we use these and leave them blank, are they gonna look weird on the SHOW page?
+  outdoor: {type: Boolean}, // Do we need this if we have type <-
   weather: {},
   comments: [commentSchema],
   userImages: [{ content: String }]

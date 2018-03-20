@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const commentSchema = new mongoose.Schema({
+  content: {type: String, required: true},
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'},
+  approved: { type: Boolean, default: false }
+});
 
 const eventSchema = new mongoose.Schema({
   name: {type: String, minlength: 2},
@@ -10,7 +15,7 @@ const eventSchema = new mongoose.Schema({
   visibility: {type: String, minlength: 2},
   location: {type: String, minlength: 2}, // Only necessary for events at specific locations (maybe planetariums?)
   attending: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
-  comments: [],
+  comments: [commentSchema],
   userImages: [{ content: String }]
 });
 

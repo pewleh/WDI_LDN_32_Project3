@@ -1,8 +1,12 @@
-EventsShowCtrl.$inject = ['Event', '$state'];
-function EventsShowCtrl(Event, $state) {
+EventsShowCtrl.$inject = ['Event', 'User', '$state', '$window'];
+function EventsShowCtrl(Event, User, $state, $window) {
   const vm = this;
   this.event = {};
-  this.comment = '';
+  this.currentUser = $window.localStorage.getItem('userId');
+  this.comment = {
+    user: this.currentUser,
+    event: $state.params.id
+  };
 
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
@@ -15,16 +19,31 @@ function EventsShowCtrl(Event, $state) {
   this.remove = remove;
 
   function submitComment() {
+    console.log($window.localStorage.getItem('userId'));
     Event.findById(vm.event._id)
       .then(event => {
         event.data.comments.push(vm.comment);
         Event.update(event.data);
       })
+      .then(() => User.findById(vm.currentUser))
+      .then(user => {
+        user.data.comments.push(vm.comment);
+        User.update(user.data);
+      })
       .then(() => $state.go($state.current, {}, {reload: true}));
-
   }
 
   this.submitComment = submitComment;
+
+  function addFavoriteEvent() {
+    User.findById(vm.currentUser)
+      .then(user => {
+        user.data.favoriteEvents.push($state.params.id);
+        User.update(user.data);
+      });
+  }
+
+  this.addFavoriteEvent = addFavoriteEvent;
 
   function isAsteroid() {
     if(vm.event.type === 'Asteroid') {
@@ -41,6 +60,7 @@ function EventsShowCtrl(Event, $state) {
   }
 
   this.isSatellite = isSatellite;
+
 }
 
 export default EventsShowCtrl;

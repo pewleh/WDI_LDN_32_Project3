@@ -4,7 +4,7 @@ const { dbURI } = require('../config/environments');
 
 
 const Event = require('../models/event');
-const eventData = require('./data/events');
+// const eventData = require('./data/events');
 
 const Place = require('../models/place');
 const placeData = require('./data/places');
@@ -42,15 +42,14 @@ function getAsteroids() {
     .then(response => {
       asteroids = response;  // all data
       datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
-
       datesQueried.forEach( (date, index) => {
         // this creates an array of objects where each object is one days events
         const daysEvents = Object.values(asteroids.near_earth_objects)[index];
 
         // this turns each event into an object that we can push into the DB
         daysEvents.forEach((event) => {
-          // This assigns each event within that array its matching date
-          event.date = event.close_approach_data[0].close_approach_date;
+          // event.date data is transformed into unix timestamps in order to sort input from different formats by date easily
+          event.date = (new Date(event.close_approach_data[0].close_approach_date)).getTime();
           event.missDistance = event.close_approach_data[0].miss_distance.kilometers;
           event.visibility = 'telescope';
           event.type = 'Asteroid';
@@ -71,7 +70,8 @@ function getSatellites() {
       satellites = response;  // all data
 
       satellites.passes.forEach(satellite => {
-        satellite.date = satellite.start; // This needs to be fixed
+        // satellite.date data is transformed into unix timestamps in order to sort input from different formats by date easily
+        satellite.date = (new Date(satellite.start)).getTime();
         satellite.startTime = satellite.start;
         satellite.endTime = satellite.end;
         satellite.type = 'Satellite';
@@ -91,8 +91,9 @@ mongoose.connect(dbURI, (err, db) => {
     .then(() => getSatellites())
     .then(() => Event.create(satellitesClean))
     .then((events) => console.log(`${events.length} Satellites created`))
-    .then(() => Event.create(eventData))
-    .then(events => console.log(`${events.length} events created`))
+    // CURRENTLY NO HARDCODED EVENTS
+    // .then(() => Event.create(eventData))
+    // .then(events => console.log(`${events.length} events created`))
     .catch(err => console.log(err))
     .then(() => Place.create(placeData))
     .then(places => console.log(`${places.length} places created`))

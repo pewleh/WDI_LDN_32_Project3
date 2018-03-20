@@ -1,18 +1,22 @@
-<ul class="columns is-multiline">
-  <li class="column is-one-quarter" ng-repeat="place in placesIndex.allPlaces">
-    <a ui-sref="placesShow({ id: place._id })">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image">
-          <img ng-src="{{ place.image }}" alt="{{ place.name }}" />
-        </figure>
+<collection-google-map place="placesIndex.allPlaces"></collection-google-map>
+
+<div class="container">
+  <h1 class="title is-1"> Locations </h1>
+  <ul class="columns is-multiline">
+    <li class="column is-half" ng-repeat="place in placesIndex.allPlaces">
+      <a ui-sref="placesShow({ id: place._id })">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img ng-src="{{ place.image }}" alt="{{ place.name }}" />
+          </figure>
+        </div>
+        <div class="card-content">
+          <p class="indexTitle">{{ place.name }}</p>
+          <p class=indexSubtitle> {{ place.type }}</p>
+          <p class="indexSubtitle">{{ place.address }}</p>
+        </div>
       </div>
-      <div class="card-content">
-        <p>Place Name: {{ place.name }}</p>
-        <p>Type: {{ place.type }}</p>
-        <p>Outdoor: {{ place.outdoor }}</p>
-        <p>location: {{ place.location }}</p>
-      </div>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>

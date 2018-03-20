@@ -1,4 +1,4 @@
-<h1 class="title is-1 has-text-centered">Find your next stargazing adventure</h1>
+<h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
 
 
 <div class="container events-list">
@@ -9,9 +9,9 @@
         <div class="card">
           <div class="card-content">
             <p>Event Name: {{ event.name }}</p>
-            <p>Date: {{ event.date }}</p>
-            <p>Start Time: {{ event.startTime }}</p>
-            <p>End Time: {{ event.endTime }}</p>
+            <p>Date: {{ event.date | date}}</p>
+            <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+            <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
             <p>Type: {{ event.type }}</p>
             <p>visibility: {{ event.visibility }}</p>
           </div>

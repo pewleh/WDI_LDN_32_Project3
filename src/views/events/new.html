@@ -1,5 +1,7 @@
 <section class="section">
-
+  <div class="container">
+<h1 class="registerTitle">Know something we don't?</h1>
+<p style="margin-left:39%; font-size:30px;">Add a celestial event below!</p>
   <div class="container">
     <form name="eventsNew.form" ng-submit="eventsNew.handleSubmit()" novalidate>
 
@@ -28,8 +30,8 @@
         <label for="endTime">End Time</label>
         <input class="input" placeholder="End Time (if applicable)" name="endTime" ng-model="eventsNew.newEvent.endTime" />
       </div>
-
-      <div class="field">
+      <div class="dropDowns">
+      <div class="field"  style="margin-left: 80%;">
         <label for="type">Type of event</label>
         <div class="control">
           <div class="select">
@@ -37,7 +39,7 @@
               <option selected disabled value="">Please choose</option>
               <option value="Satellite">Satellite</option>
               <option value="Astroid">Astroid</option>
-              <option value="Stars">Stars</option>
+              <option value="Stars">Star</option>
             </select>
           </div>
         </div>
@@ -46,15 +48,7 @@
         </div>
       </div>
 
-      <!-- <div class="field">
-        <label for="name">Description</label>
-        <input class="input" placeholder="Describe the event" name="description" ng-model="eventsNew.newEvents.description"/>
-        <div ng-messages="eventsNew.form.description.$error" ng-if="eventsNew.form.description.$dirty || eventsNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
-      </div> -->
-
-      <div class="field">
+      <div class="field" style="margin-left: 150%;">
         <label for="visibility">Visibility</label>
         <div class="control">
           <div class="select">
@@ -69,8 +63,17 @@
           <div class="notification is-danger" ng-message="required">This field is required</div>
         </div>
       </div>
+    </div>
 
-      <button type="button" class="button is-primary">Submit</button>
+      <button class="button is-primary commentButton">Submit</button>
     </form>
   </div>
+  </div>
 </section>
+<!-- <div class="field">
+<label for="name">Description</label>
+<input class="input" placeholder="Describe the event" name="description" ng-model="eventsNew.newEvents.description"/>
+<div ng-messages="eventsNew.form.description.$error" ng-if="eventsNew.form.description.$dirty || eventsNew.form.$submitted">
+<div class="notification is-danger" ng-message="required">This field is required</div>
+</div>
+</div> -->

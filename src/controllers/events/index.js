@@ -6,7 +6,9 @@ function EventsIndexCtrl(Event){
   vm.allEvents = [];
 
   Event.findEvent()
-    .then(res => vm.allEvents = res.data)
-    .then(res => console.log(res.data));
+    .then(res => {
+      // This sorts them by date.
+      vm.allEvents = res.data.sort((a,b) => a.date - b.date );
+    });
 }
 export default EventsIndexCtrl;

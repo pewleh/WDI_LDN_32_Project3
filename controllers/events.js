@@ -1,5 +1,4 @@
 const Event = require('../models/event');
-const { secret } = require('../config/environments');
 
 function indexRoute(req, res, next) {
   Event.find()
@@ -15,6 +14,7 @@ function createRoute(req, res, next){
 
 function showRoute(req, res, next) {
   Event.findById(req.params.id)
+    .populate('comments.user')
     .then(event => res.json(event))
     .catch(next);
 }
@@ -33,8 +33,6 @@ function deleteRoute(req, res, next) {
     .then(() => res.sendStatus(204))
     .catch(next);
 }
-
-console.log(secret);
 
 module.exports = {
   index: indexRoute,

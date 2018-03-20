@@ -1,6 +1,9 @@
-AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
+AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope', '$window'];
 
-function AuthLoginCtrl($auth, $state, $rootScope){
+// Require User model
+
+
+function AuthLoginCtrl($auth, $state, $rootScope, $window){
   this.credentials = {};
 
   function authenticate(provider){
@@ -10,7 +13,8 @@ function AuthLoginCtrl($auth, $state, $rootScope){
   function handleSubmit(){
     $auth.login(this.credentials)
       .then(res => {
-
+        $window.localStorage.setItem('userId', `${res.data.id}`);
+        $window.localStorage.setItem('admin', `${res.data.admin}`);
         $rootScope.$broadcast('flashMessage', {
           type: 'success',
           content: res.data.message

@@ -1,5 +1,6 @@
 <section class="section">
-  <div class="container">
+    <h1 class="registerTitle">Share your favourite spot!</h1>
+    <div class="loginContainer">
     <form name="placesNew.form" ng-submit="placesNew.handleSubmit()" novalidate>
 
       <div class="field">
@@ -12,19 +13,19 @@
 
       <div class="field">
         <label for="location">Location</label>
-        <input class="input" placeholder="Location" name="location" ng-model="placesNew.newPlace.location" required />
+        <input class="input auto-complete" placeholder="Location" name="location" ng-model="placesNew.newPlace.address" required />
         <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
           <div class="notification is-danger" ng-message="required">This field is required</div>
         </div>
       </div>
-
+<!--
       <my-google-autocomplete id="address" name="address"
       ng-model="vm.formValues.address"
       google-model="vm.formValues.googleAddress"
       on-select="vm.onSelectGoogleAddress($item)"
       autocomplete="off"
       required>
-      </my-google-autocomplete>
+      </my-google-autocomplete> -->
 
       <div class="field">
         <label for="image">Image</label>
@@ -41,9 +42,9 @@
           <div class="select">
             <select name="type" ng-model="placesNew.newPlace.type" required>
               <option selected disabled value="">Please choose</option>
-              <option value="park">Park</option>
-              <option value="observatory">Observatory</option>
-              <option value="other">Other</option>
+              <option value="Park">Park</option>
+              <option value="Observatory">Observatory</option>
+              <option value="Other">National Trust</option>
             </select>
           </div>
         </div>
@@ -52,7 +53,7 @@
         </div>
       </div>
 
-      <button type="button" class="button is-primary">Submit</button>
+      <button class="button is-primary commentButton">Submit</button>
     </form>
   </div>
 </section>

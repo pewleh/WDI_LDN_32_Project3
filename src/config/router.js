@@ -74,6 +74,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/register',
       templateUrl: 'views/auth/register.html',
       controller: 'AuthRegisterCtrl as authRegister'
+    })
+    .state('profile', {
+      url: '/profile/:id',
+      templateUrl: 'views/users/profile.html',
+      controller: 'UsersProfileCtrl as usersProfile'
     });
 
   $urlRouterProvider.otherwise('/events');

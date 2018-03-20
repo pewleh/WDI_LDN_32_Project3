@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const messageSchema = new mongoose.Schema({ // Do messages need anything else?
+const messageSchema = new mongoose.Schema({
   content: {type: String},
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   sent: { type: Boolean }, // Could also deal with this on the display page
+  approved: { type: Boolean, default: false }
+});
+
+const commentSchema = new mongoose.Schema({
+  content: {type: String, required: true},
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'},
+  event: { type: mongoose.Schema.ObjectId, ref: 'Event'},
+  place: { type: mongoose.Schema.ObjectId, ref: 'Place'},
   approved: { type: Boolean, default: false }
 });
 
@@ -12,10 +20,11 @@ const schema = new mongoose.Schema({
   username: { type: String, required: true },
   avatar: { type: String, default: 'https://enbaca.com/web/assets/image-resources/avatar.png'},
   admin: { type: Boolean },
-  email: { type: String, required: true, unique: true }, // needs a pattern
+  email: { type: String, required: true, unique: true }, // needs a pattern!
   password: { type: String, required: true },
   favoriteEvents: [{ type: mongoose.Schema.ObjectId, ref: 'Event'}],
-  favoriteLocations: [{ type: mongoose.Schema.ObjectId, ref: 'Location'}],
+  favoriteLocations: [{ type: mongoose.Schema.ObjectId, ref: 'Place'}],
+  comments: [commentSchema],
   messages: [messageSchema]
 });
 
