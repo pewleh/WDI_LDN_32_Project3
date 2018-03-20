@@ -20,6 +20,7 @@ let asteroids = null;
 let datesQueried = null;
 let satellites = null;
 const satellitesClean = [];
+const today = new Date().toLocaleDateString();
 
 function addWeather() {
   placeData.forEach(place => {
@@ -36,10 +37,11 @@ function addWeather() {
 
 function getAsteroids() {
   return rp({
-    url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2018-03-19&api_key=${process.env.NASA_API_KEY}`,
+    url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=${process.env.NASA_API_KEY}`,
     json: true
   })
     .then(response => {
+      console.log(today);
       asteroids = response;  // all data
       datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
       datesQueried.forEach( (date, index) => {
