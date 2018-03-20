@@ -2,6 +2,12 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
+html{
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 .google-map {
   width: 300px;
   height: 300px;
@@ -132,6 +138,7 @@ table{
 .profilePic{
   border-radius: 50%;
   margin-left: 10%;
+  margin-top:5%;
 }
 .username{
   font-size: 55px;
@@ -143,4 +150,8 @@ table{
   float: right;
   margin-right: 25%;
   margin-top: -20%;
+}
+
+.userButton{
+  margin-left: 13.5%;
 }

@@ -1,28 +1,21 @@
-// secureState.$inject = ['$state'];
-// secureState.$inject = ['$q', '$auth', '$state' ,'$rootScope'];
-//
-// function secureState($q, $auth, $state, $rootScope) {
-//   return new $q((resolve) => {
-//     if($auth.isAuthenticated()) return resolve();
-//
-//     $rootScope.$broadcast('flashMessage', {
-//       type: 'danger',
-//       content: 'You must be logged in to make changes.'
-//     });
-//     $state.go('login');
-//   });
-// }
+secureState.$inject = ['$state'];
+secureState.$inject = ['$q', '$auth', '$state' ,'$rootScope'];
+
+function secureState($q, $auth, $state, $rootScope) {
+  return new $q((resolve) => {
+    if($auth.isAuthenticated()) return resolve();
+
+    $rootScope, {
+      type: 'danger',
+      content: 'You must be logged in to make changes.'
+    };
+    $state.go('login');
+  });
+}
 
 
-// Router.$inject = ['$stateProvider', '$urlRouterProvider'/*, '$locationProvider'*/];
-// function Router($stateProvider, $urlRouterProvider/*, $locationProvider*/) {
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
-
-  // $locationProvider.html5Mode({
-  //   enabled: true,
-  //   requireBase: false
-  // });
 
   $stateProvider
     .state('eventsIndex', {
@@ -33,7 +26,8 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('eventsNew', {
       url: '/events/new',
       templateUrl: 'views/events/new.html',
-      controller: 'EventsNewCtrl as eventsNew'
+      controller: 'EventsNewCtrl as eventsNew',
+      resolve: {secureState}
     })
     .state('eventsShow', {
       url: '/events/:id',
@@ -43,7 +37,8 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('eventsEdit', {
       url: '/events/:id/edit',
       templateUrl: 'views/events/edit.html',
-      controller: 'EventsEditCtrl as eventsEdit'
+      controller: 'EventsEditCtrl as eventsEdit',
+      resolve: {secureState}
     })
     .state('placesIndex', {
       url: '/places',
@@ -53,7 +48,8 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('placesNew', {
       url: '/places/new',
       templateUrl: 'views/places/new.html',
-      controller: 'PlacesNewCtrl as placesNew'
+      controller: 'PlacesNewCtrl as placesNew',
+      resolve: {secureState}
     })
     .state('placesShow', {
       url: '/places/:id',
@@ -63,7 +59,8 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('placesEdit', {
       url: '/places/:id/edit',
       templateUrl: 'views/places/edit.html',
-      controller: 'PlacesEditCtrl as placesEdit'
+      controller: 'PlacesEditCtrl as placesEdit',
+      resolve: {secureState}
     })
     .state('login', {
       url: '/login',
