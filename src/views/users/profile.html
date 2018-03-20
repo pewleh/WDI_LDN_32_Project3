@@ -1,12 +1,11 @@
-<div class="container profile">
+<div class="profileContainer">
 
-  <div class="container info">
+  <div class="profileInfo">
     <img ng-src="{{ usersProfile.user.avatar }}" alt="{{ usersProfile.user.name }}" class="profilePic"/>
-    <h2 class="title is-2">{{ usersProfile.user.username }}</h2>
-    <p>{{ usersProfile.user.email }}</p>
+    <h2 class="username">{{ usersProfile.user.username }}</h2>
   </div>
-
-  <div class="container favorites">
+<div class="preferences">
+  <div class="containerFavorites">
     <h3 class="subtitle is-3">See your favorites</h3>
     <ul>
       <li>Your Events</li>
@@ -23,13 +22,14 @@
 
   <hr>
 
-  <div class="container comments">
+  <div class="containerComments">
     <h3 class="subtitle is-3">See your comments</h3>
     <ul>
       <li ng-repeat="comment in usersProfile.user.comments">{{comment.content}}</li>
     </ul>
   </div>
-
+</div>
   <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
   <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
+
 </div>
