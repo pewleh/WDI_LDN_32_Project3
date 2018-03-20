@@ -8,6 +8,7 @@ import 'satellizer';
 // 3rd Party Extras
 import 'bulma';
 import './assets/scss/style.scss';
+import 'angular-filepicker/dist/angular_filepicker';
 
 import MainCtrl from './controllers/main';
 
@@ -44,7 +45,7 @@ import Place from './services/Place';
 import User from './services/User';
 
 // Registrations on App
-angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
+angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer', 'angular-filepicker'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)

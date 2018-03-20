@@ -1,5 +1,5 @@
-EventsShowCtrl.$inject = ['Event', 'User', '$state', '$window'];
-function EventsShowCtrl(Event, User, $state, $window) {
+EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state', '$window'];
+function EventsShowCtrl(Event, User, Place, $state, $window) {
   const vm = this;
   this.event = {};
   this.currentUser = $window.localStorage.getItem('userId');
@@ -7,6 +7,11 @@ function EventsShowCtrl(Event, User, $state, $window) {
     user: this.currentUser,
     event: $state.params.id
   };
+
+  vm.allPlaces = [];
+
+  Place.findPlace()
+    .then(res => vm.allPlaces = res.data);
 
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
