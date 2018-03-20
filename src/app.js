@@ -37,7 +37,6 @@ import UsersProfileCtrl from './controllers/users/profile';
 // Directives
 import googleMap from './directives/google-map';
 import collectionGoogleMap from './directives/collection-google-map';
-import testCollectionGoogleMap from './directives/test-collection-google-map';
 import autoComplete from './directives/auto-complete';
 
 // Services
@@ -66,5 +65,4 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'ngCookies', 'satellizer
   .service('User', User)
   .directive('autoComplete', autoComplete)
   .directive('collectionGoogleMap', collectionGoogleMap)
-  .directive('testCollectionGoogleMap', testCollectionGoogleMap)
   .directive('googleMap', googleMap);
