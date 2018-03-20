@@ -1,24 +1,34 @@
-<div class="card">
-  <div class="card-content">
-    <h4>Place Name: {{ placesShow.place.name }}</h4>
-    <p>Type: {{ placesShow.place.type }}</p>
-    <p>Outdoor: {{ placesShow.place.outdoor }}</p>
-    <p>Location Lat: {{ placesShow.place.location.lat }}</p>
-    <p>Location Lng: {{ placesShow.place.location.lng }}</p>
-    <p>Address: {{ placesShow.place.address }}</p>
+<div class="container">
+  <div class="showContainer">
+    <div class="titleContainer">
+      <h2 class="showTitle" style="width: 600px;"><h2>{{ placesShow.place.name }}</h2>
+      <p class="showSubtitle">{{ placesShow.place.address }}</p>
+    </div>
+    <div class="container image">
+      <figure class="showImage">
+        <img src="{{ placesShow.place.image }}" style="
+        width: 550px;
+        border-radius:  15px;
+        margin-left: 15%">
+      </figure>
+      <div class="showButtons">
+        <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
 
+        <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
 
+        <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <p class="showDescription">{{ placesShow.place.description }}</p>
+<br>
+  <p>Type: <strong>{{ placesShow.place.type }}</strong></p>
+  <p>Outdoors:<strong> {{ placesShow.place.outdoor }}</strong></p>
 
-    <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
-
-    <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
-
-    <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
 
     <hr>
-
     <!--  table Weather Option-->
-
     <table>
       <thead>
         <td>Day</td>
@@ -32,7 +42,8 @@
       </tr>
     </table>
 
-  </div>
-
 <!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
-<google-map zoom="14" center="placesShow.place.location"></google-map>
+</div>
+<div class="googleBorder">
+<google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
+</div>

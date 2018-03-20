@@ -70,3 +70,60 @@ li{
 .indexSubtitle{
   font-size: 20px;
 }
+.container{
+  height:650px;
+
+  .showContainer{
+    display: inline-flex;
+    font-size: 70px;
+    padding: 50px;
+    height: 500px;
+    margin-bottom: 40px;
+    .showTitle{
+      font-size: 45px;
+      margin-top: 150px;
+      text-align: center;
+
+    }
+    .showSubtitle{
+      font-size: 25px;
+      width: 500px;
+      text-align: center;
+      margin-left: 60px;
+    }
+    .showButtons{
+      margin-top: 30%;
+      margin-left: 36%;
+    }
+    .showImage{
+      position: absolute;
+      top: 70px;
+    }
+  }
+}
+.commentButton{
+  float:right;
+}
+
+.showDescription{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.googleBorder{
+  width: 550px;
+  margin-left: 58%;
+  margin-bottom: 20px;
+  padding:20px;
+}
+.showGoogle{
+  width: 500px;
+  border-radius: 5%;
+}
+table{
+  font-size: 20px;
+}
+.titleContainer{
+  width:670px;
+}
