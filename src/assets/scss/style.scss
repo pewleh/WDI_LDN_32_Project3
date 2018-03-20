@@ -57,7 +57,7 @@
     font-size: 70px;
     padding: 50px;
     height: 500px;
-    margin-bottom: 40px;
+    margin-bottom: 200px;
     .showTitle{
       font-size: 45px;
       margin-top: 150px;
@@ -71,8 +71,12 @@
       margin-left: 60px;
     }
     .showButtons{
-      margin-top: 30%;
-      margin-left: 36%;
+      margin-top: 35%;
+      margin-left: 28%;
+    }
+    .showEventButtons{
+      margin-top: 52%;
+      margin-left: 7%;
     }
     .showImage{
       position: absolute;
@@ -83,6 +87,10 @@
 .commentButton{
   float:right;
 }
+.commentSection{
+  margin-top: 100px;
+}
+
 
 .showDescription{
   font-size: 20px;
@@ -93,7 +101,7 @@
 .googleBorder{
   width: 550px;
   margin-left: 58%;
-  margin-bottom: 20px;
+  margin-top: 10%;
   padding:20px;
 }
 .showGoogle{
@@ -109,5 +117,11 @@ table{
 
 .dropDowns{
   display: inline-flex;
+}
 
+
+//Profiles begin.
+
+.profilePic{
+  border-radius: 50%
 }

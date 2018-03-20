@@ -15,7 +15,7 @@
         border-radius:  15px;
         margin-left: 15%"/>
       </figure>
-      <div class="showButtons">
+      <div class="showEventButtons">
             <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
             <button ng-if="main.userId" class="button is-primary" ng-click="eventsShow.addFavoriteEvent()">Favorite</button>
             <button ng-if="main.admin" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
@@ -27,13 +27,11 @@
   <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
   <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
 </div>
-<div class="container commentsection">
+<div class="container commentSection">
   <h3 class="subtitle">What's on your mind?</h3>
-
   <ul>
     <li ng-repeat="comment in eventsShow.event.comments">{{comment}}</li>
   </ul>
-
   <form ng-if="main.userId" ng-submit="eventsShow.submitComment()">
     <div class="field">
     </div>
