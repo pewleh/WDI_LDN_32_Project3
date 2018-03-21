@@ -5,7 +5,7 @@
     <h2 class="username">{{ usersProfile.user.username }}</h2>
   </div>
 <div class="preferences">
-  <div class="containerFavorites">
+  <div class="container favorites">
     <h3 class="subtitle is-3">See your favorites</h3>
     <ul>
       <li>Events:</li>
@@ -22,7 +22,7 @@
 
   <hr>
 
-  <div class="containerComments">
+  <div class="container comments">
     <h3 class="subtitle is-3">See your comments</h3>
     <ul>
       <li ng-repeat="comment in usersProfile.user.comments" ><strong>{{ comment.event.name }} {{ comment.place.name }}</strong> - {{ comment.content }}</li>
