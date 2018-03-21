@@ -22,10 +22,11 @@ function googleMap() {
       });
 
       function showMarkers(place) {
-        // console.log(place.weather.data[0].icon);
+        console.log(place.weather.data[0].icon);
         const marker = new google.maps.Marker({
           position: { lat: place.location.lat, lng: place.location.lng },
-          map: map
+          map: map,
+          icon: `/assets/images/weather-SVG/${place.weather.data[0].icon}.svg`
         });
         marker.addListener('click', () => {
           showInfoWindow(place, marker);
