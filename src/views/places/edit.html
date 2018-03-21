@@ -1,32 +1,35 @@
-<form ng-submit="placesEdit.handleSubmit()">
+<h1 class="registerTitle"> Update a location</h1>
+<div class="loginContainer">
+  <form ng-submit="placesEdit.handleSubmit()">
 
-  <div class="field">
-    <label for="name">Place Name</label>
-    <input class="input" placeholder="Place Name" name="name" ng-model="placesEdit.place.name" />
-  </div>
-
-  <div class="field">
-    <label for="location">Location</label>
-    <input class="input" placeholder="location" name="location" ng-model="placesEdit.place.location"/>
-  </div>
-
-  <div class="field">
-    <label for="image">Image</label>
-    <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
-  </div>
-
-  <div class="field">
-    <label for="type">Type of place</label>
-    <div class="control">
-      <div class="select">
-        <select name="type" ng-model="placesNew.newPlace.type" required>
-          <option selected disabled value="">Please choose</option>
-          <option value="park">Park</option>
-          <option value="observatory">Observatory</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
+    <div class="field">
+      <label for="name">Place Name</label>
+      <input class="input" placeholder="Place Name" name="name" ng-model="placesEdit.place.name" />
     </div>
 
-  <button type="button" class="button is-primary">Submit</button>
-</form>
+    <div class="field">
+      <label for="location">Location</label>
+      <input class="input" placeholder="location" name="location" ng-model="placesEdit.place.location"/>
+    </div>
+
+    <div class="field">
+      <label for="image">Image</label>
+      <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
+    </div>
+
+    <div class="field">
+      <label for="type">Type of place</label>
+      <div class="control">
+        <div class="select">
+          <select name="type" ng-model="placesNew.newPlace.type" required>
+            <option selected disabled value="">Please choose</option>
+            <option value="park">Park</option>
+            <option value="observatory">Observatory</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="button is-primary">Submit</button>
+    </form>
+  </div>
