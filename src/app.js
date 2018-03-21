@@ -15,6 +15,8 @@ import MainCtrl from './controllers/main';
 import Router from './config/router';
 import Auth from './config/auth';
 
+//Info controllers
+import InfoAboutCtrl from './controllers/infos/about';
 // Events Controllers
 import EventsIndexCtrl from './controllers/events/index';
 import EventsNewCtrl from './controllers/events/new';
@@ -48,6 +50,7 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
+  .controller('InfoAboutCtrl', InfoAboutCtrl)
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
   .controller('EventsShowCtrl', EventsShowCtrl)

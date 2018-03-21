@@ -76,6 +76,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/profile/:id',
       templateUrl: 'views/users/profile.html',
       controller: 'UsersProfileCtrl as usersProfile'
+    })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'views/info/about.html',
+      controller: 'InfoAboutCtrl as infoAbout'
     });
 
   $urlRouterProvider.otherwise('/events');
