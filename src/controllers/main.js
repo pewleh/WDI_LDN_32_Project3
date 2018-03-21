@@ -25,6 +25,7 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
   });
 
   $rootScope.$on('flashMessage', (e, data) => {
+    console.log(data);
     vm.flashMessage = data;
 
     $timeout(() => vm.flashMessage = null, 3000);
