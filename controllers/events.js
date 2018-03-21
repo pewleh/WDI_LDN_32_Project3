@@ -16,7 +16,7 @@ function createRoute(req, res, next){
 
 function showRoute(req, res, next) {
   Event.findById(req.params.id)
-    .populate('comments.user')
+    .populate('comments.userId')
     .then(event => res.json(event))
     .catch(next);
 }
@@ -36,10 +36,20 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function imageCreateRoute(req, res, next) {
+  console.log(req.body);
+  Event.findById(req.params.id)
+    .then(event => {
+      event.userImages.push(req.body);
+
+    })
+    .catch(next);
+}
+
 function createCommentRoute(req,res,next) {
   Event.findById(req.params.id)
     .then(event => {
-      const comment = { content: req.body.content, event: event.id };
+      const comment = { content: req.body.content, event: event.id, userId: req.body.userId };
       event.comments.push(comment);
       return event.save();
     })
@@ -57,13 +67,13 @@ function deleteCommentRoute(req, res, next) {
     .then(event => res.json(event))
     .catch(next);
 }
-
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute,
+  imageCreate: imageCreateRoute,
   createComment: createCommentRoute,
   deleteComment: deleteCommentRoute
 };

@@ -2,7 +2,6 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
-
 nav.navbar{
 
   a.navbar-item{
@@ -11,9 +10,6 @@ nav.navbar{
     font-weight: bold;
   }
 }
-
-
-
 
 .title, .subtitle, p, h1, h2, h3, h4{
   color: #c8c9ca;
@@ -46,9 +42,6 @@ table{
 .titleContainer{
   width:670px;
 }
-
-
-
 
 
 //REFACTORED CSS STARTS HERE ->
@@ -101,10 +94,15 @@ table{
 
 
 .profilePic{
-  border-radius: 50%;
+  border-radius: 100%;
   margin-left: 10%;
   margin-top:5%;
 }
+
+#profilePicHeight {
+  height: 300px;
+}
+
 .username{
   font-size: 55px;
   margin-left: 18.5%;

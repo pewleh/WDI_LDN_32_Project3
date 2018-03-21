@@ -1,5 +1,10 @@
 <div class="container">
+
   <div class="eventShowContainer">
+
+  <collection-google-map place="eventsShow.allPlaces"></collection-google-map>
+  <div class="showContainer">
+
     <div class="titleContainer">
       <h2 class="showTitle" style="width: 600px;">{{ eventsShow.event.name }} - {{ eventsShow.event.type }}</h2>
       <p class="showSubtitle">Date: {{ eventsShow.event.date | date}}</p>
@@ -17,12 +22,12 @@
       </div>
     </div>
 
-  <div class="container info">
-    <h4 class="subtitle is-4"></h4>
-    <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-    <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-    <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
-  </div>
+    <div class="container info">
+      <h4 class="subtitle is-4"></h4>
+      <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+      <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+      <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
+    </div>
 
   </div>
   <div class="container eventCommentSection">
@@ -30,8 +35,13 @@
       <h3 class="subtitle">What others have said:</h3>
       <ul>
         <li ng-repeat="comment in eventsShow.event.comments">
+<<<<<<< HEAD
           <span ui-sref="profile({ id: comment.user._id })">{{comment}}
           {{ comment.user.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
+=======
+          <span ui-sref="profile({ id: comment.userId._id })">
+          {{ comment.userId.username }} {{ comment.username }}- {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
+>>>>>>> 5a7989ae68aeb9ad6eb0ea36a8a4b52ddc9af635
         </li>
       </ul>
     </div>
@@ -46,3 +56,48 @@
 
   </div>
 </div>
+
+
+<div class="field" ng-if="eventsShow.event.image">
+  <label class="label">Gallery Image Preview</label>
+  <div class="control">
+    <figure class="image is-128x128">
+      <img src="{{ eventsShow.event.image }}">
+    </figure>
+  </div>
+</div>
+
+
+<div class="control">
+  <div class="file">
+    <label class="file-label">
+      <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+    </label>
+  </div>
+</div>
+<form ng-submit="eventsShow.savePic()">
+  <button type="submit">Save Picture</button>
+
+  <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
+</form>
+
+<!-- <div class="field" ng-if="eventsShow.event.image">
+<label class="label">Profile Picture Preview</label>
+<div class="control">
+<figure class="image is-128x128">
+<img src="{{ eventsShow.event.image }}">
+</figure>
+</div>
+</div> -->
+
+<figure class="image" ng-repeat="picture in eventsShow.event.userImages">
+  <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
+</figure>
