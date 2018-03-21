@@ -2,15 +2,9 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
-// html{
-//   background-color: blue;
-//   background-size: cover;
-//   color: white;
-// }
 
 nav.navbar{
-  // background-color: #781515; //man idk
-  // background-color: #883131;
+
   a.navbar-item{
     color:black;
     font-size: 20px;
@@ -18,70 +12,14 @@ nav.navbar{
   }
 }
 
-//Show page
-
-.titleContainer{
-  background-color: #ffffff26;
-  height: 50%;
-  margin-top: 7%;
-}
-
-.showContainer{
-  display: inline-flex;
-  font-size: 70px;
-  padding: 50px;
-  height: 500px;
-  margin-bottom: 200px;
-  .showTitle{
-    font-size: 45px;
-    margin-top: 5%;
-    text-align: center;
-
-  }
-  .showSubtitle{
-    font-size: 25px;
-    width: 500px;
-    text-align: center;
-    margin-left: 60px;
-  }
-  .showButtons{
-    margin-top: 35%;
-    margin-left: 28%;
-  }
-  .showEventButtons{
-    margin-top: 52%;
-    margin-left: 7%;
-  }
-  .showImage{
-    position: absolute;
-    top: 70px;
-  }
-}
-
-.showDescription{
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-}
 
 
-.google-map {
-  width: 300px;
-  height: 300px;
-}
 
-.collection-google-map {
-  height:300px;
-}
 .title, .subtitle, p, h1, h2, h3, h4{
   color: #c8c9ca;
   padding-top: 10px;
 }
 
-// .event{
-//   position: absolute;
-//   top: 26%;
-// }
 .commentButton{
   float:right;
 }
@@ -109,9 +47,7 @@ table{
   width:670px;
 }
 
-.dropDowns{
-  display: inline-flex;
-}
+
 
 
 
@@ -185,11 +121,88 @@ table{
   margin-left: 13.5%;
 }
 
-
 // events + places Index ->
 .indexTitle{
   font-size: 38px;
 }
 .indexSubtitle{
   font-size: 20px;
+}
+//events + places New ->
+.newSubtitle{
+  margin-left: 39%;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+.newContainer{
+  width: 1000px;
+  margin-left: 14%;
+  .dropDowns{
+    display: inline-flex;
+    .dropDown{
+      margin-left:70%;
+    }
+  }
+}
+
+//events + places Show ->
+
+.titleContainer{
+  background-color: #ffffff26;
+  height: 50%;
+  margin-top: 7%;
+}
+//NEED TO FIX EVENT SHOW CONTAINER MAGIN!!
+.newShowContainer, .eventShowContainer{
+  display: inline-flex;
+  font-size: 70px;
+  padding: 50px;
+  height: 500px;
+  .showTitle{
+    font-size: 45px;
+    margin-top: 5%;
+    text-align: center;
+  }
+  .newShowContainer{
+      margin-bottom: 40px;
+  }
+  .eventShowContainer{
+    margin-bottom: 300px;
+  }
+  .showSubtitle{
+    font-size: 25px;
+    width: 500px;
+    text-align: center;
+    margin-left: 60px;
+  }
+  .eventShowButtons{
+    margin-top: 48%;
+    margin-left: 28%;
+  }
+  .newShowButtons{
+    margin-top: 30%;
+    margin-left: 28%;
+  }
+
+  .showImage{
+    position: absolute;
+    top: 70px;
+  }
+}
+
+.showDescription{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+//googleMaps ->
+
+.google-map {
+  width: 300px;
+  height: 300px;
+}
+
+.collection-google-map {
+  height:300px;
 }

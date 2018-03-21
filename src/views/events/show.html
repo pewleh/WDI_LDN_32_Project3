@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="showContainer">
+  <div class="eventShowContainer">
     <div class="titleContainer">
       <h2 class="showTitle" style="width: 600px;">{{ eventsShow.event.name }} - {{ eventsShow.event.type }}</h2>
       <p class="showSubtitle">Date: {{ eventsShow.event.date | date}}</p>
@@ -10,7 +10,7 @@
         <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
         <img ng-if="eventsShow.isMeteorShower()" src="./assets/images/meteor-shower.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
       </figure>
-      <div class="event showButtons">
+      <div class="eventShowButtons">
         <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
         <button ng-if="main.userId" class="button is-primary" ng-click="eventsShow.addFavoriteEvent()">Favorite</button>
         <button ng-if="main.admin" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
@@ -29,7 +29,7 @@
     <div class="container display">
       <h3 class="subtitle">What others have said:</h3>
       <ul>
-        <li ng-repeat="comment in eventsShow.event.comments"> 
+        <li ng-repeat="comment in eventsShow.event.comments">
           <span ui-sref="profile({ id: comment.user._id })">{{comment}}
           {{ comment.user.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
         </li>
