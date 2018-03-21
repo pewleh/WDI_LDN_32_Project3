@@ -1,6 +1,6 @@
-PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$window', '$auth'];
+PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$auth'];
 
-function PlacesShowCtrl(Place, User, $state, $window, $auth) {
+function PlacesShowCtrl(Place, User, $state, $auth) {
 
   const vm = this;
 
@@ -31,9 +31,10 @@ function PlacesShowCtrl(Place, User, $state, $window, $auth) {
   this.remove = remove;
 
   function submitComment() {
-    vm.place.comments.push(vm.comment);
-    Place.createComment(vm.comment ,vm.place);
-
+    Place.createComment(vm.comment ,vm.place)
+      .then(() => User.findById(vm.currentUser))
+      .then((user) => vm.comment.username = user.data.username)
+      .then(() => vm.place.comments.push(vm.comment));
   }
 
   this.submitComment = submitComment;

@@ -13,11 +13,30 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="field">
           <label for="date">Event Date</label>
           <input class="input" placeholder="Event Date" name="date" ng-model="eventsNew.newEvent.date" required />
           <div ng-messages="eventsNew.form.name.$error" ng-if="placesNew.form.date.$dirty || eventsNew.form.$submitted">
             <div class="notification is-danger" ng-message="required">This field is required</div>
+=======
+      <div class="field">
+        <label for="endTime">End Time</label>
+        <input class="input" placeholder="End Time (if applicable)" name="endTime" ng-model="eventsNew.newEvent.endTime" />
+      </div>
+      <div class="dropDowns">
+      <div class="field"  style="margin-left: 80%;">
+        <label for="type">Type of event</label>
+        <div class="control">
+          <div class="select">
+            <select name="type" ng-model="eventsNew.newEvent.type" required>
+              <option selected disabled value="">Please choose</option>
+              <option value="Satellite">Satellite</option>
+              <option value="Astroid">Astroid</option>
+              <option value="Stars">Star</option>
+              <option value="Meteor Shower">Meteor Shower</option>
+            </select>
+>>>>>>> 5a7989ae68aeb9ad6eb0ea36a8a4b52ddc9af635
           </div>
         </div>
 

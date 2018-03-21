@@ -18,6 +18,10 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
+  function remove(event) {
+    return $http.delete(`/api/events/${event._id}`);
+  }
+
   function createComment(comment, event){
     return $http.post(`/api/events/${event._id}/comments`, comment);
   }
@@ -26,16 +30,19 @@ function Event($http) {
     return $http.delete(`/api/events/${event._id}/comments/${comment._id}`);
   }
 
-  function remove(event) {
-    return $http.delete(`/api/events/${event._id}`);
+  function imageCreate(event, data) {
+    // console.log('event in service', event);
+    // console.log('image in service', data);
+    return $http.post(`/api/events/${event._id}/images`, data);
   }
 
   this.findEvent = findEvent;
   this.create = create;
   this.findById = findById;
-  this.remove = remove;
   this.update = update;
+  this.remove = remove;
   this.createComment = createComment;
   this.deleteComment = deleteComment;
+  this.imageCreate = imageCreate;
 }
 export default Event;

@@ -101,10 +101,15 @@ table{
 
 
 .profilePic{
-  border-radius: 50%;
+  border-radius: 100%;
   margin-left: 10%;
   margin-top:5%;
 }
+
+#profilePicHeight {
+  height: 300px;
+}
+
 .username{
   font-size: 55px;
   margin-left: 18.5%;

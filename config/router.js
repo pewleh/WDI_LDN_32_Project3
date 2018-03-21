@@ -17,6 +17,8 @@ router.route('/events/:id')
   .put(secureRoute, events.update)
   .delete(secureRoute, events.delete);
 
+router.route('/events/:id/images')
+  .post(events.imageCreate);
 router.route('/events/:id/comments')
   .post(secureRoute, events.createComment);
 
