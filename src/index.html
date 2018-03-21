@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Star Gazer</title>
   <link rel="icon" href="/assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiCQ4etWjHrEIjLlWe_HjK0Lo_U5rDD0c&libraries=places"></script>
 </head>
@@ -20,17 +21,21 @@
     <div id="mobile-menu" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
-        <a class="navbar-item" ui-sref="eventsNew" ng-if="main.isAuthenticated()">New Event</a>
+        <a class="navbar-item" ui-sref="eventsNew" ng-if="main.userId">New Event</a>
         <a class="navbar-item" ui-sref="placesIndex">All Places</a>
-        <a class="navbar-item" ui-sref="placesNew" ng-if="main.isAuthenticated()">New Place</a>
-        <a class="navbar-item" ui-sref="profile({ id: main.userId })" ng-if="main.isAuthenticated()">My Profile</a>
+        <a class="navbar-item" ui-sref="placesNew" ng-if="main.userId">New Place</a>
+        <a class="navbar-item" ui-sref="profile({ id: main.userId })" ng-if="main.userId">My Profile</a>
         <a class="navbar-item" ui-sref="about">About us!</a>
-        <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">Log In</a>
-        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">Sign Up</a>
-        <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Log out</a>
+        <a class="navbar-item" ui-sref="login" ng-if="!main.userId">Log In</a>
+        <a class="navbar-item" ui-sref="register" ng-if="!main.userId">Sign Up</a>
+        <a class="navbar-item" ng-click="main.logout()" ng-if="main.userId">Log out</a>
       </div>
     </div>
   </nav>
+
+  <div ng-if="main.flashMessage" class="notification is-{{ main.flashMessage.type }}">
+    {{ main.flashMessage.content }}
+  </div>
 
   <ui-view></ui-view>
 

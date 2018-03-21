@@ -50,7 +50,9 @@
   <div class="container display">
     <h3 class="subtitle">See what others have said</h3>
     <ul>
-      <li ng-repeat="comment in placesShow.place.comments" ui-sref="profile({ id: comment.user._id })">{{ comment.user.username }} - {{ comment.content }}</li>
+      <li ng-repeat="comment in placesShow.place.comments">
+        <span ui-sref="profile({ id: comment.userId._id })">{{ comment.userId.username }} {{ comment.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="placesShow.deleteComment(comment)"></button>
+      </li>
     </ul>
   </div>
 
