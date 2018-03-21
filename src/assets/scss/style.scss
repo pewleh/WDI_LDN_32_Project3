@@ -58,6 +58,11 @@ nav.navbar{
   }
 }
 
+.showDescription{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 
 .google-map {
@@ -101,25 +106,24 @@ nav.navbar{
   margin-left: 25%;
 }
 
+
+
+
+
 // .loginTitle{
 //   font-size: 50px;
 //   margin-left: 20%;
 //   margin-bottom: 27px;
 // }
 
-.indexTitle{
-  font-size: 32px;
-}
-.indexSubtitle{
-  font-size: 20px;
-}
 
 
 
-.event{
-  position: absolute;
-  top: 26%;
-}
+
+// .event{
+//   position: absolute;
+//   top: 26%;
+// }
 .commentButton{
   float:right;
 }
@@ -129,11 +133,6 @@ nav.navbar{
 }
 
 
-.showDescription{
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-}
 
 .googleBorder{
   width: 550px;
@@ -202,4 +201,12 @@ table{
       font-size: 50px;
     }
   }
+}
+
+// events + places Index ->
+.indexTitle{
+  font-size: 38px;
+}
+.indexSubtitle{
+  font-size: 20px;
 }

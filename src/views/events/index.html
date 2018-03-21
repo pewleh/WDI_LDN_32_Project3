@@ -1,21 +1,21 @@
 <h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
 <div class="container">
-<div class="eventslist" class="eventSubtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
-  <h3 class="subtitle is-3">{{date.date | date }}</h3>
-  <ul class="columns is-multiline">
-    <li class="column is-one-quarter" ng-repeat="event in date.events">
-      <a ui-sref="eventsShow({ id: event._id })">
-        <div class="card">
-          <div class="card-content">
-            <h5 class="subtitle is-5">Type: {{ event.type }}</h5>
-            <p>Event Name: {{ event.name }}</p>
-            <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-            <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-            <p>visibility: {{ event.visibility }}</p>
+  <div class="eventSubtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
+    <h3 class="subtitle is-3">{{date.date | date }}</h3>
+    <ul class="columns is-multiline">
+      <li class="column is-one-quarter" ng-repeat="event in date.events">
+        <a ui-sref="eventsShow({ id: event._id })">
+          <div class="card">
+            <div class="card-content">
+              <p class="indexTitle">{{ event.type }}</p>
+              <p class="indexSubtitle">Event Name: {{ event.name }}</p>
+              <p class="indexSubtitle">visibility: {{ event.visibility }}</p>
+              <p class="indexSubtitle" ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+              <p class="indexSubtitle" ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+            </div>
           </div>
-        </div>
-      </a>
-    </li>
-  </ul>
-</div>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
