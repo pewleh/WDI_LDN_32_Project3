@@ -18,9 +18,14 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
-// point this at the api
-  function createComment(comment, eventId){
-    return $http.put(`/api/events/${eventId}.comments`, comment);
+  // point this at the api
+  function createComment(comment, event){
+    return $http.post(`/api/events/${event._id}/comments`, comment);
+  }
+
+  // point this at the api
+  function deleteComment(comment, event){
+    return $http.delete(`/api/events/${event._id}/comments/${comment.id}`);
   }
 
   function remove(event) {
@@ -33,5 +38,6 @@ function Event($http) {
   this.remove = remove;
   this.update = update;
   this.createComment = createComment;
+  this.deleteComment = deleteComment;
 }
 export default Event;

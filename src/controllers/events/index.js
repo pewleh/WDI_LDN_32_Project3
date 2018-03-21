@@ -14,7 +14,7 @@ function EventsIndexCtrl(Event){
       // This should push an Object with date: event.date and events: []
       vm.dateObjects = allDates.map(date => ({
         date: date,
-        events: vm.allEvents.filter(event => event.date === date)
+        events: res.data.filter(event => event.date === date)
       }));
     });
 }
