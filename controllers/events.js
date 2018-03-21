@@ -36,10 +36,34 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function createCommentRoute(req,res,next) {
+  Event.findById(req.params.id)
+    .then(event => {
+      const comment = { content: req.body.content, event: event.id };
+      event.comments.push(comment);
+      return event.save();
+    })
+    .then(event => res.json(event))
+    .catch(next);
+}
+
+function deleteCommentRoute(req, res, next) {
+  Event.findById(req.params.id)
+    .then(event => {
+      const comment = event.comments.id(req.params.commentId);
+      comment.remove();
+      return event.save();
+    })
+    .then(event => res.json(event))
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  createComment: createCommentRoute,
+  deleteComment: deleteCommentRoute
 };
