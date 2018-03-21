@@ -10,6 +10,13 @@
 <body ng-controller="MainCtrl as main">
 
   <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/assets/images/favicon.ico" alt="Star Gazer">
+        &nbsp;
+        <!-- &nbsp provides a fixed space between the left and the right of the nav bar :* -->
+        STAR GAZER</a>
+      </div>
     <div id="mobile-menu" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
@@ -17,6 +24,7 @@
         <a class="navbar-item" ui-sref="placesIndex">All Places</a>
         <a class="navbar-item" ui-sref="placesNew" ng-if="main.isAuthenticated()">New Place</a>
         <a class="navbar-item" ui-sref="profile({ id: main.userId })" ng-if="main.isAuthenticated()">My Profile</a>
+        <a class="navbar-item" ui-sref="about">About us!</a>
         <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">Log In</a>
         <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">Sign Up</a>
         <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Log out</a>
