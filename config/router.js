@@ -17,6 +17,9 @@ router.route('/events/:id')
   .put(secureRoute, events.update)
   .delete(secureRoute, events.delete);
 
+router.route('/events/:id/images')
+  .post(events.imageCreate);
+
 
 router.route('/places')
   .get(places.index)
@@ -33,7 +36,7 @@ router.post('/register', auth.register);
 router.post('/login', auth.login);
 
 router.route('/users/:id')
-  .get(secureRoute, users.show)
+  .get(users.show)
   .put(secureRoute, users.update)
   .delete(secureRoute, users.delete);
 

@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 function showRoute(req, res, next) {
-  console.log('showRoute',req.params.id);
+  // console.log('showRoute',req.params.id);
   User.findById(req.params.id)
     .populate('comments.event')
     .populate('comments.place')
@@ -26,8 +26,19 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function imageCreateRoute(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => {
+      user.avatar = req.body;
+      return user.save();
+    })
+    .then(user => res.json(user))
+    .catch(next);
+}
+
 module.exports = {
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  imageCreate: imageCreateRoute
 };

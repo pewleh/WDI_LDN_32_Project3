@@ -3,6 +3,8 @@ UsersProfileCtrl.$inject = ['User', '$state', '$scope'/*, '$window', 'filepicker
 
 function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) {
   this.user = {};
+
+  const vm = this;
   // $scope.avatar = null;
 
   User.findById($state.params.id)
@@ -29,6 +31,15 @@ function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) 
   // }
 
   this.remove = remove;
+
+  function savePic() {
+    console.log('EVENT', vm.user);
+    User
+      .update(vm.user)
+      .then(res => console.log(res));
+  }
+
+  this.savePic = savePic;
   // this.getAvatarFromFilepicker = getAvatarFromFilepicker;
 }
 

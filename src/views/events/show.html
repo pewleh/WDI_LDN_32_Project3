@@ -18,12 +18,12 @@
       </div>
     </div>
 
-  <div class="container info">
-    <h4 class="subtitle is-4"></h4>
-    <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-    <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-    <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
-  </div>
+    <div class="container info">
+      <h4 class="subtitle is-4"></h4>
+      <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+      <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+      <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
+    </div>
 
   </div>
   <div class="container eventCommentSection">
@@ -56,27 +56,36 @@
 </div>
 
 
-  <div class="control">
-    <div class="file">
-      <label class="file-label">
-        <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fa fa-upload"></i>
-          </span>
-          <span class="file-label">
-            Choose a file…
-          </span>
+<div class="control">
+  <div class="file">
+    <label class="file-label">
+      <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
         </span>
-      </label>
-    </div>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+    </label>
   </div>
+</div>
+<form ng-submit="eventsShow.savePic()">
+  <button type="submit">Save Picture</button>
 
-  <!-- <div class="field" ng-if="eventsShow.event.image">
-    <label class="label">Profile Picture Preview</label>
-    <div class="control">
-      <figure class="image is-128x128">
-        <img src="{{ eventsShow.event.image }}">
-      </figure>
-    </div>
-  </div> -->
+  <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
+</form>
+
+<!-- <div class="field" ng-if="eventsShow.event.image">
+<label class="label">Profile Picture Preview</label>
+<div class="control">
+<figure class="image is-128x128">
+<img src="{{ eventsShow.event.image }}">
+</figure>
+</div>
+</div> -->
+
+<figure class="image" ng-repeat="picture in eventsShow.event.userImages">
+  <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
+</figure>

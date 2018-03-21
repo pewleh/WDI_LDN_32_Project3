@@ -36,10 +36,22 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function imageCreateRoute(req, res, next) {
+  console.log(req.body);
+  Event.findById(req.params.id)
+    .then(event => {
+      event.userImages.push(req.body);
+      return event.save();
+    })
+    .then(event => res.json(event))
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  imageCreate: imageCreateRoute
 };

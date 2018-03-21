@@ -18,20 +18,26 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
-// point this at the api
-  function createComment(comment, eventId){
+  function remove(event) {
+    return $http.delete(`/api/events/${event._id}`);
+  }
+  // point this at the api
+  function createComment(comment, eventId) {
     return $http.put(`/api/events/${eventId}.comments`, comment);
   }
 
-  function remove(event) {
-    return $http.delete(`/api/events/${event._id}`);
+  function imageCreate(event, data) {
+    // console.log('event in service', event);
+    // console.log('image in service', data);
+    return $http.post(`/api/events/${event._id}/images`, data);
   }
 
   this.findEvent = findEvent;
   this.create = create;
   this.findById = findById;
-  this.remove = remove;
   this.update = update;
+  this.remove = remove;
   this.createComment = createComment;
+  this.imageCreate = imageCreate;
 }
 export default Event;

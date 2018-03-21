@@ -24,7 +24,7 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
 
   this.remove = remove;
 
-// replace with createcomment restfulroute
+  // replace with createcomment restfulroute
   function submitComment() {
     console.log($window.localStorage.getItem('userId'));
     Event.findById(vm.event._id)
@@ -69,6 +69,27 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
   }
 
   this.isMeteorShower = isMeteorShower;
+
+  // function savePic() {
+  //   vm.trip.images.push(vm.trip.image);
+  //   Trip
+  //     .update({ tripId: vm.trip.id}, vm.trip)
+  //     .$promise
+  //     .then(() => {
+  //       vm.trip.image = null;
+  //     });
+  //
+  // }
+  // vm.savePic = savePic;
+
+  function savePic() {
+    console.log('EVENT', vm.event);
+    Event
+      .imageCreate(vm.event, { src: vm.event.image })
+      .then(res => console.log(res));
+  }
+
+  this.savePic = savePic;
 
 }
 
