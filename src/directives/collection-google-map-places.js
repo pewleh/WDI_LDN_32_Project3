@@ -16,13 +16,14 @@ function googleMap() {
         center: { lat: 51.515328, lng: -0.072031 }
       });
       let infoWindow = null;
+
       $scope.$watch('place', () => {
         infoWindow = new google.maps.InfoWindow();
         $scope.place.forEach(place => showMarkers(place));
       });
 
       function showMarkers(place) {
-        console.log(place.weather.data[0].icon);
+        console.log(place.weather.data[0]);
         const marker = new google.maps.Marker({
           position: { lat: place.location.lat, lng: place.location.lng },
           map: map,

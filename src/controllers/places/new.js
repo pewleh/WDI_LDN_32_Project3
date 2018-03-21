@@ -13,6 +13,15 @@ function PlacesNewCtrl(Place, $state) {
       .then(() => $state.go('placesIndex'));
   }
   this.handleSubmit = handleSubmit;
+
+  function savePic() {
+    console.log('EVENT', this.place);
+    Place
+      .create(this.place)
+      .then(res => console.log(res));
+  }
+
+  this.savePic = savePic;
 }
 
 export default PlacesNewCtrl;

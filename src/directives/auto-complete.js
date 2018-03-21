@@ -20,8 +20,7 @@ function autoComplete() {
         // console.log(lat);
         // console.log(lng);
         // console.log($scope);
-        $scope.placesNew.newPlace.address = address.gm_accessors_.place.fd.formattedPrediction;
-        // console.log(placesNew.newPlace.address);
+        $scope.placesNew.newPlace.address = address.gm_accessors_.place.dd.formattedPrediction;
       });
     }
   };
