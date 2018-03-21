@@ -15,7 +15,7 @@ function createRoute(req, res, next) {
 
 function showRoute(req, res, next) {
   Place.findById(req.params.id)
-    .populate('comments.user')
+    .populate('comments.userId')
     .then(place => res.json(place))
     .catch(next);
 }
@@ -38,7 +38,7 @@ function deleteRoute(req, res, next) {
 function createCommentRoute(req,res,next) {
   Place.findById(req.params.id)
     .then(place => {
-      const comment = { content: req.body.content, place: place.id };
+      const comment = { content: req.body.content, place: place.id , userId: req.body.userId };
       place.comments.push(comment);
       return place.save();
     })
