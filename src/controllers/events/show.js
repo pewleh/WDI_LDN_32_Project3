@@ -1,5 +1,5 @@
-EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state'];
-function EventsShowCtrl(Event, User, Place, $state) {
+EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state', '$auth'];
+function EventsShowCtrl(Event, User, Place, $state, $auth) {
   const vm = this;
   this.event = {};
   this.currentUser = $auth.getPayload().sub;

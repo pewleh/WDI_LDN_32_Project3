@@ -11,7 +11,7 @@ function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) 
     .then(res => {
       // console.log(res.data);
       this.user = res.data;
-      $scope.avatar = res.data.avatar;
+      // $scope.avatar = res.data.avatar;
     });
 
   // setTimeout(() => {
