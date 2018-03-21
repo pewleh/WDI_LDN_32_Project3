@@ -77,48 +77,6 @@ nav.navbar{
   color: #c8c9ca;
   padding-top: 10px;
 }
-.registerForm{
-  width: 580px;
-  margin-left: 60px;
-}
-.registerTitle{
-  text-align: center;
-  font-size: 60px;
-  padding-bottom: 40px;
-  text-decoration: overline;
-}
-
-.regBorder{
-  border: 1px dotted grey;
-  width: 400px;
-  margin-left: 160px;
-  padding:10px;
-}
-
-.regOuterBorder{
-  border: 1px dotted grey;
-  width: 700px;
-  margin-left: 100px;
-}
-
-.loginContainer{
-  width:700px;
-  margin-left: 25%;
-}
-
-
-
-
-
-// .loginTitle{
-//   font-size: 50px;
-//   margin-left: 20%;
-//   margin-bottom: 27px;
-// }
-
-
-
-
 
 // .event{
 //   position: absolute;
@@ -178,6 +136,7 @@ table{
 .userButton{
   margin-left: 13.5%;
 }
+//REFACTORED CSS STARTS HERE ->
 
 //About page ->
 .container{
@@ -209,4 +168,23 @@ table{
 }
 .indexSubtitle{
   font-size: 20px;
+}
+
+//login/Registration ->
+
+.loginContainer{
+  width:700px;
+  margin-left: 25%;
+}
+
+.registerForm{
+  width: 580px;
+  margin-left: 29%;
+  text-align: center;
+}
+.registerTitle{
+  text-align: center;
+  font-size: 60px;
+  padding:40px;
+  text-decoration: overline;
 }
