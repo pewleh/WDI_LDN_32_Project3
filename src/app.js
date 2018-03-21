@@ -9,12 +9,14 @@ import 'satellizer';
 import 'bulma';
 import './assets/scss/style.scss';
 import 'angular-filepicker/dist/angular_filepicker';
+import 'filepicker-js';
 
 import MainCtrl from './controllers/main';
 
 // Config Files
 import Router from './config/router';
 import Auth from './config/auth';
+import Upload from './config/filestack';
 
 // Events Controllers
 import EventsIndexCtrl from './controllers/events/index';
@@ -38,6 +40,7 @@ import UsersProfileCtrl from './controllers/users/profile';
 import googleMap from './directives/google-map';
 import collectionGoogleMap from './directives/collection-google-map';
 import autoComplete from './directives/auto-complete';
+import uploadImage from './directives/upload-image';
 
 // Services
 import Event from './services/Event';
@@ -48,6 +51,7 @@ import User from './services/User';
 angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer', 'angular-filepicker'])
   .config(Router)
   .config(Auth)
+  .config(Upload)
   .controller('MainCtrl', MainCtrl)
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
@@ -65,4 +69,5 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer', 'angular-f
   .service('User', User)
   .directive('autoComplete', autoComplete)
   .directive('collectionGoogleMap', collectionGoogleMap)
-  .directive('googleMap', googleMap);
+  .directive('googleMap', googleMap)
+  .directive('uploadImage', uploadImage);

@@ -9,6 +9,7 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
   };
 
   vm.allPlaces = [];
+  vm.event.image = null;
 
   Place.findPlace()
     .then(res => vm.allPlaces = res.data);
