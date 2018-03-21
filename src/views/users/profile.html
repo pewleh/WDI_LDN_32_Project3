@@ -1,7 +1,7 @@
 <div class="profileContainer">
 
   <div class="profileInfo">
-    <img ng-src="{{ usersProfile.user.avatar }}" alt="{{ usersProfile.user.name }}" class="profilePic"/>
+    <img ng-src="{{ usersProfile.user.avatar }}" id="profilePicHeight"alt="{{ usersProfile.user.name }}" class="profilePic"/>
     <h2 class="username">{{ usersProfile.user.username }}</h2>
   </div>
 <div class="preferences">
@@ -33,3 +33,30 @@
   <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
   <!-- <button ng-if="main.admin" class="button is-primary" ng-click="usersProfile.getAvatarFromFilepicker()">Upload Asshole</button>
 </div> -->
+
+<!--
+<div class="field" ng-if="usersProfile.user.avatar">
+  <label class="label">Profile Picture Preview</label>
+  <div class="control">
+    <figure class="image is-128x128">
+      <img src="{{ usersProfile.user.avatar }}">
+    </figure>
+  </div>
+</div> -->
+
+
+  <div class="control">
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" ng-model="usersProfile.user.avatar" upload-image>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>

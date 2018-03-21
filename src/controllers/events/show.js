@@ -29,12 +29,12 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
     Event.findById(vm.event._id)
       .then(event => {
         event.data.comments.push(vm.comment);
-        Event.update(event.data);
+        return Event.update(event.data);
       })
       .then(() => User.findById(vm.currentUser))
       .then(user => {
         user.data.comments.push(vm.comment);
-        User.update(user.data);
+        return User.update(user.data);
       })
       .then(() => $state.go($state.current, {}, {reload: true}));
   }
@@ -45,24 +45,20 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
     User.findById(vm.currentUser)
       .then(user => {
         user.data.favoriteEvents.push($state.params.id);
-        User.update(user.data);
+        return User.update(user.data);
       });
   }
 
   this.addFavoriteEvent = addFavoriteEvent;
 
   function isAsteroid() {
-    if(vm.event.type === 'Asteroid') {
-      return true;
-    }
+    return vm.event.type === 'Asteroid';
   }
 
   this.isAsteroid = isAsteroid;
 
   function isSatellite() {
-    if(vm.event.type === 'Satellite') {
-      return true;
-    }
+    return vm.event.type === 'Satellite';
   }
 
   this.isSatellite = isSatellite;
@@ -70,3 +66,6 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
 }
 
 export default EventsShowCtrl;
+
+// watch this.event.userImages for cahnges
+// when it changes, Event.update(this.event)

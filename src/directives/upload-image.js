@@ -4,8 +4,8 @@ function uploadImage(filepickerService) {
     restrict: 'A',
     require: 'ngModel',
     link: (scope, element, attrs, model) => {
-      element.bind('click', (e) => {
-        console.log('clicked');
+      element.on('click', (e) => {
+        console.log('I have been clicked');
         e.preventDefault();
 
         filepickerService

@@ -8,8 +8,8 @@ import 'satellizer';
 // 3rd Party Extras
 import 'bulma';
 import './assets/scss/style.scss';
-import 'angular-filepicker/dist/angular_filepicker';
 import 'filepicker-js';
+import 'angular-filepicker/dist/angular_filepicker';
 
 import MainCtrl from './controllers/main';
 
