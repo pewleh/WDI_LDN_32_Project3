@@ -1,12 +1,14 @@
 /* global navigator */
 
-MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout', '$window'];
+MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout'];
 
-function MainCtrl($auth, $state, $rootScope, $timeout, $window) {
+function MainCtrl($auth, $state, $rootScope, $timeout) {
   const vm = this;
 
-  vm.userId = null;
-  vm.admin = null;
+  vm.userId = false;
+  vm.admin =false;
+
+  if($auth.getPayload()) vm.userId = $auth.getPayload().sub;
 
   function logout() {
     vm.userId = false;
@@ -27,9 +29,6 @@ function MainCtrl($auth, $state, $rootScope, $timeout, $window) {
 
     $timeout(() => vm.flashMessage = null, 3000);
   });
-
-  // Rootscope .$on(login/logout )
-  // Broadcast stuff on auth
 
 }
 
