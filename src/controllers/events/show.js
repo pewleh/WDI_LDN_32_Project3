@@ -4,8 +4,7 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.event = {};
   this.currentUser = $window.localStorage.getItem('userId');
   this.comment = {
-    user: this.currentUser,
-    event: $state.params.id
+    user: this.currentUser
   };
 
   Event.findById($state.params.id)
@@ -19,21 +18,19 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.remove = remove;
 
   function submitComment() {
-    console.log($window.localStorage.getItem('userId'));
-    Event.findById(vm.event._id)
-      .then(event => {
-        event.data.comments.push(vm.comment);
-        Event.update(event.data);
-      })
-      .then(() => User.findById(vm.currentUser))
-      .then(user => {
-        user.data.comments.push(vm.comment);
-        User.update(user.data);
-      })
-      .then(() => $state.go($state.current, {}, {reload: true}));
+    vm.event.comments.push(vm.comment);
+    Event.createComment(vm.comment ,vm.event);
   }
 
   this.submitComment = submitComment;
+
+  function deleteComment(comment) {
+    Event.deleteComment(comment ,vm.event);
+    const index = vm.event.comments.indexOf(comment);
+    vm.event.comments.splice(index, 1);
+  }
+
+  this.deleteComment = deleteComment;
 
   function addFavoriteEvent() {
     User.findById(vm.currentUser)
@@ -46,25 +43,19 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.addFavoriteEvent = addFavoriteEvent;
 
   function isAsteroid() {
-    if(vm.event.type === 'Asteroid') {
-      return true;
-    }
+    return vm.event.type === 'Asteroid';
   }
 
   this.isAsteroid = isAsteroid;
 
   function isSatellite() {
-    if(vm.event.type === 'Satellite') {
-      return true;
-    }
+    return vm.event.type === 'Satellite';
   }
 
   this.isSatellite = isSatellite;
 
   function isMeteorShower() {
-    if(vm.event.type === 'Meteor Shower') {
-      return true;
-    }
+    return vm.event.type === 'Meteor Shower';
   }
 
   this.isMeteorShower = isMeteorShower;

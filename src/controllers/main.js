@@ -24,6 +24,9 @@ function MainCtrl($auth, $state, $rootScope, $timeout, $window) {
     $timeout(() => vm.flashMessage = null, 3000);
   });
 
+  // Rootscope .$on(login/logout )
+  // Broadcast stuff on auth
+
 }
 
 export default MainCtrl;
