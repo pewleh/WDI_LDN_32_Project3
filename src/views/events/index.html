@@ -1,8 +1,28 @@
 <h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
 
-<h3 class="subtitle is-3" ng-repeat="date in eventsIndex.dateObjects">{{date.date | date }}</h3>
+<div class="eventslist" class="subtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
+  <h3 class="subtitle is-3">{{date.date | date }}</h3>
+  <!-- {{date.events}} -->
+  <ul class="columns is-multiline">
+    <li class="column is-one-quarter" ng-repeat="event in date.events">
+      <a ui-sref="eventsShow({ id: event._id })">
 
+        <div class="card">
+          <div class="card-content">
+            <p>Event Name: {{ event.name }}</p>
+            <p>Date: {{ event.date | date}}</p>
+            <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+            <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+            <p>Type: {{ event.type }}</p>
+            <p>visibility: {{ event.visibility }}</p>
+          </div>
+        </div>
+      </a></li>
+  </ul>
+</div>
 
+<!--
+This is the old Version
 <div class="container events-list">
   <ul class="columns is-multiline">
     <li class="column is-one-quarter" ng-repeat="event in eventsIndex.allEvents">
@@ -21,5 +41,4 @@
       </a>
     </li>
   </ul>
-
-</div>
+</div> -->
