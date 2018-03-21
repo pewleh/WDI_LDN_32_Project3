@@ -5,10 +5,10 @@ function secureState($q, $auth, $state, $rootScope) {
   return new $q((resolve) => {
     if($auth.isAuthenticated()) return resolve();
 
-    $rootScope, {
+    $rootScope.$broadcast('flashMessage', {
       type: 'danger',
-      content: 'You must be logged in to make changes.'
-    };
+      content: 'Please login to do this.'
+    });
     $state.go('login');
   });
 }
@@ -81,9 +81,13 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/about',
       templateUrl: 'views/info/about.html',
       controller: 'InfoAboutCtrl as infoAbout'
+    })
+    .state('404', {
+      url: '/404',
+      templateUrl: 'views/pages/404.html'
     });
 
-  $urlRouterProvider.otherwise('/events');
+  $urlRouterProvider.otherwise('/404');
 }
 
 export default Router;
