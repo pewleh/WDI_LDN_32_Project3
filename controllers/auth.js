@@ -5,7 +5,7 @@ const { secret } = require('../config/environments');
 function register(req, res, next){
   User.create(req.body)
     .then(user => {
-      const token = jtoken.sign({ sub: user._id }, secret, { expiresIn: '24h'});
+      const token = jtoken.sign({ sub: user._id, admin: user.admin }, secret, { expiresIn: '24h'});
       res.json({
         message: 'Welcome home',
         token

@@ -1,7 +1,9 @@
 const Event = require('../models/event');
 
+// Make commments and images restful
+
 function indexRoute(req, res, next) {
-  Event.find()
+  Event.find().sort('date')
     .then(events => res.json(events))
     .catch(next);
 }

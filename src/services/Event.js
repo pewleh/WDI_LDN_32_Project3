@@ -18,6 +18,7 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
+// point this at the api
   function createComment(comment, eventId){
     return $http.put(`/api/events/${eventId}.comments`, comment);
   }

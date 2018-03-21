@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 function showRoute(req, res, next) {
-  console.log(req.params.id);
+  console.log('showRoute',req.params.id);
   User.findById(req.params.id)
     .populate('comments.event')
     .populate('comments.place')

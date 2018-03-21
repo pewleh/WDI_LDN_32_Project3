@@ -18,6 +18,7 @@ function EventsShowCtrl(Event, User, $state, $window) {
 
   this.remove = remove;
 
+// replace with createcomment restfulroute
   function submitComment() {
     console.log($window.localStorage.getItem('userId'));
     Event.findById(vm.event._id)
@@ -46,25 +47,19 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.addFavoriteEvent = addFavoriteEvent;
 
   function isAsteroid() {
-    if(vm.event.type === 'Asteroid') {
-      return true;
-    }
+    return vm.event.type === 'Asteroid';
   }
 
   this.isAsteroid = isAsteroid;
 
   function isSatellite() {
-    if(vm.event.type === 'Satellite') {
-      return true;
-    }
+    return vm.event.type === 'Satellite';
   }
 
   this.isSatellite = isSatellite;
 
   function isMeteorShower() {
-    if(vm.event.type === 'Meteor Shower') {
-      return true;
-    }
+    return vm.event.type === 'Meteor Shower';
   }
 
   this.isMeteorShower = isMeteorShower;
