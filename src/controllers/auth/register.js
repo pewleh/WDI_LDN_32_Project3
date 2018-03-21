@@ -1,7 +1,7 @@
-AuthRegisterCtrl.$inject = ['$auth', '$state', '$rootScope'];
+AuthRegisterCtrl.$inject = ['$auth', '$state', '$rootScope', 'User'];
 
 // inject
-function AuthRegisterCtrl($auth, $state, $rootScope){
+function AuthRegisterCtrl($auth, $state, $rootScope, User){
   this.user = {};
 
   function handleSubmit(){
@@ -17,5 +17,14 @@ function AuthRegisterCtrl($auth, $state, $rootScope){
       });
   }
   this.handleSubmit = handleSubmit;
+
+  function savePic() {
+    console.log('EVENT', this.user);
+    User
+      .create(this.user)
+      .then(res => console.log(res));
+  }
+
+  this.savePic = savePic;
 }
 export default AuthRegisterCtrl;
