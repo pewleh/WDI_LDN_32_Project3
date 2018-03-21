@@ -114,28 +114,7 @@ table{
 }
 
 
-//Profiles begin.
 
-.profilePic{
-  border-radius: 50%;
-  margin-left: 10%;
-  margin-top:5%;
-}
-.username{
-  font-size: 55px;
-  margin-left: 18.5%;
-  padding: 10px;
-}
-
-.preferences{
-  float: right;
-  margin-right: 25%;
-  margin-top: -20%;
-}
-
-.userButton{
-  margin-left: 13.5%;
-}
 //REFACTORED CSS STARTS HERE ->
 
 //About page ->
@@ -162,13 +141,6 @@ table{
   }
 }
 
-// events + places Index ->
-.indexTitle{
-  font-size: 38px;
-}
-.indexSubtitle{
-  font-size: 20px;
-}
 
 //login/Registration ->
 
@@ -187,4 +159,37 @@ table{
   font-size: 60px;
   padding:40px;
   text-decoration: overline;
+}
+
+//profile page
+
+
+.profilePic{
+  border-radius: 50%;
+  margin-left: 10%;
+  margin-top:5%;
+}
+.username{
+  font-size: 55px;
+  margin-left: 18.5%;
+  padding: 10px;
+}
+
+.preferences{
+  float: right;
+  margin-right: 25%;
+  margin-top: -20%;
+}
+
+.userButton{
+  margin-left: 13.5%;
+}
+
+
+// events + places Index ->
+.indexTitle{
+  font-size: 38px;
+}
+.indexSubtitle{
+  font-size: 20px;
 }
