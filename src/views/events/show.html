@@ -1,6 +1,8 @@
 <div class="container">
 
+
   <div class="eventShowContainer">
+
 
   <collection-google-map place="eventsShow.allPlaces"></collection-google-map>
   <div class="showContainer">
@@ -35,13 +37,12 @@
       <h3 class="subtitle">What others have said:</h3>
       <ul>
         <li ng-repeat="comment in eventsShow.event.comments">
-<<<<<<< HEAD
-          <span ui-sref="profile({ id: comment.user._id })">{{comment}}
-          {{ comment.user.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
-=======
           <span ui-sref="profile({ id: comment.userId._id })">
           {{ comment.userId.username }} {{ comment.username }}- {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
->>>>>>> 5a7989ae68aeb9ad6eb0ea36a8a4b52ddc9af635
+
+          <span ui-sref="profile({ id: comment.userId._id })">
+          {{ comment.userId.username }} {{ comment.username }}- {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
+
         </li>
       </ul>
     </div>
