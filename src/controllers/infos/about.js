@@ -1,0 +1,1 @@
+// InfoAboutCtrl.$inject = ['User', '$state' ];

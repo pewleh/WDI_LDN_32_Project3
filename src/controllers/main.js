@@ -1,31 +1,35 @@
 /* global navigator */
 
-MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout', '$window'];
+MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout'];
 
-function MainCtrl($auth, $state, $rootScope, $timeout, $window) {
+function MainCtrl($auth, $state, $rootScope, $timeout) {
   const vm = this;
-  vm.isAuthenticated = $auth.isAuthenticated;
 
-  vm.userId = $window.localStorage.getItem('userId');
-  vm.admin = $window.localStorage.getItem('admin');
+  vm.userId = false;
+  vm.admin =false;
+
+  if($auth.getPayload()) vm.userId = $auth.getPayload().sub;
 
   function logout() {
-    $window.localStorage.removeItem('userId');
-    $window.localStorage.removeItem('admin');
+    vm.userId = false;
+    vm.admin = false;
     $auth.logout();
     $state.go('eventsIndex');
   }
 
   vm.logout = logout;
 
+  $rootScope.$on('login', (e, data) => {
+    vm.userId = data.content.userId;
+    vm.admin = data.content.admin;
+  });
+
   $rootScope.$on('flashMessage', (e, data) => {
+    console.log(data);
     vm.flashMessage = data;
 
     $timeout(() => vm.flashMessage = null, 3000);
   });
-
-  // Rootscope .$on(login/logout )
-  // Broadcast stuff on auth
 
 }
 

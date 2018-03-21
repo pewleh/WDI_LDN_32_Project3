@@ -18,12 +18,21 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
+<<<<<<< HEAD
   function remove(event) {
     return $http.delete(`/api/events/${event._id}`);
   }
   // point this at the api
   function createComment(comment, eventId) {
     return $http.put(`/api/events/${eventId}.comments`, comment);
+=======
+  function createComment(comment, event){
+    return $http.post(`/api/events/${event._id}/comments`, comment);
+  }
+
+  function deleteComment(comment, event){
+    return $http.delete(`/api/events/${event._id}/comments/${comment._id}`);
+>>>>>>> development
   }
 
   function imageCreate(event, data) {
@@ -38,6 +47,10 @@ function Event($http) {
   this.update = update;
   this.remove = remove;
   this.createComment = createComment;
+<<<<<<< HEAD
   this.imageCreate = imageCreate;
+=======
+  this.deleteComment = deleteComment;
+>>>>>>> development
 }
 export default Event;

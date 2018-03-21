@@ -15,7 +15,7 @@ function createRoute(req, res, next) {
 
 function showRoute(req, res, next) {
   Place.findById(req.params.id)
-    .populate('comments.user')
+    .populate('comments.userId')
     .then(place => res.json(place))
     .catch(next);
 }
@@ -35,11 +35,34 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function createCommentRoute(req,res,next) {
+  Place.findById(req.params.id)
+    .then(place => {
+      const comment = { content: req.body.content, place: place.id , userId: req.body.userId };
+      place.comments.push(comment);
+      return place.save();
+    })
+    .then(place => res.json(place))
+    .catch(next);
+}
+
+function deleteCommentRoute(req, res, next) {
+  Place.findById(req.params.placeId)
+    .then(place => {
+      const comment = place.comments.id(req.params.commentId);
+      comment.remove();
+      return place.save();
+    })
+    .then(place => res.json(place))
+    .catch(next);
+}
 
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  createComment: createCommentRoute,
+  deleteComment: deleteCommentRoute
 };
