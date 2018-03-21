@@ -2,15 +2,9 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
-// html{
-//   background-color: blue;
-//   background-size: cover;
-//   color: white;
-// }
 
 nav.navbar{
-  // background-color: #781515; //man idk
-  // background-color: #883131;
+
   a.navbar-item{
     color:black;
     font-size: 20px;
@@ -18,25 +12,10 @@ nav.navbar{
   }
 }
 
-//Show page
 
-.titleContainer{
-  background-color: #ffffff26;
-  height: 50%;
-  margin-top: 7%;
-}
 
-.showContainer{
-  display: inline-flex;
-  font-size: 70px;
-  padding: 50px;
-  height: 500px;
-  margin-bottom: 200px;
-  .showTitle{
-    font-size: 45px;
-    margin-top: 5%;
-    text-align: center;
 
+<<<<<<< HEAD
   }
   .showSubtitle{
     font-size: 25px;
@@ -68,58 +47,13 @@ nav.navbar{
 .collection-google-map, .collection-google-map-places {
   height:300px;
 }
+=======
+>>>>>>> 2734ea6689f97c8d3085b8c5bf1b95fe4761b4d2
 .title, .subtitle, p, h1, h2, h3, h4{
   color: #c8c9ca;
   padding-top: 10px;
 }
-.registerForm{
-  width: 580px;
-  margin-left: 60px;
-}
-.registerTitle{
-  text-align: center;
-  font-size: 60px;
-  padding-bottom: 40px;
-  text-decoration: overline;
-}
 
-.regBorder{
-  border: 1px dotted grey;
-  width: 400px;
-  margin-left: 160px;
-  padding:10px;
-}
-
-.regOuterBorder{
-  border: 1px dotted grey;
-  width: 700px;
-  margin-left: 100px;
-}
-
-.loginContainer{
-  width:700px;
-  margin-left: 25%;
-}
-
-// .loginTitle{
-//   font-size: 50px;
-//   margin-left: 20%;
-//   margin-bottom: 27px;
-// }
-
-.indexTitle{
-  font-size: 32px;
-}
-.indexSubtitle{
-  font-size: 20px;
-}
-
-
-
-.event{
-  position: absolute;
-  top: 26%;
-}
 .commentButton{
   float:right;
 }
@@ -129,11 +63,6 @@ nav.navbar{
 }
 
 
-.showDescription{
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-}
 
 .googleBorder{
   width: 550px;
@@ -152,12 +81,58 @@ table{
   width:670px;
 }
 
-.dropDowns{
-  display: inline-flex;
+
+
+
+
+//REFACTORED CSS STARTS HERE ->
+
+//About page ->
+.container{
+  align-content: center;
+  .adminImages{
+    display:inline-flex;
+
+    img.adminImage{
+      border-radius: 50%;
+      height:300px;
+      margin-left:30%;
+    }
+
+  }
+  .adminInfo{
+    padding:50px;
+    text-align: center;
+    font-size: 20px;
+    .amitaTitle{
+      font-family: 'Amita', cursive;
+      font-size: 50px;
+    }
+  }
 }
 
 
-//Profiles begin.
+//login/Registration ->
+
+.loginContainer{
+  width:700px;
+  margin-left: 25%;
+}
+
+.registerForm{
+  width: 580px;
+  margin-left: 29%;
+  text-align: center;
+}
+.registerTitle{
+  text-align: center;
+  font-size: 60px;
+  padding:40px;
+  text-decoration: overline;
+}
+
+//profile page
+
 
 .profilePic{
   border-radius: 100%;
@@ -185,26 +160,88 @@ table{
   margin-left: 13.5%;
 }
 
-//About page ->
-.container{
-  align-content: center;
-  .adminImages{
-    display:inline-flex;
-
-    img.adminImage{
-      border-radius: 50%;
-      height:300px;
-      margin-left:30%;
+// events + places Index ->
+.indexTitle{
+  font-size: 38px;
+}
+.indexSubtitle{
+  font-size: 20px;
+}
+//events + places New ->
+.newSubtitle{
+  margin-left: 39%;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+.newContainer{
+  width: 1000px;
+  margin-left: 14%;
+  .dropDowns{
+    display: inline-flex;
+    .dropDown{
+      margin-left:70%;
     }
-
   }
-  .adminInfo{
-    padding:50px;
+}
+
+//events + places Show ->
+
+.titleContainer{
+  background-color: #ffffff26;
+  height: 50%;
+  margin-top: 7%;
+}
+//NEED TO FIX EVENT SHOW CONTAINER MAGIN!!
+.newShowContainer, .eventShowContainer{
+  display: inline-flex;
+  font-size: 70px;
+  padding: 50px;
+  height: 500px;
+  .showTitle{
+    font-size: 45px;
+    margin-top: 5%;
     text-align: center;
-    font-size: 20px;
-    .amitaTitle{
-      font-family: 'Amita', cursive;
-      font-size: 50px;
-    }
   }
+  .newShowContainer{
+      margin-bottom: 40px;
+  }
+  .eventShowContainer{
+    margin-bottom: 300px;
+  }
+  .showSubtitle{
+    font-size: 25px;
+    width: 500px;
+    text-align: center;
+    margin-left: 60px;
+  }
+  .eventShowButtons{
+    margin-top: 48%;
+    margin-left: 28%;
+  }
+  .newShowButtons{
+    margin-top: 30%;
+    margin-left: 28%;
+  }
+
+  .showImage{
+    position: absolute;
+    top: 70px;
+  }
+}
+
+.showDescription{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+//googleMaps ->
+
+.google-map {
+  width: 300px;
+  height: 300px;
+}
+
+.collection-google-map {
+  height:300px;
 }

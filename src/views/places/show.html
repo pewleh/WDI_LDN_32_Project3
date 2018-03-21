@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="showContainer">
+  <div class="newShowContainer">
     <div class="titleContainer">
       <h2 class="showTitle" style="width: 600px;"><h2>{{ placesShow.place.name }}</h2>
       <p class="showSubtitle">{{ placesShow.place.address }}</p>
@@ -8,7 +8,7 @@
       <figure class="showImage">
         <img src="{{ placesShow.place.image }}" style="width: 550px; border-radius:  15px; margin-left: 15%">
       </figure>
-      <div class="showButtons">
+      <div class="newShowButtons">
         <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
 
         <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
