@@ -7,8 +7,7 @@ function PlacesShowCtrl(Place, User, $state, $window) {
   this.place = {};
   this.currentUser = $window.localStorage.getItem('userId');
   this.comment = {
-    user: this.currentUser,
-    place: $state.params.id
+    user: this.currentUser
   };
 
   Place.findById($state.params.id)
@@ -29,23 +28,23 @@ function PlacesShowCtrl(Place, User, $state, $window) {
       .then(() => $state.go('placesIndex'));
   }
 
+  this.remove = remove;
+
   function submitComment() {
-    Place.findById(vm.place._id)
-      .then(place => {
-        place.data.comments.push(vm.comment);
-        Place.update(place.data);
-      })
-      .then(() => User.findById(vm.currentUser))
-      .then(user => {
-        user.data.comments.push(vm.comment);
-        User.update(user.data);
-      })
+    Place.createComment(vm.comment ,vm.place)
       .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
   this.submitComment = submitComment;
 
-  this.remove = remove;
+  function deleteComment() {
+    Place.deleteComment(vm.comment ,vm.place)
+      .then(() => $state.go($state.current, {}, {reload: true}));
+  }
+
+  this.deleteComment = deleteComment;
+
+
 }
 
 export default PlacesShowCtrl;

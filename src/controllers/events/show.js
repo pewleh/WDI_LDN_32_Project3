@@ -4,8 +4,7 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.event = {};
   this.currentUser = $window.localStorage.getItem('userId');
   this.comment = {
-    user: this.currentUser,
-    event: $state.params.id
+    user: this.currentUser
   };
 
   Event.findById($state.params.id)
@@ -18,23 +17,19 @@ function EventsShowCtrl(Event, User, $state, $window) {
 
   this.remove = remove;
 
-// replace with createcomment restfulroute
   function submitComment() {
-    console.log($window.localStorage.getItem('userId'));
-    Event.findById(vm.event._id)
-      .then(event => {
-        event.data.comments.push(vm.comment);
-        Event.update(event.data);
-      })
-      .then(() => User.findById(vm.currentUser))
-      .then(user => {
-        user.data.comments.push(vm.comment);
-        User.update(user.data);
-      })
+    Event.createComment(vm.comment ,vm.event)
       .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
   this.submitComment = submitComment;
+
+  function deleteComment() {
+    Event.deleteComment(vm.comment ,vm.event)
+      .then(() => $state.go($state.current, {}, {reload: true}));
+  }
+
+  this.deleteComment = deleteComment;
 
   function addFavoriteEvent() {
     User.findById(vm.currentUser)
