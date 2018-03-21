@@ -15,6 +15,13 @@ function AuthLoginCtrl($auth, $state, $rootScope, $window){
       .then(res => {
         $window.localStorage.setItem('userId', `${res.data.id}`);
         $window.localStorage.setItem('admin', `${res.data.admin}`);
+        
+        $rootScope.$broadcast('login', {
+          content: {
+            userId: res.data.id,
+            admin: res.data.admin
+          }
+        });
         $rootScope.$broadcast('flashMessage', {
           type: 'success',
           content: res.data.message
