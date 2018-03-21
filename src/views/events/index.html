@@ -7,10 +7,10 @@
       <a ui-sref="eventsShow({ id: event._id })">
         <div class="card">
           <div class="card-content">
+            <h5 class="subtitle is-5">Type: {{ event.type }}</h5>
             <p>Event Name: {{ event.name }}</p>
             <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
             <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-            <p>Type: {{ event.type }}</p>
             <p>visibility: {{ event.visibility }}</p>
           </div>
         </div>

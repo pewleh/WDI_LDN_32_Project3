@@ -16,7 +16,7 @@ const eventSchema = new mongoose.Schema({
   location: {type: String, minlength: 2}, // Only necessary for events at specific locations (maybe planetariums?)
   attending: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   comments: [commentSchema],
-  userImages: [{ content: String }]
+  userImages: []
 });
 
 // Should we make the placeholder image a virtual so it can pull itself from a selection of images?

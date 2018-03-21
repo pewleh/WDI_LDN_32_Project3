@@ -1,13 +1,14 @@
 <div class="container">
   <div class="showContainer">
     <div class="titleContainer">
-      <h2 class="showTitle" style="width: 600px;">{{ eventsShow.event.name }}{{ eventsShow.event.type }}</h2>
+      <h2 class="showTitle" style="width: 600px;">{{ eventsShow.event.name }} - {{ eventsShow.event.type }}</h2>
       <p class="showSubtitle">Date: {{ eventsShow.event.date | date}}</p>
     </div>
     <div class="container image">
       <figure class="showImage">
-          <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"  style="width: 550px; border-radius:  15px;margin-left: 15%"/>
+        <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"  style="width: 550px; border-radius:  15px;margin-left: 15%"/>
         <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
+        <img ng-if="eventsShow.isMeteorShower()" src="./assets/images/meteor-shower.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
       </figure>
       <div class="event showButtons">
         <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>

@@ -4,7 +4,7 @@ const { dbURI } = require('../config/environments');
 
 
 const Event = require('../models/event');
-// const eventData = require('./data/events');
+const eventData = require('./data/events');
 
 const Place = require('../models/place');
 const placeData = require('./data/places');
@@ -90,6 +90,11 @@ function getSatellites() {
     });
 }
 
+function normalizeTime() {
+  eventData.forEach(event => {
+    event.date = (new Date(event.date)).getTime();
+  });
+}
 mongoose.connect(dbURI, (err, db) => {
   addWeather();
   db.dropDatabase()
@@ -100,9 +105,9 @@ mongoose.connect(dbURI, (err, db) => {
     .then(() => getSatellites())
     .then(() => Event.create(satellitesClean))
     .then((events) => console.log(`${events.length} Satellites created`))
-    // CURRENTLY NO HARDCODED EVENTS
-    // .then(() => Event.create(eventData))
-    // .then(events => console.log(`${events.length} events created`))
+    .then(() => normalizeTime())
+    .then(() => Event.create(eventData))
+    .then(events => console.log(`${events.length} events created`))
     .catch(err => console.log(err))
     .then(() => Place.create(placeData))
     .then(places => console.log(`${places.length} places created`))

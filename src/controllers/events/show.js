@@ -61,6 +61,14 @@ function EventsShowCtrl(Event, User, $state, $window) {
 
   this.isSatellite = isSatellite;
 
+  function isMeteorShower() {
+    if(vm.event.type === 'Meteor Shower') {
+      return true;
+    }
+  }
+
+  this.isMeteorShower = isMeteorShower;
+
 }
 
 export default EventsShowCtrl;
