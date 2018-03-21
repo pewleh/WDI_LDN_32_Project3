@@ -1,4 +1,4 @@
-<div class="profileContainer">
+<div class="profile Container">
 
   <div class="profileInfo">
     <img ng-src="{{ usersProfile.user.avatar }}" alt="{{ usersProfile.user.name }}" class="profilePic"/>
@@ -8,14 +8,14 @@
   <div class="containerFavorites">
     <h3 class="subtitle is-3">See your favorites</h3>
     <ul>
-      <li>Your Events</li>
+      <li>Events:</li>
       <li ng-repeat="event in usersProfile.user.favoriteEvents" ui-sref="eventsShow({ id: event._id })">{{event.name}}</li>
     </ul>
 
     <hr>
 
     <ul>
-      <li>Your Places</li>
+      <li>Places:</li>
       <li ng-repeat="location in usersProfile.user.favoriteLocations" ui-sref="placesShow({ id: location._id })">{{location.name}}</li>
     </ul>
   </div>
@@ -29,7 +29,7 @@
     </ul>
   </div>
 </div>
-  <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
-  <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
+  <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button userButton">Edit</a>
+  <button ng-if="main.admin" class="button is-danger userButton" ng-click="usersProfile.remove()">Delete</button>
 
 </div>
