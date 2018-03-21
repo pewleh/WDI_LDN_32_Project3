@@ -2,12 +2,64 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
-html{
+// html{
+//   background-color: blue;
+//   background-size: cover;
+//   color: white;
+// }
 
-  background-repeat: no-repeat;
-  background-size: cover;
-
+nav.navbar{
+  // background-color: #781515; //man idk
+  // background-color: #883131;
+  a.navbar-item{
+  color:black;
+  font-size: 20px;
+  font-weight: bold;
+  }
 }
+
+//Show page
+
+.titleContainer{
+  background-color: #ffffff26;
+  height: 50%;
+  margin-top: 7%;
+}
+
+.showContainer{
+  display: inline-flex;
+  font-size: 70px;
+  padding: 50px;
+  height: 500px;
+  margin-bottom: 200px;
+  .showTitle{
+    font-size: 45px;
+    margin-top: 5%;
+    text-align: center;
+
+  }
+  .showSubtitle{
+    font-size: 25px;
+    width: 500px;
+    text-align: center;
+    margin-left: 60px;
+  }
+  .showButtons{
+    margin-top: 35%;
+    margin-left: 28%;
+  }
+  .showEventButtons{
+    margin-top: 52%;
+    margin-left: 7%;
+  }
+  .showImage{
+    position: absolute;
+    top: 70px;
+  }
+}
+
+
+
 .google-map {
   width: 300px;
   height: 300px;
@@ -16,12 +68,10 @@ html{
 .collection-google-map {
   height:300px;
 }
-
-.infoWindow {
-  height: 100px;
-  width: auto;
+.title, .subtitle, p, h1, h2, h3, h4{
+  color: #c8c9ca;
+  padding-top: 10px;
 }
-
 .registerForm{
   width: 580px;
   margin-left: 60px;
@@ -63,41 +113,9 @@ html{
 .indexSubtitle{
   font-size: 20px;
 }
-.container{
-  height:650px;
 
-  .showContainer{
-    display: inline-flex;
-    font-size: 70px;
-    padding: 50px;
-    height: 500px;
-    margin-bottom: 200px;
-    .showTitle{
-      font-size: 45px;
-      margin-top: 150px;
-      text-align: center;
 
-    }
-    .showSubtitle{
-      font-size: 25px;
-      width: 500px;
-      text-align: center;
-      margin-left: 60px;
-    }
-    .showButtons{
-      margin-top: 35%;
-      margin-left: 28%;
-    }
-    .showEventButtons{
-      margin-top: 52%;
-      margin-left: 7%;
-    }
-    .showImage{
-      position: absolute;
-      top: 70px;
-    }
-  }
-}
+
 .event{
   position: absolute;
   top: 26%;
