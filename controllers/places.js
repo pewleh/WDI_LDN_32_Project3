@@ -47,7 +47,7 @@ function createCommentRoute(req,res,next) {
 }
 
 function deleteCommentRoute(req, res, next) {
-  Place.findById(req.params.id)
+  Place.findById(req.params.placeId)
     .then(place => {
       const comment = place.comments.id(req.params.commentId);
       comment.remove();

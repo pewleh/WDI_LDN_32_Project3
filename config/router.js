@@ -17,8 +17,10 @@ router.route('/events/:id')
   .put(secureRoute, events.update)
   .delete(secureRoute, events.delete);
 
-router.route('/events/:id/comments/:id')
-  .post(secureRoute, events.createComment)
+router.route('/events/:id/comments')
+  .post(secureRoute, events.createComment);
+
+router.route('/events/:eventId/comments/:commentId')
   .delete(secureRoute, events.deleteComment);
 
 
@@ -31,8 +33,10 @@ router.route('/places/:id')
   .put(secureRoute, places.update)
   .delete(secureRoute, places.delete);
 
-router.route('/places/:id/comments/:id')
-  .post(secureRoute, places.createComment)
+router.route('/places/:id/comments')
+  .post(secureRoute, places.createComment);
+
+router.route('/places/:placeId/comments/:commentId')
   .delete(secureRoute, places.deleteComment);
 
 

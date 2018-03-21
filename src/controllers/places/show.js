@@ -1,13 +1,13 @@
-PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$window'];
+PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$window', '$auth'];
 
-function PlacesShowCtrl(Place, User, $state, $window) {
+function PlacesShowCtrl(Place, User, $state, $window, $auth) {
 
   const vm = this;
 
   this.place = {};
-  this.currentUser = $window.localStorage.getItem('userId');
+  this.currentUser = $auth.getPayload().sub;
   this.comment = {
-    user: this.currentUser
+    userId: this.currentUser
   };
 
   Place.findById($state.params.id)
@@ -31,15 +31,17 @@ function PlacesShowCtrl(Place, User, $state, $window) {
   this.remove = remove;
 
   function submitComment() {
-    Place.createComment(vm.comment ,vm.place)
-      .then(() => $state.go($state.current, {}, {reload: true}));
+    vm.place.comments.push(vm.comment);
+    Place.createComment(vm.comment ,vm.place);
+
   }
 
   this.submitComment = submitComment;
 
-  function deleteComment() {
-    Place.deleteComment(vm.comment ,vm.place)
-      .then(() => $state.go($state.current, {}, {reload: true}));
+  function deleteComment(comment) {
+    Place.deleteComment(comment ,vm.place);
+    const index = vm.place.comments.indexOf(comment);
+    vm.place.comments.splice(index, 1);
   }
 
   this.deleteComment = deleteComment;

@@ -22,14 +22,12 @@ function Place($http) {
     return $http.delete(`/api/places/${place._id}`);
   }
 
-  // point this at the api
-  function createComment(comment, event){
-    return $http.post(`/api/events/${event._id}/comments`, comment);
+  function createComment(comment, place){
+    return $http.post(`/api/places/${place._id}/comments`, comment);
   }
 
-  // point this at the api
-  function deleteComment(comment, event){
-    return $http.delete(`/api/events/${event._id}/comments/${comment.id}`);
+  function deleteComment(comment, place){
+    return $http.delete(`/api/places/${place._id}/comments/${comment._id}`);
   }
 
   this.findPlace = findPlace;

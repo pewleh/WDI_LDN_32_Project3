@@ -48,11 +48,11 @@ function createCommentRoute(req,res,next) {
 }
 
 function deleteCommentRoute(req, res, next) {
-  Event.findById(req.params.id)
+  Event.findById(req.params.eventId)
     .then(event => {
       const comment = event.comments.id(req.params.commentId);
       comment.remove();
-      return event.save();
+      event.save();
     })
     .then(event => res.json(event))
     .catch(next);

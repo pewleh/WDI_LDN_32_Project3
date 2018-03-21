@@ -18,14 +18,12 @@ function Event($http) {
     return $http.put(`/api/events/${event._id}`, event);
   }
 
-  // point this at the api
   function createComment(comment, event){
     return $http.post(`/api/events/${event._id}/comments`, comment);
   }
 
-  // point this at the api
   function deleteComment(comment, event){
-    return $http.delete(`/api/events/${event._id}/comments/${comment.id}`);
+    return $http.delete(`/api/events/${event._id}/comments/${comment._id}`);
   }
 
   function remove(event) {

@@ -18,15 +18,16 @@ function EventsShowCtrl(Event, User, $state, $window) {
   this.remove = remove;
 
   function submitComment() {
-    Event.createComment(vm.comment ,vm.event)
-      .then(() => $state.go($state.current, {}, {reload: true}));
+    vm.event.comments.push(vm.comment);
+    Event.createComment(vm.comment ,vm.event);
   }
 
   this.submitComment = submitComment;
 
-  function deleteComment() {
-    Event.deleteComment(vm.comment ,vm.event)
-      .then(() => $state.go($state.current, {}, {reload: true}));
+  function deleteComment(comment) {
+    Event.deleteComment(comment ,vm.event);
+    const index = vm.event.comments.indexOf(comment);
+    vm.event.comments.splice(index, 1);
   }
 
   this.deleteComment = deleteComment;
