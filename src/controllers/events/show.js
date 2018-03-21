@@ -24,6 +24,7 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
 
   this.remove = remove;
 
+// replace with createcomment restfulroute
   function submitComment() {
     console.log($window.localStorage.getItem('userId'));
     Event.findById(vm.event._id)
@@ -64,9 +65,7 @@ function EventsShowCtrl(Event, User, Place, $state, $window) {
   this.isSatellite = isSatellite;
 
   function isMeteorShower() {
-    if(vm.event.type === 'Meteor Shower') {
-      return true;
-    }
+    return vm.event.type === 'Meteor Shower';
   }
 
   this.isMeteorShower = isMeteorShower;
