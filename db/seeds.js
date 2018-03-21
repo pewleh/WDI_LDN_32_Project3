@@ -20,7 +20,13 @@ let asteroids = null;
 let datesQueried = null;
 let satellites = null;
 const satellitesClean = [];
+
+// Date variables for NASA API
+const now = new Date();
 const today = new Date().toLocaleDateString();
+// Need to transform this to contain only date info, not time
+const endDate = new Date(now.getFullYear(), now.getMonth()+1, now.getDate());
+
 
 function addWeather() {
   placeData.forEach(place => {
@@ -37,11 +43,11 @@ function addWeather() {
 
 function getAsteroids() {
   return rp({
-    url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=${process.env.NASA_API_KEY}`,
+    url: `https://api.nasa.gov/neo/rest/v1/feed?end_date${endDate}&api_key=${process.env.NASA_API_KEY}`,
     json: true
   })
     .then(response => {
-      console.log(today);
+      console.log(today, endDate);
       asteroids = response;  // all data
       datesQueried = Object.keys(asteroids.near_earth_objects).sort(); // this gives us the dates and sorts them
       datesQueried.forEach( (date, index) => {
@@ -73,7 +79,8 @@ function getSatellites() {
 
       satellites.passes.forEach(satellite => {
         // satellite.date data is transformed into unix timestamps in order to sort input from different formats by date easily
-        satellite.date = (new Date(satellite.start)).getTime();
+        // Substring is used to normalize the date to exclude time data
+        satellite.date = (new Date(satellite.start.substring(0,10))).getTime();
         satellite.startTime = satellite.start;
         satellite.endTime = satellite.end;
         satellite.type = 'Satellite';
