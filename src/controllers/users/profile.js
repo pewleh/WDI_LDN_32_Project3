@@ -1,36 +1,23 @@
-UsersProfileCtrl.$inject = ['User', '$state', '$scope'/*, '$window', 'filepickerService'*/];
+UsersProfileCtrl.$inject = ['User', '$state'];
 
 
-function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) {
-  this.user = {};
-
+function UsersProfileCtrl(User, $state,) {
   const vm = this;
-  // $scope.avatar = null;
+  vm.user = {};
+
 
   User.findById($state.params.id)
     .then(res => {
-      // console.log(res.data);
-      this.user = res.data;
-      // $scope.avatar = res.data.avatar;
+      vm.user = res.data;
     });
 
-  // setTimeout(() => {
-  //   this.user.username = 'Hello mate';
-  // }, 3000);
 
   function remove() {
-    User.remove(this.user)
+    User.remove(vm.user)
       .then(() => $state.go('placesIndex'));
   }
 
-  // function getAvatarFromFilepicker() {
-  //   filepickerService.pick({mimetype: 'image/*'}, (data) => {
-  //     $scope.avatar = data.url;
-  //     $scope.$digest();
-  //   });
-  // }
-
-  this.remove = remove;
+  vm.remove = remove;
 
   function savePic() {
     console.log('EVENT', vm.user);
@@ -39,14 +26,14 @@ function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) 
       .then(res => console.log(res));
   }
 
-  this.savePic = savePic;
+  vm.savePic = savePic;
+  vm.favsAreVisible = false;
 
-  function hideFavorites() {
-
+  function toggleFavorites() {
+    vm.favsAreVisible = !vm.favsAreVisible;
   }
 
-  this.hideFavorites = hideFavorites;
-  // this.getAvatarFromFilepicker = getAvatarFromFilepicker;
+  vm.toggleFavorites = toggleFavorites;
 }
 
 export default UsersProfileCtrl;
