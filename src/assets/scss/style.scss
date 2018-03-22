@@ -1,7 +1,18 @@
+$primary-color: #4F5D75;
+$secondary-color: #F08E63;
+$tertiary-color: #D8D8D8;
+$fourth-color: #F2F2F2;
+$fifth-color: #2D3142;
+
+
+
 * {
   font-family: 'Cormorant Garamond', serif;
+
   body {
-    nav {
+    background-color: $primary-color;
+    .navbar {
+      background-color: $secondary-color;
       .navbar-brand {
 
       }
