@@ -34,7 +34,8 @@ function PlacesShowCtrl(Place, User, $state, $auth) {
     Place.createComment(vm.comment ,vm.place)
       .then(() => User.findById(vm.currentUser))
       .then((user) => vm.comment.username = user.data.username)
-      .then(() => vm.place.comments.push(vm.comment));
+      .then(() => vm.place.comments.push(vm.comment))
+      .then(() => vm.comment = {});
   }
 
   this.submitComment = submitComment;
