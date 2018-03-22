@@ -6,7 +6,8 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
   const vm = this;
 
   vm.userId = false;
-  vm.admin =false;
+  vm.admin = false;
+  vm.clicked = false;
 
   if($auth.getPayload()) vm.userId = $auth.getPayload().sub;
 

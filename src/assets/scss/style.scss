@@ -1,23 +1,45 @@
-$primary-color: #4F5D75;
+$primary-color: #404B5F;
 $secondary-color: #F08E63;
 $tertiary-color: #D8D8D8;
 $fourth-color: #F2F2F2;
 $fifth-color: #2D3142;
 
 
+//   a.navbar-item{
+//     color:black;
+//     font-size: 20px;
+//     font-weight: bold;
+//   }
+// }
+
 
 * {
   font-family: 'Cormorant Garamond', serif;
-
+  box-sizing: border-box;
   body {
     background-color: $primary-color;
     .navbar {
       background-color: $secondary-color;
-      .navbar-brand {
+      font-size: 1.2rem;
 
+      .navbar-brand {
+        :hover {
+          color: $primary-color;
+        }
       }
       .navbar-menu {
-
+        :hover {
+          color: $fourth-color;
+          transition: color 0.3s ease;
+          background-color: $secondary-color;
+        }
+        // .navbar-item {
+        //   :hover {
+        //     text-decoration: underline;
+        //     text-decoration-color: $fourth-color;
+        //     transition: text-decoration 0.3s ease;
+        //   }
+        // }
       }
     }
     .notification {
@@ -30,7 +52,7 @@ $fifth-color: #2D3142;
 
     }
     .events-new {
-
+      height: 100vh;
     }
     .events-edit {
 
@@ -42,13 +64,66 @@ $fifth-color: #2D3142;
 
     }
     .places-new {
+      height: 100vh;
+    }
+    .places-edit {
 
     }
-    .places-edit{
-
+    .user-profile {
+      color: #F2F2F2;
+      height: 100vh;
+      .profile-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .change-picture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .subtitle {
+        color: #F2F2F2;
+      }
+      img {
+        border-radius: 50%;
+        margin-top:10px;
+        height: 300px;
+        // width: auto;
+      }
+      #username, .preferences {
+        // margin-left: 18.5%;
+        padding: 10px;
+      }
+      .preferences {
+        font-size: 2rem;
+        u {
+          text-decoration: none;
+          border-bottom: 1px solid $fourth-color;
+          cursor: pointer;
+        }
+      }
+      #username {
+        font-size: 3rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+      // .change-picture {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-self: center;
+      // }
+      .submit-button {
+        margin-top: 10px;
+      }
     }
-    .user-profile{
-
+    .login {
+      height: 100vh;
+    }
+    .register {
+      height: 100vh;
     }
     .about {
 
@@ -59,206 +134,206 @@ $fifth-color: #2D3142;
   }
 }
 
-
-nav.navbar{
-
-  a.navbar-item{
-    color:black;
-    font-size: 20px;
-    font-weight: bold;
-  }
-}
-
-
-
-
-.title, .subtitle, p, h1, h2, h3, h4{
-  color: #c8c9ca;
-  padding-top: 10px;
-}
-
-.commentButton{
-  float:right;
-}
-
-.display{
-  height: 20%;
-}
-
-
-
-.googleBorder{
-  width: 550px;
-  margin-left: 58%;
-  margin-top: 10%;
-  padding:20px;
-}
-.showGoogle{
-  width: 500px;
-  border-radius: 5%;
-}
-table{
-  font-size: 20px;
-}
-.titleContainer{
-  width:670px;
-}
-
-
-
-
-
-//REFACTORED CSS STARTS HERE ->
-
-//About page ->
-.container{
-  align-content: center;
-  .adminImages{
-    display:inline-flex;
-
-    img.adminImage{
-      border-radius: 50%;
-      height:300px;
-      margin-left:30%;
-    }
-
-  }
-  .adminInfo{
-    padding:50px;
-    text-align: center;
-    font-size: 20px;
-    .amitaTitle{
-      font-family: 'Amita', cursive;
-      font-size: 50px;
-    }
-  }
-}
-
-
-//login/Registration ->
-
-.loginContainer{
-  width:700px;
-  margin-left: 25%;
-}
-
-.registerForm{
-  width: 580px;
-  margin-left: 29%;
-  text-align: center;
-}
-.registerTitle{
-  text-align: center;
-  font-size: 60px;
-  padding:40px;
-  text-decoration: overline;
-}
-
-//profile page
-
-
-.profilePic{
-  border-radius: 100%;
-  margin-left: 10%;
-  margin-top:5%;
-}
-
-#profilePicHeight {
-  height: 300px;
-}
-
-.username{
-  font-size: 55px;
-  margin-left: 18.5%;
-  padding: 10px;
-}
-
-.preferences{
-  float: right;
-  margin-right: 25%;
-  margin-top: -20%;
-}
-
-.userButton{
-  margin-left: 13.5%;
-}
-
-// events + places Index ->
-.indexTitle{
-  font-size: 38px;
-}
-.indexSubtitle{
-  font-size: 20px;
-}
-//events + places New ->
-.newSubtitle{
-  margin-left: 39%;
-  font-size: 30px;
-  padding-bottom: 20px;
-}
-.newContainer{
-  width: 1000px;
-  margin-left: 14%;
-  .dropDowns{
-    display: inline-flex;
-    .dropDown {
-      margin-left: 70%;
-    }
-  }
-}
-
-//events + places Show ->
-
-.titleContainer{
-  background-color: #ffffff26;
-  height: 50%;
-  margin-top: 7%;
-}
-//NEED TO FIX EVENT SHOW CONTAINER MAGIN!!
-.newShowContainer, .eventShowContainer{
-  display: inline-flex;
-  font-size: 70px;
-  padding: 50px;
-  height: 500px;
-  .showTitle{
-    font-size: 45px;
-    margin-top: 5%;
-    text-align: center;
-  }
-  .newShowContainer {
-      margin-bottom: 40px;
-  }
-  .eventShowContainer{
-    margin-bottom: 300px;
-  }
-  .showSubtitle{
-    font-size: 25px;
-    width: 500px;
-    text-align: center;
-    margin-left: 60px;
-  }
-  .eventShowButtons{
-    margin-top: 48%;
-    margin-left: 28%;
-  }
-  .newShowButtons{
-    margin-top: 30%;
-    margin-left: 28%;
-  }
-
-  .showImage{
-    position: absolute;
-    top: 70px;
-  }
-}
-
-.showDescription{
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-//googleMaps ->
+//
+// nav.navbar{
+//
+//   a.navbar-item{
+//     color:black;
+//     font-size: 20px;
+//     font-weight: bold;
+//   }
+// }
+//
+//
+//
+//
+// .title, .subtitle, p, h1, h2, h3, h4{
+//   color: #c8c9ca;
+//   padding-top: 10px;
+// }
+//
+// .commentButton{
+//   float:right;
+// }
+//
+// .display{
+//   height: 20%;
+// }
+//
+//
+//
+// .googleBorder{
+//   width: 550px;
+//   margin-left: 58%;
+//   margin-top: 10%;
+//   padding:20px;
+// }
+// .showGoogle{
+//   width: 500px;
+//   border-radius: 5%;
+// }
+// table{
+//   font-size: 20px;
+// }
+// .titleContainer{
+//   width:670px;
+// }
+//
+//
+//
+//
+//
+// //REFACTORED CSS STARTS HERE ->
+//
+// //About page ->
+// .container{
+//   align-content: center;
+//   .adminImages{
+//     display:inline-flex;
+//
+//     img.adminImage{
+//       border-radius: 50%;
+//       height:300px;
+//       margin-left:30%;
+//     }
+//
+//   }
+//   .adminInfo{
+//     padding:50px;
+//     text-align: center;
+//     font-size: 20px;
+//     .amitaTitle{
+//       font-family: 'Amita', cursive;
+//       font-size: 50px;
+//     }
+//   }
+// }
+//
+//
+// //login/Registration ->
+//
+// .loginContainer{
+//   width:700px;
+//   margin-left: 25%;
+// }
+//
+// .registerForm{
+//   width: 580px;
+//   margin-left: 29%;
+//   text-align: center;
+// }
+// .registerTitle{
+//   text-align: center;
+//   font-size: 60px;
+//   padding:40px;
+//   text-decoration: overline;
+// }
+//
+// //profile page
+//
+//
+// .profilePic{
+//   border-radius: 100%;
+//   margin-left: 10%;
+//   margin-top:5%;
+// }
+//
+// #profilePicHeight {
+//   height: 300px;
+// }
+//
+// .username{
+//   font-size: 55px;
+//   margin-left: 18.5%;
+//   padding: 10px;
+// }
+//
+// .preferences{
+//   float: right;
+//   margin-right: 25%;
+//   margin-top: -20%;
+// }
+//
+// .userButton{
+//   margin-left: 13.5%;
+// }
+//
+// // events + places Index ->
+// .indexTitle{
+//   font-size: 38px;
+// }
+// .indexSubtitle{
+//   font-size: 20px;
+// }
+// //events + places New ->
+// .newSubtitle{
+//   margin-left: 39%;
+//   font-size: 30px;
+//   padding-bottom: 20px;
+// }
+// .newContainer{
+//   width: 1000px;
+//   margin-left: 14%;
+//   .dropDowns{
+//     display: inline-flex;
+//     .dropDown {
+//       margin-left: 70%;
+//     }
+//   }
+// }
+//
+// //events + places Show ->
+//
+// .titleContainer{
+//   background-color: #ffffff26;
+//   height: 50%;
+//   margin-top: 7%;
+// }
+// //NEED TO FIX EVENT SHOW CONTAINER MAGIN!!
+// .newShowContainer, .eventShowContainer{
+//   display: inline-flex;
+//   font-size: 70px;
+//   padding: 50px;
+//   height: 500px;
+//   .showTitle{
+//     font-size: 45px;
+//     margin-top: 5%;
+//     text-align: center;
+//   }
+//   .newShowContainer {
+//       margin-bottom: 40px;
+//   }
+//   .eventShowContainer{
+//     margin-bottom: 300px;
+//   }
+//   .showSubtitle{
+//     font-size: 25px;
+//     width: 500px;
+//     text-align: center;
+//     margin-left: 60px;
+//   }
+//   .eventShowButtons{
+//     margin-top: 48%;
+//     margin-left: 28%;
+//   }
+//   .newShowButtons{
+//     margin-top: 30%;
+//     margin-left: 28%;
+//   }
+//
+//   .showImage{
+//     position: absolute;
+//     top: 70px;
+//   }
+// }
+//
+// .showDescription{
+//   font-size: 20px;
+//   text-align: center;
+//   margin-bottom: 10px;
+// }
+//
+// googleMaps ->
 
 .google-map {
   width: 300px;
