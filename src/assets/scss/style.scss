@@ -130,9 +130,18 @@ $fifth-color: #2D3142;
 
               div {
                 display: flex;
-                justify-content: space-between;
-                .username {
+                justify-content: space-around;
+                .comment-username {
                   font-weight: bold;
+                  width: 15%;
+                  font-size: 1.25rem;
+                }
+                .comment-content {
+                  width: 85%;
+                  font-size: 1.25rem;
+                }
+                .buttons {
+                  float: right;
                 }
               }
             }
@@ -150,9 +159,7 @@ $fifth-color: #2D3142;
           text-align: center;
         }
         }
-        .buttons {
-          flex-basis: 100%;
-        }
+
       }
     }
     .events-new {

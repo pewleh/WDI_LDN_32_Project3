@@ -44,8 +44,12 @@
           <h3 class="title is-4">What others have said:</h3>
           <ul class="comments-list">
             <li class="comment" ng-repeat="comment in eventsShow.event.comments">
-              <div ui-sref="profile({ id: comment.userId._id })"><span class="username">{{ comment.userId.username }} {{ comment.username }} - </span> <span>{{ comment.content }}</span></div>
-              <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)">X</button>
+              <div ui-sref="profile({ id: comment.userId._id })">
+
+                <span class="comment-username">{{ comment.userId.username }} {{ comment.username }} - </span>
+                <span class="comment-content">{{ comment.content }}</span>
+                <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)">X</button>
+              </div>  
             </li>
           </ul>
         </div>
@@ -54,7 +58,7 @@
           <form ng-submit="eventsShow.submitComment()">
             <h3 class="title is-4">What's on your mind?</h3>
             <textarea class="textarea" name="content" ng-model="eventsShow.comment.content"></textarea>
-            <button class="button is-primary commentButton">Submit</button>
+            <button class="button is-primary">Submit</button>
           </form>
         </div>
       </div>
