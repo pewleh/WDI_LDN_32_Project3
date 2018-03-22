@@ -1,5 +1,5 @@
 $primary-color: #404b5f;
-$secondary-color: #F08E63;//#d27046; since we darkened the backgroundcolor?
+$secondary-color: #F08E63;
 $tertiary-color: #D8D8D8;
 $fourth-color: #F2F2F2;
 $fifth-color: #2D3142;
@@ -304,11 +304,16 @@ $fifth-color: #2D3142;
         }
         .new-field-right{
           float:right;
-          margin-top: -12vh;
+          margin-top: -11vh;
 
         }
-          button.button.is-primary.new-field-right.new-submit{
+          button{
             margin-top: -4.8vh;
+            margin-left: 30vw;
+            height: 7vh;
+            width: 12vw;
+            background-color: $secondary-color;
+            border-radius: 5%
           }
       }
     }
