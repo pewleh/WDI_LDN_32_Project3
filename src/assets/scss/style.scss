@@ -123,7 +123,7 @@ $fifth-color: #2D3142;
       }
     }
     .events-show {
-      color: $fifth-color;
+      color: $tertiary-color;
       div {
         .event-data {
           display: flex;
@@ -196,6 +196,50 @@ $fifth-color: #2D3142;
     }
     .events-new {
       height: 100vh;
+
+      .event-container{
+        width:70vw;
+        margin-left: 10vw;
+        padding:2vw;
+          .event-title{
+            font-size: 3.5rem;
+          }
+          .event-subtitle{
+            font-size: 2rem;
+            margin-top: -2.5vh;
+            margin-bottom: 2vh;
+          }
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 1.2rem;
+        color: $tertiary-color;
+      }
+      button {
+      margin-left: 28vw;
+      margin-top: -7vh;
+      height: 7vh;
+      width: 12vw;
+      background-color: $secondary-color;
+      border: 1px solid $secondary-color;
+      border-radius: 5%;
+      color: $tertiary-color;
+
+      }
+    }
+    .events-edit {
+      height: 100vh;
+      button {
+        margin-top: -4.8vh;
+        margin-left: 30vw;
+        height: 7vh;
+        width: 12vw;
+        background-color: $secondary-color;
+        border-radius: 5%
+      }
       .input {
         background-color: $tertiary-color;
       }
@@ -209,29 +253,6 @@ $fifth-color: #2D3142;
       label {
         font-size: 2rem;
         color: $tertiary-color;
-      }
-      button {
-        float: right;
-      }
-    }
-    .events-edit {
-      height: 100vh;
-      .input {
-        background-color: $tertiary-color;
-      }
-      select {
-        background-color: $tertiary-color;
-      }
-      .dropdowns {
-        display: flex;
-        justify-content: space-around;
-      }
-      label {
-        font-size: 2rem;
-        color: $fifth-color;
-      }
-      button {
-        float: right;
       }
     }
     .places-index {
@@ -274,7 +295,7 @@ $fifth-color: #2D3142;
           .heading-container {
             margin-top: 25vh;
             margin-left: 8vw;
-            display: flex-root;
+            // display: flex;
 
             .show-title{
               font-size: 3rem;
@@ -350,7 +371,15 @@ $fifth-color: #2D3142;
       }
     }
     .places-edit {
-
+      height: 100vh;
+      button{
+        margin-top: -4.8vh;
+        margin-left: 30vw;
+        height: 7vh;
+        width: 12vw;
+        background-color: $secondary-color;
+        border-radius: 5%
+      }
     }
     .user-profile {
       color: #F2F2F2;
