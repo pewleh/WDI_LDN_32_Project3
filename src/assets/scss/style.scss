@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-$primary-color: #404B5F;
-$secondary-color: #F08E63;
-=======
 $primary-color: #404b5f;
 $secondary-color: #F08E63;//#d27046; since we darkened the backgroundcolor?
->>>>>>> development
 $tertiary-color: #D8D8D8;
 $fourth-color: #F2F2F2;
 $fifth-color: #2D3142;
@@ -12,12 +7,19 @@ $fifth-color: #2D3142;
 
 * {
   font-family: 'Cormorant Garamond', serif;
-<<<<<<< HEAD
   box-sizing: border-box;
   .hidden {
     display: none;
   }
-=======
+  .google-map {
+    width: 300px;
+    height: 300px;
+  }
+
+  .collection-google-map {
+    height:300px;
+    }
+  }
   .title, .subtitle, p, h1, h2, h3, h4 {
     color: $fifth-color;
     padding-top: 10px;
@@ -26,7 +28,6 @@ $fifth-color: #2D3142;
     border-radius: 10%;
   }
 
->>>>>>> development
   body {
     background-color: $primary-color;
     .card{
@@ -190,8 +191,6 @@ $fifth-color: #2D3142;
     }
     .events-new {
       height: 100vh;
-<<<<<<< HEAD
-=======
       .input {
         background-color: $tertiary-color;
       }
@@ -209,7 +208,6 @@ $fifth-color: #2D3142;
       button {
         float: right;
       }
->>>>>>> development
     }
     .events-edit {
       height: 100vh;
@@ -382,10 +380,8 @@ $fifth-color: #2D3142;
     .login {
       height: 100vh;
     }
-<<<<<<< HEAD
     .register {
       height: 100vh;
-=======
   }
 }
 
@@ -436,12 +432,10 @@ nav.navbar{
       border-radius: 50%;
       height:300px;
       margin-left:10vw;
->>>>>>> development
     }
     .about {
 
     }
-<<<<<<< HEAD
     .404 {
 
     }
@@ -649,79 +643,69 @@ nav.navbar{
 //
 // googleMaps ->
 
-.google-map {
-  width: 300px;
-  height: 300px;
-}
 
-.collection-google-map {
-  height:300px;
-=======
-  }
-}
-
-
-//login/Registration ->
-
-.loginContainer{
-  width:700px;
-  margin-left: 25%;
-}
-
-.registerForm{
-  width: 580px;
-  margin-left: 29%;
-  text-align: center;
-}
-
-
-//profile page
-
-
-.profilePic{
-  border-radius: 100%;
-  margin-left: 10%;
-  margin-top:5%;
-}
-
-#profilePicHeight {
-  height: 300px;
-}
-
-.username{
-  font-size: 55px;
-  margin-left: 18.5%;
-  padding: 10px;
-}
-
-.preferences{
-  float: right;
-  margin-right: 25%;
-  margin-top: -20%;
-}
-
-.userButton{
-  margin-left: 13.5%;
-}
-
-
-//events + places New ->
-.newSubtitle{
-  margin-left: 39%;
-  font-size: 30px;
-  padding-bottom: 20px;
-}
-.newContainer{
-  width: 1000px;
-  margin-left: 14%;
-  .dropDowns{
-    display: inline-flex;
-    .dropDown {
-      margin-left: 70%;
-    }
-  }
-}
-.titleContainer{
-  width:670px;
->>>>>>> development
-}
+//
+//
+// //login/Registration ->
+//
+// .loginContainer{
+//   width:700px;
+//   margin-left: 25%;
+// }
+//
+// .registerForm{
+//   width: 580px;
+//   margin-left: 29%;
+//   text-align: center;
+// }
+//
+//
+// //profile page
+//
+//
+// .profilePic{
+//   border-radius: 100%;
+//   margin-left: 10%;
+//   margin-top:5%;
+// }
+//
+// #profilePicHeight {
+//   height: 300px;
+// }
+//
+// .username{
+//   font-size: 55px;
+//   margin-left: 18.5%;
+//   padding: 10px;
+// }
+//
+// .preferences{
+//   float: right;
+//   margin-right: 25%;
+//   margin-top: -20%;
+// }
+//
+// .userButton{
+//   margin-left: 13.5%;
+// }
+//
+//
+// //events + places New ->
+// .newSubtitle{
+//   margin-left: 39%;
+//   font-size: 30px;
+//   padding-bottom: 20px;
+// }
+// .newContainer{
+//   width: 1000px;
+//   margin-left: 14%;
+//   .dropDowns{
+//     display: inline-flex;
+//     .dropDown {
+//       margin-left: 70%;
+//     }
+//   }
+// }
+// .titleContainer{
+//   width:670px;
+// }
