@@ -5,12 +5,10 @@ function PlacesShowCtrl(Place, User, $state, $auth) {
   const vm = this;
 
   this.place = {};
-  this.currentUser = false;
+  this.currentUser = $auth.getPayload().sub;
   this.comment = {
     userId: this.currentUser
   };
-
-  if($auth.getPayload()) this.currentUser = $auth.getPayload().sub;
 
   Place.findById($state.params.id)
     .then(res => this.place = res.data);

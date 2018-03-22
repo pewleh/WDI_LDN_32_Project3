@@ -8,6 +8,13 @@ $fifth-color: #2D3142;
 
 * {
   font-family: 'Cormorant Garamond', serif;
+  .title, .subtitle, p, h1, h2, h3, h4 {
+    color: $fifth-color;
+    padding-top: 10px;
+  }
+  .card {
+    border-radius: 10%;
+  }
 
   body {
     background-color: $primary-color;
@@ -31,21 +38,169 @@ $fifth-color: #2D3142;
       .navbar-menu {
 
       }
+      .navbar-item {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
     .notification {
 
     }
     .events-index {
+      color: $fifth-color;
+      .is-1 {
+        margin-top: 2vh;
+        color: $tertiary-color;
+      }
+      .event-date {
+        margin-top: 4vh;
+        color: $tertiary-color;
+        text-decoration: underline;
+      }
+      .card {
+        height: 30vh;
+        display: flex;
+        background-color: $tertiary-color;
+        .card-content {
+          height: 100%;
+          width: 100%;
+          padding: 1vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center;
+          .index-title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          .index-info {
+            display: flex;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .info-title {
+              font-weight: bold;
+              margin-right: 0.5vw;
+            }
+            .info-content {
 
+            }
+          }
+        }
+      }
     }
     .events-show {
+      color: $fifth-color;
+      div {
+        .event-data {
+          display: flex;
+          justify-content: space-between;
+          .event-card {
+            text-align: center;
+            width: 50vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .details {
+              font-size: 1.5rem;
+              .info-title {
+                font-weight: bold;
+              }
+            }
+            .event-buttons {
+              height:auto;
+              margin-bottom: 2vh;
+            }
+          }
+          .event-image {
+            width: 30vw;
 
+            img {
+              border-radius: 10%;
+            }
+          }
+        }
+        .event-user-data {
+          .comments-list {
+
+            .comment {
+              background-color: $tertiary-color;
+              margin-bottom: 0.5vh;
+
+              div {
+                display: flex;
+                justify-content: space-around;
+                .comment-username {
+                  font-weight: bold;
+                  width: 15%;
+                  font-size: 1.25rem;
+                }
+                .comment-content {
+                  width: 85%;
+                  font-size: 1.25rem;
+                }
+                .buttons {
+                  float: right;
+                }
+              }
+            }
+          }
+          .textarea {
+            background-color: $tertiary-color;
+
+          }
+        .file {
+          display: flex;
+          flex-direction: column;
+        }
+        .file-cta {
+          width: 15vw;
+          text-align: center;
+        }
+        }
+
+      }
     }
     .events-new {
-
+      height: 100vh;
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
     }
     .events-edit {
-
+      height: 100vh;
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
     }
     .places-index {
       .cardImg{
