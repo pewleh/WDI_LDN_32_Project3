@@ -11,13 +11,13 @@
           <figure>
             <img src="{{ placesShow.place.image }}"  class="show-image" style="width: 550px; border-radius:  15px; margin-left: 15%">
           </figure>
+
           <div class="show-buttons">
-
-            <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+            <a ng-if="main.userId" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
             <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
-            <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
-
+            <button ng-if="main.userId" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
           </div>
+
           </div>
         </div>
       <br>
