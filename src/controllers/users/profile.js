@@ -40,6 +40,12 @@ function UsersProfileCtrl(User, $state, $scope/*, $window, filepickerService*/) 
   }
 
   this.savePic = savePic;
+
+  function hideFavorites() {
+
+  }
+
+  this.hideFavorites = hideFavorites;
   // this.getAvatarFromFilepicker = getAvatarFromFilepicker;
 }
 

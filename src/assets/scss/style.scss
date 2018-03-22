@@ -5,17 +5,12 @@ $fourth-color: #F2F2F2;
 $fifth-color: #2D3142;
 
 
-//   a.navbar-item{
-//     color:black;
-//     font-size: 20px;
-//     font-weight: bold;
-//   }
-// }
-
-
 * {
   font-family: 'Cormorant Garamond', serif;
   box-sizing: border-box;
+  .hidden {
+    display: none;
+  }
   body {
     background-color: $primary-color;
     .navbar {
@@ -86,11 +81,13 @@ $fifth-color: #2D3142;
       }
       .subtitle {
         color: #F2F2F2;
+        cursor: pointer;
       }
       img {
         border-radius: 50%;
         margin-top:10px;
         height: 300px;
+        // border: 1px solid white;
         // width: auto;
       }
       #username, .preferences {

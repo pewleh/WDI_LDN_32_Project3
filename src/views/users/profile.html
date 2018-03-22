@@ -43,13 +43,13 @@
         <h2 id="username">{{ usersProfile.user.username }}</h2>
         <div class="preferences">
           <div class="container favorites">
-            <h3 class="subtitle is-3">See your favorites</h3>
-            <ul>
+            <h3 class="subtitle is-3" ng-click="toggle = !toggle">See your favorites</h3>
+            <ul ng-class="{'hidden' : toggle}">
               <li>Events:</li>
               <li ng-repeat="event in usersProfile.user.favoriteEvents" ui-sref="eventsShow({ id: event._id })"><u>{{event.name}}</u></li>
             </ul>
 
-            <ul>
+            <ul ng-class="{'hidden' : toggle}">
               <li>Places:</li>
               <li ng-repeat="location in usersProfile.user.favoriteLocations" ui-sref="placesShow({ id: location._id })"><u>{{location.name}}</u></li>
             </ul>
