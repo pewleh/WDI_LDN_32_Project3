@@ -139,6 +139,17 @@ $fifth-color: #2D3142;
       select {
         background-color: $tertiary-color;
       }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
     }
     .events-edit {
 
