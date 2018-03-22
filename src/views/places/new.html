@@ -45,11 +45,7 @@
         </div>
       </div>
 
-      <form ng-submit="placesNew.savePic()">
-        <button class="button is-primary" type="submit">Submit</button>
 
-        <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
-      </form>
 
       <div class="field">
         <label for="type">Type of place</label>
@@ -68,7 +64,13 @@
         </div>
       </div>
 
-      <button class="button is-primary commentButton">Submit</button>
+      <form ng-submit="placesNew.savePic()">
+        <button class="button is-primary" type="submit">Submit</button>
+
+        <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
+      </form>
+
+      <!-- <button class="button is-primary commentButton">Submit</button> -->
     </form>
   </div>
 </section>
