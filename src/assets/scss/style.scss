@@ -28,7 +28,9 @@ $fifth-color: #2D3142;
   }
 
   body {
-    background-color: $primary-color;
+    // background-color: $primary-color;
+    background-image: url(https://ak5.picdn.net/shutterstock/videos/9459455/thumb/1.jpg);
+    background-repeat: repeat;
     .card{
       border-radius: 10%;
       padding:0.8vh;//it's bubbly but idk.
@@ -391,7 +393,7 @@ $fifth-color: #2D3142;
         margin-left:10vw;
       }
       .about {
-
+        height: 100vh;
       }
       .404 {
 
@@ -411,7 +413,7 @@ $fifth-color: #2D3142;
 
 
 
-// 
+//
 // .title, .subtitle, p, h1, h2, h3, h4{
 //   color: #c8c9ca;
 //   padding-top: 10px;
