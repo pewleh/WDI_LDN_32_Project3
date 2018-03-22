@@ -152,7 +152,24 @@ $fifth-color: #2D3142;
       }
     }
     .events-edit {
-
+      height: 100vh;
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
     }
     .places-index {
 
