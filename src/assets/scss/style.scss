@@ -18,7 +18,6 @@ $fifth-color: #2D3142;
 
   .collection-google-map {
     height:300px;
-    }
   }
   .title, .subtitle, p, h1, h2, h3, h4 {
     color: $fifth-color;
@@ -177,14 +176,14 @@ $fifth-color: #2D3142;
             background-color: $tertiary-color;
 
           }
-        .file {
-          display: flex;
-          flex-direction: column;
-        }
-        .file-cta {
-          width: 15vw;
-          text-align: center;
-        }
+          .file {
+            display: flex;
+            flex-direction: column;
+          }
+          .file-cta {
+            width: 15vw;
+            text-align: center;
+          }
         }
 
       }
@@ -298,23 +297,23 @@ $fifth-color: #2D3142;
         }
         .comment-section{
           padding-bottom: 10vh;
-      }
+        }
 
-      .googleBorder{
-        float:right;
-        padding: 5vw;
-        margin-top: -40vh;
-        margin-right: 6vh;
-        .google-map {
-          width: 30vw;
-          height: 40vh;
-          border-radius: 10%;
-      }
-    }
-      table{
-        font-size: 20px;
-        color: $tertiary-color;
-      }
+        .googleBorder{
+          float:right;
+          padding: 5vw;
+          margin-top: -40vh;
+          margin-right: 6vh;
+          .google-map {
+            width: 30vw;
+            height: 40vh;
+            border-radius: 10%;
+          }
+        }
+        table{
+          font-size: 20px;
+          color: $tertiary-color;
+        }
       }
     }
 
@@ -382,9 +381,24 @@ $fifth-color: #2D3142;
     }
     .register {
       height: 100vh;
+    }
+    .adminImages{
+      display:inline-flex;
+
+      img.adminImage{
+        border-radius: 50%;
+        height:300px;
+        margin-left:10vw;
+      }
+      .about {
+
+      }
+      .404 {
+
+      }
+    }
   }
 }
-
 
 // nav.navbar{
 //
@@ -397,7 +411,7 @@ $fifth-color: #2D3142;
 
 
 
-
+// 
 // .title, .subtitle, p, h1, h2, h3, h4{
 //   color: #c8c9ca;
 //   padding-top: 10px;
@@ -409,35 +423,4 @@ $fifth-color: #2D3142;
 //
 // .display{
 //   height: 20%;
-// }
-
-
-
-
-
-
-
-
-
-
-//REFACTORED CSS STARTS HERE ->
-
-//About page ->
-// .container{
-//   align-content: center;
-//   .adminImages{
-//     display:inline-flex;
-//
-//     img.adminImage{
-//       border-radius: 50%;
-//       height:300px;
-//       margin-left:10vw;
-//     }
-//     .about {
-//
-//     }
-//     .404 {
-//
-//     }
-//   }
 // }
