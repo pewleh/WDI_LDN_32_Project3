@@ -28,7 +28,9 @@ $fifth-color: #2D3142;
   }
 
   body {
-    background-color: $primary-color;
+    background-image: url(https://ak5.picdn.net/shutterstock/videos/9459455/thumb/1.jpg);
+    background-repeat: repeat;
+    // background-color: $primary-color;
     .card{
       border-radius: 10%;
       padding:0.8vh;//it's bubbly but idk.
@@ -42,19 +44,22 @@ $fifth-color: #2D3142;
     }
 
     .navbar {
-      background-color: $secondary-color;
+      background-color: rgba(240, 142, 99, 0.85);
+      opacity: 50%;
       font-size: 1.2rem;
 
       .navbar-brand {
         :hover {
           color: $primary-color;
+          background-color: rgba(250, 250, 250, 0.8);
+          transition: background-color 0.2s ease;
         }
       }
       .navbar-menu {
         :hover {
           color: $fourth-color;
           transition: color 0.3s ease;
-          background-color: $secondary-color;
+          background-color: rgba(240, 142, 99, 0.85);
         }
         // .navbar-item {
         //   :hover {
@@ -86,7 +91,7 @@ $fifth-color: #2D3142;
       .card {
         height: 30vh;
         display: flex;
-        background-color: $tertiary-color;
+        background-color: rgba(216, 216, 216, 0.9);
         .card-content {
           height: 100%;
           width: 100%;
@@ -95,6 +100,7 @@ $fifth-color: #2D3142;
           flex-direction: column;
           justify-content: space-between;
           align-content: center;
+
           .index-title {
             font-size: 2rem;
             font-weight: bold;
@@ -202,7 +208,7 @@ $fifth-color: #2D3142;
       }
       label {
         font-size: 2rem;
-        color: $fifth-color;
+        color: $tertiary-color;
       }
       button {
         float: right;
@@ -319,7 +325,29 @@ $fifth-color: #2D3142;
 
 
     .places-new {
-      height: 100vh;
+      .container{
+        padding:20vh;
+        height:100vh;
+        color: $tertiary-color;
+
+        .new-title{
+          font-size: 3rem;
+          padding-bottom: 2vh;
+        }
+        .new-field-right{
+          float:right;
+          margin-top: -11vh;
+
+        }
+          button{
+            margin-top: -4.8vh;
+            margin-left: 30vw;
+            height: 7vh;
+            width: 12vw;
+            background-color: $secondary-color;
+            border-radius: 5%
+          }
+      }
     }
     .places-edit {
 
