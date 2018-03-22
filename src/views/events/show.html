@@ -1,98 +1,97 @@
 <section class="events-show">
   <div class="container">
+    <h2 class="title is-2">{{ eventsShow.event.type }}</h2>
+    <h3 class="subtitle is-2">{{ eventsShow.event.name }}</h3>
 
-    <div class="eventShowContainer">
-
-      <div class="titleContainer">
-        <h2 class="showTitle" style="width: 600px;">{{ eventsShow.event.name }} - {{ eventsShow.event.type }}</h2>
-        <p class="showSubtitle">Date: {{ eventsShow.event.date | date}}</p>
-      </div>
-      <div class="container image">
-        <figure class="showImage">
-          <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"  style="width: 550px; border-radius:  15px;margin-left: 15%"/>
-          <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
-          <img ng-if="eventsShow.isMeteorShower()" src="./assets/images/meteor-shower.jpg" alt="(2014 RF11)" class="ng-scope"  style="width: 550px; border-radius: 15px; margin-left: 15%"/>
-        </figure>
-        <div class="eventShowButtons">
-          <a ng-if="main.admin" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
+    <div class="container event-data">
+      <div class="event-card">
+        <div class="details">
+          <div class="info">
+            <span class="info-title">Date: </span>
+            <span class="info-content">{{ eventsShow.event.date | date}}</span>
+          </div>
+          <div ng-if="eventsShowevent.startTime" class="info">
+            <span class="info-title">Start Time: </span>
+            <span class="info-content">{{ eventsShow.event.startTime | date: 'shortTime'}}</span>
+          </div>
+          <div ng-if="eventsShow.event.endTime" class="info" n>
+            <span class="info-title">End Time: </span>
+            <span class="info-content">{{ eventsShow.event.endTime | date: 'shortTime'}}</span>
+          </div>
+          <div class="info">
+            <span class="info-title">Visibility: </span>
+            <span class="info-content">{{ eventsShow.event.visibility }}</span>
+          </div>
+        </div>
+        <div class="event-buttons">
+          <a ng-if="main.userId" ui-sref="eventsEdit({ id: eventsShow.event._id })" class="button">Edit</a>
           <button ng-if="main.userId" class="button is-primary" ng-click="eventsShow.addFavoriteEvent()">Favorite</button>
-          <button ng-if="main.admin" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
+          <button ng-if="main.userId" class="button is-danger" ng-click="eventsShow.remove()">Delete</button>
         </div>
       </div>
 
-      <div class="container info">
-        <h4 class="subtitle is-4"></h4>
-        <p ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-        <p ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-        <p><strong>Visibility: {{ eventsShow.event.visibility }}</strong></p>
-      </div>
+      <figure class="event-image">
+        <img ng-if="eventsShow.isSatellite()"  src="./assets/images/iss.jpg" alt="{{ eventsShow.event.name }}"/>
+        <img ng-if="eventsShow.isAsteroid()" src="./assets/images/asteroid.jpg" alt="{{ eventsShow.event.name }}" />
+        <img ng-if="eventsShow.isMeteorShower()" src="./assets/images/meteor-shower.jpg" alt="{{ eventsShow.event.name }}"/>
+      </figure>
 
     </div>
-    <div class="container eventCommentSection">
-      <div class="container display">
-        <h3 class="subtitle">What others have said:</h3>
-        <ul>
-          <li ng-repeat="comment in eventsShow.event.comments">
-            <span ui-sref="profile({ id: comment.userId._id })">
-            {{ comment.userId.username }} {{ comment.username }}- {{ comment.content }} </span> <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)"></button>
-          </li>
-        </ul>
+
+    <div class="container event-user-data">
+      <div class="comments">
+        <div class="display">
+          <h3 class="title is-4">What others have said:</h3>
+          <ul class="comments-list">
+            <li class="comment" ng-repeat="comment in eventsShow.event.comments">
+              <div ui-sref="profile({ id: comment.userId._id })"><span class="username">{{ comment.userId.username }} {{ comment.username }} - </span> <span>{{ comment.content }}</span></div>
+              <button type="button" name="button" ng-click="eventsShow.deleteComment(comment)">X</button>
+            </li>
+          </ul>
+        </div>
+
+        <div ng-if="main.userId" class="submit">
+          <form ng-submit="eventsShow.submitComment()">
+            <h3 class="title is-4">What's on your mind?</h3>
+            <textarea class="textarea" name="content" ng-model="eventsShow.comment.content"></textarea>
+            <button class="button is-primary commentButton">Submit</button>
+          </form>
+        </div>
       </div>
 
-      <div class="container write">
-        <form ng-if="main.userId" ng-submit="eventsShow.submitComment()">
-          <h3 class="subtitle">What's on your mind?</h3>
-          <textarea class="textarea" name="content" ng-model="eventsShow.comment.content"></textarea>
-          <button class="button is-primary commentButton">Submit</button>
-        </form>
+      <div class="user-images">
+        <div class="field" ng-if="eventsShow.event.image">
+          <label class="label">Gallery Image Preview</label>
+          <div class="control">
+            <figure class="image is-128x128">
+              <img src="{{ eventsShow.event.image }}">
+            </figure>
+          </div>
+        </div>
+
+        <div ng-if="main.userId" class="control">
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+            </label>
+          </div>
+          <form ng-submit="eventsShow.savePic()">
+            <button type="submit">Save Picture</button>
+          </form>
+        </div>
       </div>
 
-    </div>
-  </div>
-
-
-  <div class="field" ng-if="eventsShow.event.image">
-    <label class="label">Gallery Image Preview</label>
-    <div class="control">
-      <figure class="image is-128x128">
-        <img src="{{ eventsShow.event.image }}">
+      <figure class="image" ng-repeat="picture in eventsShow.event.userImages">
+        <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
       </figure>
     </div>
   </div>
-
-
-  <div class="control">
-    <div class="file">
-      <label class="file-label">
-        <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fa fa-upload"></i>
-          </span>
-          <span class="file-label">
-            Choose a file…
-          </span>
-        </span>
-      </label>
-    </div>
-  </div>
-  <form ng-submit="eventsShow.savePic()">
-    <button type="submit">Save Picture</button>
-
-    <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
-  </form>
-
-  <!-- <div class="field" ng-if="eventsShow.event.image">
-  <label class="label">Profile Picture Preview</label>
-  <div class="control">
-  <figure class="image is-128x128">
-  <img src="{{ eventsShow.event.image }}">
-  </figure>
-  </div>
-  </div> -->
-
-  <figure class="image" ng-repeat="picture in eventsShow.event.userImages">
-    <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
-  </figure>
-
 </section>

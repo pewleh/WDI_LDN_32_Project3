@@ -2,18 +2,34 @@
   <div class="container">
     <h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
     <div class="container">
-      <div class="eventSubtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
-        <h3 class="subtitle is-3">{{date.date | date }}</h3>
+      <div class="day" ng-repeat="date in eventsIndex.dateObjects">
+        <h2 class="title is-2 event-date">{{ date.date | date }}</h2>
         <ul class="columns is-multiline">
           <li class="column is-one-quarter" ng-repeat="event in date.events">
             <a ui-sref="eventsShow({ id: event._id })">
-              <div class="card">
+              <div class="card event-card">
                 <div class="card-content">
-                  <p class="indexTitle">{{ event.type }}</p>
-                  <p class="indexSubtitle">Event Name: {{ event.name }}</p>
-                  <p class="indexSubtitle">visibility: {{ event.visibility }}</p>
-                  <p class="indexSubtitle" ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-                  <p class="indexSubtitle" ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+                  <div class="index-title">
+                    <span>{{ event.type }}</span>
+                  </div>
+                  <div class="index-info">
+                    <div class="info">
+                      <span class="info-title">Event Name: </span>
+                      <span class="info-content">{{ event.name }}</span>
+                    </div>
+                    <div class="info">
+                      <span class="info-title">Visibility: </span>
+                      <span class="info-content">{{ event.visibility }}</span>
+                    </div>
+                    <div class="info" ng-if="event.startTime">
+                      <span class="info-title">Start Time: </span>
+                      <span class="info-content">{{ event.startTime | date: 'shortTime'}}</span>
+                    </div>
+                    <div class="info" ng-if="event.endTime">
+                      <span class="info-title">End Time: </span>
+                      <span class="info-content">{{ event.endTime | date: 'shortTime'}}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </a>
