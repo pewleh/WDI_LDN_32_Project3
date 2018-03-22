@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Star Gazer</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css">
   <link rel="icon" href="/assets/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
@@ -17,27 +19,34 @@
         &nbsp;
         <!-- &nbsp provides a fixed space between the left and the right of the nav bar :* -->
         STAR GAZER</a>
+
+        <div class="navbar-burger ng-class:main.clicked ? 'is-active' : 'is-not-active'" data-target="#mobile-menu" ng-click="main.clicked = !main.clicked">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
       </div>
-    <div id="mobile-menu" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" ui-sref="eventsIndex">All Events</a>
-        <a class="navbar-item" ui-sref="eventsNew" ng-if="main.userId">New Event</a>
-        <a class="navbar-item" ui-sref="placesIndex">All Places</a>
-        <a class="navbar-item" ui-sref="placesNew" ng-if="main.userId">New Place</a>
-        <a class="navbar-item" ui-sref="profile({ id: main.userId })" ng-if="main.userId">My Profile</a>
-        <a class="navbar-item" ui-sref="about">About us!</a>
-        <a class="navbar-item" ui-sref="login" ng-if="!main.userId">Log In</a>
-        <a class="navbar-item" ui-sref="register" ng-if="!main.userId">Sign Up</a>
-        <a class="navbar-item" ng-click="main.logout()" ng-if="main.userId">Log out</a>
+      <div id="mobile-menu" class="navbar-menu ng-class:main.clicked ? 'is-active' : 'is-not-active'">
+        <div class="navbar-end">
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="eventsIndex">All Events</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="eventsNew" ng-if="main.userId">New Event</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="placesIndex">All Places</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="placesNew" ng-if="main.userId">New Place</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="profile({ id: main.userId })" ng-if="main.userId">My Profile</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="about">About us!</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="login" ng-if="!main.userId">Log In</a>
+          <a class="navbar-item" ng-click="main.clicked = false" ui-sref="register" ng-if="!main.userId">Sign Up</a>
+          <a class="navbar-item" ng-click="main.logout(); main.clicked = false" ng-if="main.userId">Log out</a>
+        </div>
       </div>
+    </nav>
+
+    <div ng-if="main.flashMessage" class="notification is-{{ main.flashMessage.type }}">
+      {{ main.flashMessage.content }}
     </div>
-  </nav>
 
-  <div ng-if="main.flashMessage" class="notification is-{{ main.flashMessage.type }}">
-    {{ main.flashMessage.content }}
-  </div>
+    <ui-view></ui-view>
 
-  <ui-view></ui-view>
-
-</body>
-</html>
+  </body>
+  </html>

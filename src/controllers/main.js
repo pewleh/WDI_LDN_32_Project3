@@ -7,6 +7,7 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
 
   vm.userId = $auth.getPayload().sub;
   vm.admin = $auth.getPayload().admin;
+  vm.clicked = false;
 
 
   function logout() {

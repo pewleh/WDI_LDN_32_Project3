@@ -1,7 +1,7 @@
 module.exports = [
   {
     username: 'monsagri',
-    avatar: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    avatar: '/assets/images/fab.jpg',
     admin: true,
     email: 'feldbergf@gmail.com',
     password: 'AdminPass',
@@ -9,7 +9,7 @@ module.exports = [
   },
   {
     username: 'pewleh',
-    avatar: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    avatar: '/assets/images/pau.png',
     admin: true,
     email: 'pewlehh@gmail.com',
     password: 'AdminPass',
@@ -17,7 +17,7 @@ module.exports = [
   },
   {
     username: 'helsybayor',
-    avatar: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    avatar: '/assets/images/hel.jpg',
     admin: true,
     email: 'helsz@hotmail.co.uk',
     password: 'AdminPass',

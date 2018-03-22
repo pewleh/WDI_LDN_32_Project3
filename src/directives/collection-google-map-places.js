@@ -13,7 +13,306 @@ function googleMap() {
 
       const map = new google.maps.Map($element[0], {
         zoom: 9,
-        center: { lat: 51.515328, lng: -0.072031 }
+        center: { lat: 51.515328, lng: -0.072031 },
+        styles: [
+          {
+            'featureType': 'all',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#242f3e'
+              }
+            ]
+          },
+          {
+            'featureType': 'all',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#746855'
+              }
+            ]
+          },
+          {
+            'featureType': 'all',
+            'elementType': 'labels.text.stroke',
+            'stylers': [
+              {
+                'color': '#242f3e'
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.locality',
+            'elementType': 'geometry.fill',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.locality',
+            'elementType': 'geometry.stroke',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.locality',
+            'elementType': 'labels.text',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.locality',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#f3d19c'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.locality',
+            'elementType': 'labels.text.stroke',
+            'stylers': [
+              {
+                'visibility': 'off'
+              },
+              {
+                'weight': 1
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'all',
+            'stylers': [
+              {
+                'saturation': 100
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'geometry.fill',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'geometry.stroke',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'labels.text',
+            'stylers': [
+              {
+                'color': '#d59563'
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'visibility': 'off'
+              }
+            ]
+          },
+          {
+            'featureType': 'administrative.neighborhood',
+            'elementType': 'labels.text.stroke',
+            'stylers': [
+              {
+                'color': '#d59563'
+              },
+              {
+                'weight': 8
+              }
+            ]
+          },
+          {
+            'featureType': 'poi',
+            'elementType': 'all',
+            'stylers': [
+              {
+                'visibility': 'off'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#d59563'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi.park',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#263c3f'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi.park',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#6b9a76'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi.park',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'color': '#6b9a76'
+              }
+            ]
+          },
+          {
+            'featureType': 'road',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#485466'
+              }
+            ]
+          },
+          {
+            'featureType': 'road',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#c4cad2'
+              }
+            ]
+          },
+          {
+            'featureType': 'road',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'visibility': 'off'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.highway',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#746855'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.highway',
+            'elementType': 'geometry.stroke',
+            'stylers': [
+              {
+                'color': '#1f2835'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.highway',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#e5e5e5'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.highway',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'visibility': 'off'
+              }
+            ]
+          },
+          {
+            'featureType': 'transit',
+            'elementType': 'all',
+            'stylers': [
+              {
+                'visibility': 'off'
+              }
+            ]
+          },
+          {
+            'featureType': 'water',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#17263c'
+              }
+            ]
+          },
+          {
+            'featureType': 'water',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'color': '#515c6d'
+              }
+            ]
+          },
+          {
+            'featureType': 'water',
+            'elementType': 'labels.text.stroke',
+            'stylers': [
+              {
+                'color': '#17263c'
+              }
+            ]
+          }
+        ]
       });
       let infoWindow = null;
       $scope.$watch('place', () => {
