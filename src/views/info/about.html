@@ -19,22 +19,9 @@
           <h1 class="amitaTitle">What can we do to help?</h1>
           <br>
           <p>Contact us personally at: <br> starGazer@notarealemail.io</p>
-          <h1 class="amitaTitle">OR</h1>
-        </div>
-        <div class="container commentsection">
 
-          <div class="container display">
-            <h3 class="subtitle">Drop us a public suggestion</h3>
-            <ul>
-              <li ng-repeat="comment in placesShow.place.comments" ui-sref="profile({ id: comment.user._id })">{{ comment.user.username }} - {{ comment.content }}</li>
-            </ul>
-          </div>
 
-          <div class="container write">
-            <form ng-if="main.userId" ng-submit="placesShow.submitComment()">
-              <h3 class="subtitle">Drop us a public suggestion</h3>
-              <textarea class="textarea" name="content" ng-model="placesShow.comment.content"></textarea>
-              <button class="button is-primary commentButton">Submit</button>
+
             </form>
           </div>
 
