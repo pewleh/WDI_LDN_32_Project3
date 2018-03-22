@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 $primary-color: #404B5F;
 $secondary-color: #F08E63;
+=======
+$primary-color: #404b5f;
+$secondary-color: #F08E63;//#d27046; since we darkened the backgroundcolor?
+>>>>>>> development
 $tertiary-color: #D8D8D8;
 $fourth-color: #F2F2F2;
 $fifth-color: #2D3142;
@@ -7,12 +12,35 @@ $fifth-color: #2D3142;
 
 * {
   font-family: 'Cormorant Garamond', serif;
+<<<<<<< HEAD
   box-sizing: border-box;
   .hidden {
     display: none;
   }
+=======
+  .title, .subtitle, p, h1, h2, h3, h4 {
+    color: $fifth-color;
+    padding-top: 10px;
+  }
+  .card {
+    border-radius: 10%;
+  }
+
+>>>>>>> development
   body {
     background-color: $primary-color;
+    .card{
+      border-radius: 10%;
+      padding:0.8vh;//it's bubbly but idk.
+      background-color: $tertiary-color;
+    }
+
+    .centerTitle{  //anything with registerTitle needs to change to centerTitle
+      text-align: center;
+      font-size: 5rem;
+      padding:1.4vw;
+    }
+
     .navbar {
       background-color: $secondary-color;
       font-size: 1.2rem;
@@ -36,28 +64,263 @@ $fifth-color: #2D3142;
         //   }
         // }
       }
+      .navbar-item {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
     .notification {
 
     }
     .events-index {
+      color: $fifth-color;
+      .is-1 {
+        margin-top: 2vh;
+        color: $tertiary-color;
+      }
+      .event-date {
+        margin-top: 4vh;
+        color: $tertiary-color;
+        text-decoration: underline;
+      }
+      .card {
+        height: 30vh;
+        display: flex;
+        background-color: $tertiary-color;
+        .card-content {
+          height: 100%;
+          width: 100%;
+          padding: 1vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center;
+          .index-title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          .index-info {
+            display: flex;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .info-title {
+              font-weight: bold;
+              margin-right: 0.5vw;
+            }
+            .info-content {
 
+            }
+          }
+        }
+      }
     }
     .events-show {
+      color: $fifth-color;
+      div {
+        .event-data {
+          display: flex;
+          justify-content: space-between;
+          .event-card {
+            text-align: center;
+            width: 50vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .details {
+              font-size: 1.5rem;
+              .info-title {
+                font-weight: bold;
+              }
+            }
+            .event-buttons {
+              height:auto;
+              margin-bottom: 2vh;
+            }
+          }
+          .event-image {
+            width: 30vw;
 
+            img {
+              border-radius: 10%;
+            }
+          }
+        }
+        .event-user-data {
+          .comments-list {
+
+            .comment {
+              background-color: $tertiary-color;
+              margin-bottom: 0.5vh;
+
+              div {
+                display: flex;
+                justify-content: space-around;
+                .comment-username {
+                  font-weight: bold;
+                  width: 15%;
+                  font-size: 1.25rem;
+                }
+                .comment-content {
+                  width: 85%;
+                  font-size: 1.25rem;
+                }
+                .buttons {
+                  float: right;
+                }
+              }
+            }
+          }
+          .textarea {
+            background-color: $tertiary-color;
+
+          }
+        .file {
+          display: flex;
+          flex-direction: column;
+        }
+        .file-cta {
+          width: 15vw;
+          text-align: center;
+        }
+        }
+
+      }
     }
     .events-new {
       height: 100vh;
+<<<<<<< HEAD
+=======
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
+>>>>>>> development
     }
     .events-edit {
-
+      height: 100vh;
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 2rem;
+        color: $fifth-color;
+      }
+      button {
+        float: right;
+      }
     }
     .places-index {
+      .cardImg{
+        border-radius: 10% 10% 0 0;
+      }
+      .collection-google-map {
+        height:300px;
+        margin-top: 5vh;
+      }
+      .card-content{
+        display: flow-root;
+        padding: 2vh;
 
+
+        .index-title{
+          font-size: 2.5rem;
+          display: flex;
+          margin-left: 8vh;
+
+
+        }
+        .index-subtitle{
+          font-size: 1rem;
+          padding: 2vh;
+          float:right;
+        }
+      }
     }
     .places-show {
+      .container{
+        .image-container{
+          .show-buttons{
+            margin-top: 25vh;
+            margin-left: 23vw;
+          }
+        }
+        .first-show-tier{
+          display: flex;
+          .heading-container {
+            margin-top: 25vh;
+            margin-left: 8vw;
+            display: flex-root;
 
+            .show-title{
+              font-size: 3rem;
+              width:45vw;
+            }
+            .show-subtitle{
+              font-size: 25px;
+              width: 500px;
+              text-align: center;
+              margin-left: 60px;
+            }
+          }
+          img{
+            float:right;
+            margin-top: 10vh;
+          }
+        }
+        .show-description{
+          font-size: 1.3rem;
+          text-align: center;
+          margin:2vh;
+        }
+        .sub-category{
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        .comment-section{
+          padding-bottom: 10vh;
+      }
+
+      .googleBorder{
+        float:right;
+        padding: 5vw;
+        margin-top: -40vh;
+        margin-right: 6vh;
+        .google-map {
+          width: 30vw;
+          height: 40vh;
+          border-radius: 10%;
+      }
     }
+      table{
+        font-size: 20px;
+        color: $tertiary-color;
+      }
+      }
+    }
+
+
     .places-new {
       height: 100vh;
     }
@@ -119,12 +382,66 @@ $fifth-color: #2D3142;
     .login {
       height: 100vh;
     }
+<<<<<<< HEAD
     .register {
       height: 100vh;
+=======
+  }
+}
+
+
+nav.navbar{
+
+  a.navbar-item{
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+
+
+
+.title, .subtitle, p, h1, h2, h3, h4{
+  color: #c8c9ca;
+  padding-top: 10px;
+}
+
+.commentButton{
+  float:right;
+}
+
+.display{
+  height: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+//REFACTORED CSS STARTS HERE ->
+
+//About page ->
+.container{
+  align-content: center;
+  .adminImages{
+    display:inline-flex;
+
+    img.adminImage{
+      border-radius: 50%;
+      height:300px;
+      margin-left:10vw;
+>>>>>>> development
     }
     .about {
 
     }
+<<<<<<< HEAD
     .404 {
 
     }
@@ -339,4 +656,72 @@ $fifth-color: #2D3142;
 
 .collection-google-map {
   height:300px;
+=======
+  }
+}
+
+
+//login/Registration ->
+
+.loginContainer{
+  width:700px;
+  margin-left: 25%;
+}
+
+.registerForm{
+  width: 580px;
+  margin-left: 29%;
+  text-align: center;
+}
+
+
+//profile page
+
+
+.profilePic{
+  border-radius: 100%;
+  margin-left: 10%;
+  margin-top:5%;
+}
+
+#profilePicHeight {
+  height: 300px;
+}
+
+.username{
+  font-size: 55px;
+  margin-left: 18.5%;
+  padding: 10px;
+}
+
+.preferences{
+  float: right;
+  margin-right: 25%;
+  margin-top: -20%;
+}
+
+.userButton{
+  margin-left: 13.5%;
+}
+
+
+//events + places New ->
+.newSubtitle{
+  margin-left: 39%;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+.newContainer{
+  width: 1000px;
+  margin-left: 14%;
+  .dropDowns{
+    display: inline-flex;
+    .dropDown {
+      margin-left: 70%;
+    }
+  }
+}
+.titleContainer{
+  width:670px;
+>>>>>>> development
 }

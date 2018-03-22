@@ -1,29 +1,30 @@
 <section class="places-show">
   <div class="container">
-    <div class="container">
-      <div class="newShowContainer">
-        <div class="titleContainer">
-          <h2 class="showTitle" style="width: 600px;"><h2>{{ placesShow.place.name }}</h2>
-          <p class="showSubtitle">{{ placesShow.place.address }}</p>
+    <div class="first-show-tier">
+    <div class="heading-container">
+
+          <h2 class="show-title">{{ placesShow.place.name }}</h2>
+          <p class="show-subtitle">{{ placesShow.place.address }}</p>
+
         </div>
-        <div class="container image">
-          <figure class="showImage">
-            <img src="{{ placesShow.place.image }}" style="width: 550px; border-radius:  15px; margin-left: 15%">
+        <div class="image-container">
+          <figure>
+            <img src="{{ placesShow.place.image }}"  class="show-image" style="width: 550px; border-radius:  15px; margin-left: 15%">
           </figure>
-          <div class="newShowButtons">
-            <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
 
+          <div class="show-buttons">
+            <a ng-if="main.userId" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
             <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
+            <button ng-if="main.userId" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+          </div>
 
-            <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
           </div>
         </div>
-      </div>
       <br>
-      <p class="showDescription">{{ placesShow.place.description }}</p>
+      <p class="show-description">{{ placesShow.place.description }}</p>
       <br>
-      <p>Type: <strong>{{ placesShow.place.type }}</strong></p>
-      <p>Outdoors:<strong> {{ placesShow.place.outdoor }}</strong></p>
+      <p class="sub-category">Type: {{ placesShow.place.type }}</p>
+      <p class="sub-category">Outdoors: {{ placesShow.place.outdoor }}</p>
 
 
       <hr>
@@ -42,16 +43,15 @@
       </table>
 
       <!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
-    </div>
     <div class="googleBorder">
       <google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
     </div>
 
     <div id="directions-show">
-      
+
     </div>
 
-    <div class="container commentsection">
+    <div class="container comment-section">
 
       <div class="container display">
         <h3 class="subtitle">See what others have said</h3>
@@ -71,6 +71,5 @@
       </div>
 
     </div>
-
   </div>
 </section>

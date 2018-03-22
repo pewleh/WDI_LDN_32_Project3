@@ -2,18 +2,21 @@ EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state', '$auth'];
 function EventsShowCtrl(Event, User, Place, $state, $auth) {
   const vm = this;
   this.event = {};
-  this.currentUser = false;
+  this.currentUser = $auth.getPayload().sub;
   this.comment = {
     userId: this.currentUser
   };
 
-  if($auth.getPayload()) this.currentUser = $auth.getPayload().sub;
 
   vm.allPlaces = [];
   vm.event.image = null;
 
   Place.findPlace()
-    .then(res => vm.allPlaces = res.data);
+    .then(res => vm.allPlaces = res.data)
+    .then(() => {
+      vm.currentUser = $auth.getPayload().sub;
+      console.log('user is',vm.currentUser);
+    });
 
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
@@ -64,18 +67,6 @@ function EventsShowCtrl(Event, User, Place, $state, $auth) {
   }
   this.isMeteorShower = isMeteorShower;
 
-  // function savePic() {
-  //   vm.trip.images.push(vm.trip.image);
-  //   Trip
-  //     .update({ tripId: vm.trip.id}, vm.trip)
-  //     .$promise
-  //     .then(() => {
-  //       vm.trip.image = null;
-  //     });
-  //
-  // }
-  // vm.savePic = savePic;
-
   function savePic() {
     console.log('EVENT', vm.event);
     Event
@@ -88,6 +79,3 @@ function EventsShowCtrl(Event, User, Place, $state, $auth) {
 }
 
 export default EventsShowCtrl;
-
-// watch this.event.userImages for cahnges
-// when it changes, Event.update(this.event)

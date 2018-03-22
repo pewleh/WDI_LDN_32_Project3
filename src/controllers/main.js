@@ -5,11 +5,10 @@ MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout'];
 function MainCtrl($auth, $state, $rootScope, $timeout) {
   const vm = this;
 
-  vm.userId = false;
-  vm.admin = false;
+  vm.userId = $auth.getPayload().sub;
+  vm.admin = $auth.getPayload().admin;
   vm.clicked = false;
 
-  if($auth.getPayload()) vm.userId = $auth.getPayload().sub;
 
   function logout() {
     vm.userId = false;
@@ -23,6 +22,8 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
   $rootScope.$on('login', (e, data) => {
     vm.userId = data.content.userId;
     vm.admin = data.content.admin;
+    console.log(vm.userId);
+    console.log(vm.admin);
   });
 
   $rootScope.$on('flashMessage', (e, data) => {
