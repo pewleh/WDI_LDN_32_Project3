@@ -11,7 +11,8 @@ const placeData = require('./data/places');
 
 const User = require('../models/User');
 const userData = require('./data/users');
-// const dataRequests = require('../lib/dataRequests');
+const dataRequests = require('../lib/dataRequests');
+
 
 const rp = require('request-promise');
 
@@ -96,7 +97,7 @@ function normalizeTime() {
   });
 }
 mongoose.connect(dbURI, (err, db) => {
-  addWeather();
+  // addWeather();
   db.dropDatabase()
     .then(() => console.log('connected to db and cleared it'))
     .then(() => getAsteroids())
@@ -109,7 +110,7 @@ mongoose.connect(dbURI, (err, db) => {
     .then(() => Event.create(eventData))
     .then(events => console.log(`${events.length} events created`))
     .catch(err => console.log(err))
-    .then(() => Place.create(placeData))
+    .then(() => Place.create(dataRequests.addWeather(placeData)))
     .then(places => console.log(`${places.length} places created`))
     .catch(err => console.log(err))
     .then(() => User.create(userData))
