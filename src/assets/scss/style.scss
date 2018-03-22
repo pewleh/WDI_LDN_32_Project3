@@ -326,28 +326,19 @@ $fifth-color: #2D3142;
     .about {
 
     }
-    .404 {
+    .not-found {
+      height: 100vh;
+      text-align: center;
 
+      .container {
+        h1 {
+          font-size: 3.75rem;
+          font-weight: bold;
+          margin-top: 30vh;
+        }
+      }
     }
   }
-}
-
-
-nav.navbar{
-
-  a.navbar-item{
-    color:black;
-    font-size: 20px;
-    font-weight: bold;
-  }
-}
-
-
-
-
-.title, .subtitle, p, h1, h2, h3, h4{
-  color: #c8c9ca;
-  padding-top: 10px;
 }
 
 .commentButton{
@@ -357,15 +348,6 @@ nav.navbar{
 .display{
   height: 20%;
 }
-
-
-
-
-
-
-
-
-
 
 //REFACTORED CSS STARTS HERE ->
 

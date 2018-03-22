@@ -32,7 +32,8 @@ function EventsShowCtrl(Event, User, Place, $state, $auth) {
     Event.createComment(vm.comment ,vm.event)
       .then(() => User.findById(vm.currentUser))
       .then((user) => vm.comment.username = user.data.username)
-      .then(() => vm.event.comments.push(vm.comment));
+      .then(() => vm.event.comments.push(vm.comment))
+      .then(() => vm.comment = {} );
   }
   this.submitComment = submitComment;
 
