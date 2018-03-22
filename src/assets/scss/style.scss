@@ -132,7 +132,13 @@ $fifth-color: #2D3142;
       }
     }
     .events-new {
-
+      height: 100vh;
+      .input {
+        background-color: $tertiary-color;
+      }
+      select {
+        background-color: $tertiary-color;
+      }
     }
     .events-edit {
 
