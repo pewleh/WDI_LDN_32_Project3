@@ -116,29 +116,46 @@ $fifth-color: #2D3142;
         }
         .comment-section{
           padding-bottom: 10vh;
-      }
+        }
 
-      .googleBorder{
-        float:right;
-        padding: 5vw;
-        margin-top: -40vh;
-        margin-right: 6vh;
-        .google-map {
-          width: 30vw;
-          height: 40vh;
-          border-radius: 10%;
-      }
-    }
-      table{
-        font-size: 20px;
-        color: $tertiary-color;
-      }
+        .googleBorder{
+          float:right;
+          padding: 5vw;
+          margin-top: -40vh;
+          margin-right: 6vh;
+          .google-map {
+            width: 30vw;
+            height: 40vh;
+            border-radius: 10%;
+          }
+        }
+        table{
+          font-size: 20px;
+          color: $tertiary-color;
+        }
       }
     }
 
 
     .places-new {
+      .container{
+        padding:20vh;
+        height:100vh;
+        color: $tertiary-color;
 
+        .new-title{
+          font-size: 3rem;
+          padding-bottom: 2vh;
+        }
+        .new-field-right{
+          float:right;
+          margin-top: -12vh;
+
+        }
+          button.button.is-primary.new-field-right.new-submit{
+            margin-top: -4.8vh;
+          }
+      }
     }
     .places-edit{
 
@@ -270,12 +287,7 @@ nav.navbar{
 .newContainer{
   width: 1000px;
   margin-left: 14%;
-  .dropDowns{
-    display: inline-flex;
-    .dropDown {
-      margin-left: 70%;
-    }
-  }
+
 }
 .titleContainer{
   width:670px;
