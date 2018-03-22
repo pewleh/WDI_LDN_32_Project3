@@ -97,12 +97,16 @@ $fifth-color: #2D3142;
           display: flex;
           justify-content: space-between;
           .event-card {
+            text-align: center;
             width: 50vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             .details {
-
+              font-size: 1.5rem;
+              .info-title {
+                font-weight: bold;
+              }
             }
             .event-buttons {
               height:auto;
@@ -137,6 +141,14 @@ $fifth-color: #2D3142;
             background-color: $tertiary-color;
 
           }
+        .file {
+          display: flex;
+          flex-direction: column;
+        }
+        .file-cta {
+          width: 15vw;
+          text-align: center;
+        }
         }
         .buttons {
           flex-basis: 100%;

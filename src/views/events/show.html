@@ -69,9 +69,13 @@
           </div>
         </div>
 
+        <figure class="image" ng-repeat="picture in eventsShow.event.userImages">
+          <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
+        </figure>
+
         <div ng-if="main.userId" class="control">
           <div class="file">
-            <label class="file-label">
+            <label class="label"><h3 class="title is-4">Share your images</h3></label>
               <input class="file-input" type="file" ng-model="eventsShow.event.image" upload-image>
               <span class="file-cta">
                 <span class="file-icon">
@@ -81,17 +85,12 @@
                   Choose a file…
                 </span>
               </span>
-            </label>
           </div>
           <form ng-submit="eventsShow.savePic()">
             <button type="submit">Save Picture</button>
           </form>
         </div>
       </div>
-
-      <figure class="image" ng-repeat="picture in eventsShow.event.userImages">
-        <img ng-src="{{ picture.src }}" alt="{{ event.name }}" />
-      </figure>
     </div>
   </div>
 </section>
