@@ -1,67 +1,72 @@
-<div class="container">
-  <div class="newShowContainer">
-    <div class="titleContainer">
-      <h2 class="showTitle" style="width: 600px;"><h2>{{ placesShow.place.name }}</h2>
-      <p class="showSubtitle">{{ placesShow.place.address }}</p>
-    </div>
-    <div class="container image">
-      <figure class="showImage">
-        <img src="{{ placesShow.place.image }}" style="width: 550px; border-radius:  15px; margin-left: 15%">
-      </figure>
-      <div class="newShowButtons">
-        <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+<section class="places-show">
+  <div class="container">
+    <div class="container">
+      <div class="newShowContainer">
+        <div class="titleContainer">
+          <h2 class="showTitle" style="width: 600px;"><h2>{{ placesShow.place.name }}</h2>
+          <p class="showSubtitle">{{ placesShow.place.address }}</p>
+        </div>
+        <div class="container image">
+          <figure class="showImage">
+            <img src="{{ placesShow.place.image }}" style="width: 550px; border-radius:  15px; margin-left: 15%">
+          </figure>
+          <div class="newShowButtons">
+            <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
 
-        <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
+            <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
 
-        <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+            <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
+          </div>
+        </div>
       </div>
+      <br>
+      <p class="showDescription">{{ placesShow.place.description }}</p>
+      <br>
+      <p>Type: <strong>{{ placesShow.place.type }}</strong></p>
+      <p>Outdoors:<strong> {{ placesShow.place.outdoor }}</strong></p>
+
+
+      <hr>
+      <!--  table Weather Option-->
+      <table>
+        <thead>
+          <td>Day</td>
+          <td>Summary</td>
+          <td>Phase of the Moon</td>
+        </thead>
+        <tr ng-repeat="day in placesShow.place.weather.data">
+          <td>{{day.time*1000 | date}}</td>
+          <td>{{day.summary}}</td>
+          <td>{{day.moonPhase}}</td>
+        </tr>
+      </table>
+
+      <!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
     </div>
+    <div class="googleBorder">
+      <google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
+    </div>
+
+    <div class="container commentsection">
+
+      <div class="container display">
+        <h3 class="subtitle">See what others have said</h3>
+        <ul>
+          <li ng-repeat="comment in placesShow.place.comments">
+            <span ui-sref="profile({ id: comment.userId._id })">{{ comment.userId.username }} {{ comment.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="placesShow.deleteComment(comment)"></button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container write">
+        <form ng-if="main.userId" ng-submit="placesShow.submitComment()">
+          <h3 class="subtitle">What's on your mind?</h3>
+          <textarea class="textarea" name="content" ng-model="placesShow.comment.content"></textarea>
+          <button class="button is-primary commentButton">Submit</button>
+        </form>
+      </div>
+
+    </div>
+
   </div>
-  <br>
-  <p class="showDescription">{{ placesShow.place.description }}</p>
-<br>
-  <p>Type: <strong>{{ placesShow.place.type }}</strong></p>
-  <p>Outdoors:<strong> {{ placesShow.place.outdoor }}</strong></p>
-
-
-    <hr>
-    <!--  table Weather Option-->
-    <table>
-      <thead>
-        <td>Day</td>
-        <td>Summary</td>
-        <td>Phase of the Moon</td>
-      </thead>
-      <tr ng-repeat="day in placesShow.place.weather.data">
-        <td>{{day.time*1000 | date}}</td>
-        <td>{{day.summary}}</td>
-        <td>{{day.moonPhase}}</td>
-      </tr>
-    </table>
-
-<!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
-</div>
-<div class="googleBorder">
-<google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
-</div>
-
-<div class="container commentsection">
-
-  <div class="container display">
-    <h3 class="subtitle">See what others have said</h3>
-    <ul>
-      <li ng-repeat="comment in placesShow.place.comments">
-        <span ui-sref="profile({ id: comment.userId._id })">{{ comment.userId.username }} {{ comment.username }} - {{ comment.content }} </span> <button type="button" name="button" ng-click="placesShow.deleteComment(comment)"></button>
-      </li>
-    </ul>
-  </div>
-
-  <div class="container write">
-    <form ng-if="main.userId" ng-submit="placesShow.submitComment()">
-      <h3 class="subtitle">What's on your mind?</h3>
-      <textarea class="textarea" name="content" ng-model="placesShow.comment.content"></textarea>
-      <button class="button is-primary commentButton">Submit</button>
-    </form>
-  </div>
-
-</div>
+</section>

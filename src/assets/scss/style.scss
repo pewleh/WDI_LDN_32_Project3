@@ -1,5 +1,62 @@
-*{
+$primary-color: #4F5D75;
+$secondary-color: #F08E63;
+$tertiary-color: #D8D8D8;
+$fourth-color: #F2F2F2;
+$fifth-color: #2D3142;
+
+
+
+* {
   font-family: 'Cormorant Garamond', serif;
+
+  body {
+    background-color: $primary-color;
+    .navbar {
+      background-color: $secondary-color;
+      .navbar-brand {
+
+      }
+      .navbar-menu {
+
+      }
+    }
+    .notification {
+
+    }
+    .events-index {
+
+    }
+    .events-show {
+
+    }
+    .events-new {
+
+    }
+    .events-edit {
+
+    }
+    .places-index {
+
+    }
+    .places-show {
+
+    }
+    .places-new {
+
+    }
+    .places-edit{
+
+    }
+    .user-profile{
+
+    }
+    .about {
+
+    }
+    .404 {
+
+    }
+  }
 }
 
 
@@ -144,8 +201,8 @@ table{
   margin-left: 14%;
   .dropDowns{
     display: inline-flex;
-    .dropDown{
-      margin-left:70%;
+    .dropDown {
+      margin-left: 70%;
     }
   }
 }
@@ -168,7 +225,7 @@ table{
     margin-top: 5%;
     text-align: center;
   }
-  .newShowContainer{
+  .newShowContainer {
       margin-bottom: 40px;
   }
   .eventShowContainer{
