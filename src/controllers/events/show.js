@@ -2,10 +2,12 @@ EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state', '$auth'];
 function EventsShowCtrl(Event, User, Place, $state, $auth) {
   const vm = this;
   this.event = {};
-  this.currentUser = $auth.getPayload().sub;
+  this.currentUser = false;
   this.comment = {
     userId: this.currentUser
   };
+
+  if($auth.getPayload()) this.currentUser = $auth.getPayload().sub;
 
   vm.allPlaces = [];
   vm.event.image = null;

@@ -1,5 +1,136 @@
-*{
+$primary-color: #404b5f;
+$secondary-color: #F08E63;//#d27046; since we darkened the backgroundcolor?
+$tertiary-color: #D8D8D8;
+$fourth-color: #F2F2F2;
+$fifth-color: #2D3142;
+
+
+
+* {
   font-family: 'Cormorant Garamond', serif;
+
+  body {
+    background-color: $primary-color;
+    .card{
+      border-radius: 10%;
+      padding:0.8vh;//it's bubbly but idk.
+      background-color: $tertiary-color;
+    }
+
+    .centerTitle{  //anything with registerTitle needs to change to centerTitle
+      text-align: center;
+      font-size: 5rem;
+      padding:1.4vw;
+    }
+
+    .navbar {
+      background-color: $secondary-color;
+      .navbar-brand {
+
+      }
+      .navbar-menu {
+
+      }
+    }
+    .notification {
+
+    }
+    .events-index {
+
+    }
+    .events-show {
+
+    }
+    .events-new {
+
+    }
+    .events-edit {
+
+    }
+    .places-index {
+      .cardImg{
+        border-radius: 10% 10% 0 0;
+      }
+      .collection-google-map {
+        height:300px;
+        margin-top: 5vh;
+      }
+      .card-content{
+        display: flow-root;
+        padding: 2vh;
+
+
+        .index-title{
+          font-size: 2.5rem;
+          display: flex;
+          margin-left: 8vh;
+
+
+        }
+        .index-subtitle{
+          font-size: 1rem;
+          padding: 2vh;
+          float:right;
+        }
+      }
+    }
+    .places-show {
+      .container{
+      .first-show-tier{
+          display: flex;
+        .heading-container {
+          margin-top: 25vh;
+          margin-left: 8vw;
+          display: flex-root;
+
+          .show-title{
+            font-size: 3rem;
+            width:45vw;
+          }
+          .show-subtitle{
+            font-size: 25px;
+            width: 500px;
+            text-align: center;
+            margin-left: 60px;
+          }
+        }
+        img{
+          float:right;
+          margin-top: 10vh;
+        }
+      }
+      .show-description{
+        font-size: 1.3rem;
+        text-align: center;
+        margin:2vh;
+      }
+      .sub-category{
+        font-weight: bold;
+        font-size: 1rem;
+      }
+    }
+
+      .show-buttons{
+        margin-top: 30%;
+        margin-left: 28%;
+      }
+  }
+    .places-new {
+
+    }
+    .places-edit{
+
+    }
+    .user-profile{
+
+    }
+    .about {
+
+    }
+    .404 {
+
+    }
+  }
 }
 
 
@@ -62,7 +193,7 @@ table{
     img.adminImage{
       border-radius: 50%;
       height:300px;
-      margin-left:30%;
+      margin-left:10vw;
     }
 
   }
@@ -90,12 +221,7 @@ table{
   margin-left: 29%;
   text-align: center;
 }
-.registerTitle{
-  text-align: center;
-  font-size: 60px;
-  padding:40px;
-  text-decoration: overline;
-}
+
 
 //profile page
 
@@ -126,13 +252,7 @@ table{
   margin-left: 13.5%;
 }
 
-// events + places Index ->
-.indexTitle{
-  font-size: 38px;
-}
-.indexSubtitle{
-  font-size: 20px;
-}
+
 //events + places New ->
 .newSubtitle{
   margin-left: 39%;
@@ -144,70 +264,22 @@ table{
   margin-left: 14%;
   .dropDowns{
     display: inline-flex;
-    .dropDown{
-      margin-left:70%;
+    .dropDown {
+      margin-left: 70%;
     }
   }
 }
 
-//events + places Show ->
 
-.titleContainer{
-  background-color: #ffffff26;
-  height: 50%;
-  margin-top: 7%;
-}
-//NEED TO FIX EVENT SHOW CONTAINER MAGIN!!
-.newShowContainer, .eventShowContainer{
-  display: inline-flex;
-  font-size: 70px;
-  padding: 50px;
-  height: 500px;
-  .showTitle{
-    font-size: 45px;
-    margin-top: 5%;
-    text-align: center;
-  }
-  .newShowContainer{
-      margin-bottom: 40px;
-  }
-  .eventShowContainer{
-    margin-bottom: 300px;
-  }
-  .showSubtitle{
-    font-size: 25px;
-    width: 500px;
-    text-align: center;
-    margin-left: 60px;
-  }
-  .eventShowButtons{
-    margin-top: 48%;
-    margin-left: 28%;
-  }
-  .newShowButtons{
-    margin-top: 30%;
-    margin-left: 28%;
-  }
 
-  .showImage{
-    position: absolute;
-    top: 70px;
-  }
-}
 
-.showDescription{
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 10px;
-}
+
+
+
 
 //googleMaps ->
 
 .google-map {
   width: 300px;
   height: 300px;
-}
-
-.collection-google-map {
-  height:300px;
 }

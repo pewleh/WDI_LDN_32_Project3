@@ -1,48 +1,49 @@
-<div class="Container">
+<section class="user-profile">
+  <div class="container">
 
-  <div class="profileInfo">
-    <img ng-src="{{ usersProfile.user.avatar }}" id="profilePicHeight"alt="{{ usersProfile.user.name }}" class="profilePic"/>
-    <h2 class="username">{{ usersProfile.user.username }}</h2>
-  </div>
-<div class="preferences">
-  <div class="container favorites">
-    <h3 class="subtitle is-3">See your favorites</h3>
-    <ul>
-      <li>Events:</li>
-      <li ng-repeat="event in usersProfile.user.favoriteEvents" ui-sref="eventsShow({ id: event._id })">{{event.name}}</li>
-    </ul>
+    <div class="profileInfo">
+      <img ng-src="{{ usersProfile.user.avatar }}" id="profilePicHeight"alt="{{ usersProfile.user.name }}" class="profilePic"/>
+      <h2 class="username">{{ usersProfile.user.username }}</h2>
+    </div>
+    <div class="preferences">
+      <div class="container favorites">
+        <h3 class="subtitle is-3">See your favorites</h3>
+        <ul>
+          <li>Events:</li>
+          <li ng-repeat="event in usersProfile.user.favoriteEvents" ui-sref="eventsShow({ id: event._id })">{{event.name}}</li>
+        </ul>
 
-    <hr>
+        <hr>
 
-    <ul>
-      <li>Places:</li>
-      <li ng-repeat="location in usersProfile.user.favoriteLocations" ui-sref="placesShow({ id: location._id })">{{location.name}}</li>
-    </ul>
-  </div>
+        <ul>
+          <li>Places:</li>
+          <li ng-repeat="location in usersProfile.user.favoriteLocations" ui-sref="placesShow({ id: location._id })">{{location.name}}</li>
+        </ul>
+      </div>
 
-  <hr>
+      <hr>
 
-  <div class="container comments">
-    <h3 class="subtitle is-3">See your comments</h3>
-    <ul>
-      <li ng-repeat="comment in usersProfile.user.comments" ><strong>{{ comment.event.name }} {{ comment.place.name }}</strong> - {{ comment.content }}</li>
-    </ul>
-  </div>
-</div>
-  <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
-  <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
-  <!-- <button ng-if="main.admin" class="button is-primary" ng-click="usersProfile.getAvatarFromFilepicker()">Upload Asshole</button>
-</div> -->
+      <div class="container comments">
+        <h3 class="subtitle is-3">See your comments</h3>
+        <ul>
+          <li ng-repeat="comment in usersProfile.user.comments" ><strong>{{ comment.event.name }} {{ comment.place.name }}</strong> - {{ comment.content }}</li>
+        </ul>
+      </div>
+    </div>
+    <a ng-if="main.admin" ui-sref="profileEdit({ id: usersProfile.user._id })" class="button">Edit</a>
+    <button ng-if="main.admin" class="button is-danger" ng-click="usersProfile.remove()">Delete</button>
+    <!-- <button ng-if="main.admin" class="button is-primary" ng-click="usersProfile.getAvatarFromFilepicker()">Upload Asshole</button>
+  </div> -->
 
-<!--
-<div class="field" ng-if="usersProfile.user.avatar">
+  <!--
+  <div class="field" ng-if="usersProfile.user.avatar">
   <label class="label">Profile Picture Preview</label>
   <div class="control">
-    <figure class="image is-128x128">
-      <img src="{{ usersProfile.user.avatar }}">
-    </figure>
+  <figure class="image is-128x128">
+  <img src="{{ usersProfile.user.avatar }}">
+  </figure>
   </div>
-</div> -->
+  </div> -->
 
 
   <div class="control">
@@ -66,3 +67,6 @@
 
     <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
   </form>
+  </div>
+
+</section>

@@ -1,74 +1,76 @@
-<section class="section">
-  <h1 class="registerTitle">Share your favourite spot!</h1>
-  <div class="loginContainer">
-    <form name="placesNew.form" ng-submit="placesNew.handleSubmit()" novalidate>
+<section class="places-new">
+  <div class="container">
+    <h1 class="registerTitle">Share your favourite spot!</h1>
+    <div class="loginContainer">
+      <form name="placesNew.form" ng-submit="placesNew.handleSubmit()" novalidate>
 
-      <div class="field">
-        <label for="name">Place Name</label>
-        <input class="input" placeholder="Place Name" name="name" ng-model="placesNew.newPlace.name" required />
-        <div ng-messages="placesNew.form.name.$error" ng-if="placesNew.form.name.$dirty || placesNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="location">Location</label>
-        <input class="input auto-complete" placeholder="Location" name="location" ng-model="placesNew.newPlace.address" required />
-        <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
-      </div>
-
-
-      <!-- <div class="field">
-        <label for="image">Image</label>
-        <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
-        <div ng-messages="placesNew.form.image.$error" ng-if="placesNew.form.image.$dirty || placesNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-          <div class="notification is-danger" ng-message="pattern">This field must begin with http:// or https://</div>
-        </div>
-      </div> -->
-
-      <div class="control">
-        <div class="file">
-          <label class="file-label">
-            <input class="file-input" type="file" ng-model="placesNew.newPlace.image" upload-image>
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fa fa-upload"></i>
-              </span>
-              <span class="file-label">
-                Choose a file…
-              </span>
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <form ng-submit="placesNew.savePic()">
-        <button class="button is-primary" type="submit">Submit</button>
-
-        <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
-      </form>
-
-      <div class="field">
-        <label for="type">Type of place</label>
-        <div class="control">
-          <div class="select">
-            <select name="type" ng-model="placesNew.newPlace.type" required>
-              <option selected disabled value="">Please choose</option>
-              <option value="Park">Park</option>
-              <option value="Observatory">Observatory</option>
-              <option value="Other">National Trust</option>
-            </select>
+        <div class="field">
+          <label for="name">Place Name</label>
+          <input class="input" placeholder="Place Name" name="name" ng-model="placesNew.newPlace.name" required />
+          <div ng-messages="placesNew.form.name.$error" ng-if="placesNew.form.name.$dirty || placesNew.form.$submitted">
+            <div class="notification is-danger" ng-message="required">This field is required</div>
           </div>
         </div>
-        <div ng-messages="placesNew.form.type.$error" ng-if="placesNew.form.type.$touched || placesNew.form.$submitted">
-          <div class="notification is-danger" ng-message="required">This field is required</div>
-        </div>
-      </div>
 
-      <button class="button is-primary commentButton">Submit</button>
-    </form>
+        <div class="field">
+          <label for="location">Location</label>
+          <input class="input auto-complete" placeholder="Location" name="location" ng-model="placesNew.newPlace.address" required />
+          <div ng-messages="placesNew.form.location.$error" ng-if="placesNew.form.location.$dirty || placesNew.form.$submitted">
+            <div class="notification is-danger" ng-message="required">This field is required</div>
+          </div>
+        </div>
+
+
+        <!-- <div class="field">
+          <label for="image">Image</label>
+          <input class="input" placeholder="Image" name="image" ng-model="placesNew.newPlace.image" required pattern="https?://.+" />
+          <div ng-messages="placesNew.form.image.$error" ng-if="placesNew.form.image.$dirty || placesNew.form.$submitted">
+            <div class="notification is-danger" ng-message="required">This field is required</div>
+            <div class="notification is-danger" ng-message="pattern">This field must begin with http:// or https://</div>
+          </div>
+        </div> -->
+
+        <div class="control">
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" ng-model="placesNew.newPlace.image" upload-image>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <form ng-submit="placesNew.savePic()">
+          <button class="button is-primary" type="submit">Submit</button>
+
+          <!-- <img class="imagePreview" src="{{eventsShow.event.image}}"> -->
+        </form>
+
+        <div class="field">
+          <label for="type">Type of place</label>
+          <div class="control">
+            <div class="select">
+              <select name="type" ng-model="placesNew.newPlace.type" required>
+                <option selected disabled value="">Please choose</option>
+                <option value="Park">Park</option>
+                <option value="Observatory">Observatory</option>
+                <option value="Other">National Trust</option>
+              </select>
+            </div>
+          </div>
+          <div ng-messages="placesNew.form.type.$error" ng-if="placesNew.form.type.$touched || placesNew.form.$submitted">
+            <div class="notification is-danger" ng-message="required">This field is required</div>
+          </div>
+        </div>
+
+        <button class="button is-primary commentButton">Submit</button>
+      </form>
+    </div>
   </div>
 </section>

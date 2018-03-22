@@ -1,42 +1,33 @@
-<h1>Who are we?</h1>
-<div class="container">
-<div class="adminImages">
-  <!-- need to be updated if we want circles. -->
-  <img src="/assets/images/fab.jpg" alt="Fabian" class="adminImage">
-  <img src="/assets/images/pau.png" alt="Helena" class="adminImage">
-  <img src="/assets/images/hel.jpg" alt="Paula" class="adminImage">
-</div>
-<div class="adminInfo">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-    deserunt mollit anim id est laborum.</p>
-    <br>
-    <h1 class="amitaTitle">What can we do to help?</h1>
-    <br>
-    <p>Contact us personally at: <br> starGazer@notarealemail.io</p>
-    <h1 class="amitaTitle">OR</h1>
-</div>
-<div class="container commentsection">
+<section class="about">
+  <div class="container">
+    <h1>Who are we?</h1>
+    <div class="container">
+      <div class="adminImages">
+        <!-- need to be updated if we want circles. -->
+        <img src="/assets/images/fab.jpg" alt="Fabian" class="adminImage">
+        <img src="/assets/images/pau.png" alt="Helena" class="adminImage">
+        <img src="/assets/images/hel.jpg" alt="Paula" class="adminImage">
+      </div>
+      <div class="adminInfo">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.</p>
+          <br>
+          <h1 class="amitaTitle">What can we do to help?</h1>
+          <br>
+          <p>Contact us personally at: <br> starGazer@notarealemail.io</p>
 
-  <div class="container display">
-    <h3 class="subtitle">Drop us a public suggestion</h3>
-    <h
-    <ul>
-      <li ng-repeat="comment in placesShow.place.comments" ui-sref="profile({ id: comment.user._id })">{{ comment.user.username }} - {{ comment.content }}</li>
-    </ul>
-  </div>
 
-  <div class="container write">
-    <form ng-if="main.userId" ng-submit="placesShow.submitComment()">
-      <h3 class="subtitle">Drop us a public suggestion</h3>
-      <textarea class="textarea" name="content" ng-model="placesShow.comment.content"></textarea>
-      <button class="button is-primary commentButton">Submit</button>
-    </form>
-  </div>
 
-</div>
+            </form>
+          </div>
 
-</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>

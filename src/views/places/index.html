@@ -1,21 +1,27 @@
-<collection-google-map-places place="placesIndex.allPlaces"></collection-google-map-places>
+<section class="places-index">
+  <collection-google-map-places place="placesIndex.allPlaces"></collection-google-map-places>
+  <div class="container">
 
-<div class="container">
-  <h1 class="title is-1"> Locations </h1>
-  <ul class="columns is-multiline">
-    <li class="column is-half" ng-repeat="place in placesIndex.allPlaces">
-      <a ui-sref="placesShow({ id: place._id })">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
-              <img ng-src="{{ place.image }}" alt="{{ place.name }}" />
-            </figure>
-          </div>
-          <div class="card-content">
-            <p class="indexTitle">{{ place.name }}
-            <p class="subtitle"> {{ place.type }} <br> {{ place.address }}</p>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <div class="container">
+      <h1 class="centerTitle"> Locations </h1>
+      <ul class="columns is-multiline">
+        <li class="column is-half" ng-repeat="place in placesIndex.allPlaces">
+          <a ui-sref="placesShow({ id: place._id })">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <img class="cardImg" ng-src="{{ place.image }}" alt="{{ place.name }}" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <span class="index-title">{{ place.name }} </span>
+                <span class="index-subtitle"> {{ place.type }} </span>
+                <span class="index-subtitle"> {{ place.address }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
   </div>
+</section>
