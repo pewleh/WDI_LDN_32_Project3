@@ -224,45 +224,67 @@ $fifth-color: #2D3142;
     }
     .places-show {
       .container{
-      .first-show-tier{
+        .image-container{
+          .show-buttons{
+            margin-top: 25vh;
+            margin-left: 23vw;
+          }
+        }
+        .first-show-tier{
           display: flex;
-        .heading-container {
-          margin-top: 25vh;
-          margin-left: 8vw;
-          display: flex-root;
+          .heading-container {
+            margin-top: 25vh;
+            margin-left: 8vw;
+            display: flex-root;
 
-          .show-title{
-            font-size: 3rem;
-            width:45vw;
+            .show-title{
+              font-size: 3rem;
+              width:45vw;
+            }
+            .show-subtitle{
+              font-size: 25px;
+              width: 500px;
+              text-align: center;
+              margin-left: 60px;
+            }
           }
-          .show-subtitle{
-            font-size: 25px;
-            width: 500px;
-            text-align: center;
-            margin-left: 60px;
+          img{
+            float:right;
+            margin-top: 10vh;
           }
         }
-        img{
-          float:right;
-          margin-top: 10vh;
+        .show-description{
+          font-size: 1.3rem;
+          text-align: center;
+          margin:2vh;
         }
+        .sub-category{
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        .comment-section{
+          padding-bottom: 10vh;
       }
-      .show-description{
-        font-size: 1.3rem;
-        text-align: center;
-        margin:2vh;
+
+      .googleBorder{
+        float:right;
+        padding: 5vw;
+        margin-top: -40vh;
+        margin-right: 6vh;
+        .google-map {
+          width: 30vw;
+          height: 40vh;
+          border-radius: 10%;
       }
-      .sub-category{
-        font-weight: bold;
-        font-size: 1rem;
+    }
+      table{
+        font-size: 20px;
+        color: $tertiary-color;
+      }
       }
     }
 
-      .show-buttons{
-        margin-top: 30%;
-        margin-left: 28%;
-      }
-  }
+
     .places-new {
 
     }
@@ -309,22 +331,8 @@ nav.navbar{
 
 
 
-.googleBorder{
-  width: 550px;
-  margin-left: 58%;
-  margin-top: 10%;
-  padding:20px;
-}
-.showGoogle{
-  width: 500px;
-  border-radius: 5%;
-}
-table{
-  font-size: 20px;
-}
-.titleContainer{
-  width:670px;
-}
+
+
 
 
 
@@ -417,17 +425,6 @@ table{
     }
   }
 }
-
-
-
-
-
-
-
-
-//googleMaps ->
-
-.google-map {
-  width: 300px;
-  height: 300px;
+.titleContainer{
+  width:670px;
 }

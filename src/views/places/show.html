@@ -11,13 +11,13 @@
           <figure>
             <img src="{{ placesShow.place.image }}"  class="show-image" style="width: 550px; border-radius:  15px; margin-left: 15%">
           </figure>
-          <div class="newShowButtons">
 
-            <a ng-if="main.admin" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
+          <div class="show-buttons">
+            <a ng-if="main.userId" ui-sref="placesEdit({ id: placesShow.place._id })" class="button">Edit</a>
             <button ng-if="main.userId" class="button is-primary" ng-click="placesShow.addFavoriteLocation()">Favorite</button>
-            <button ng-if="main.admin" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
-
+            <button ng-if="main.userId" class="button is-danger" ng-click="placesShow.remove()">Delete</button>
           </div>
+
           </div>
         </div>
       <br>
@@ -43,12 +43,11 @@
       </table>
 
       <!-- <google-map center="{ lat: 51.5, lng: -0.07 }"></google-map> -->
-    </div>
     <div class="googleBorder">
       <google-map class="showGoogle" zoom="14" center="placesShow.place.location"></google-map>
     </div>
 
-    <div class="container commentsection">
+    <div class="container comment-section">
 
       <div class="container display">
         <h3 class="subtitle">See what others have said</h3>
@@ -68,4 +67,5 @@
       </div>
 
     </div>
+  </div>
 </section>
