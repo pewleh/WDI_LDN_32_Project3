@@ -1,21 +1,25 @@
-<h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
-<div class="container">
-  <div class="eventSubtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
-    <h3 class="subtitle is-3">{{date.date | date }}</h3>
-    <ul class="columns is-multiline">
-      <li class="column is-one-quarter" ng-repeat="event in date.events">
-        <a ui-sref="eventsShow({ id: event._id })">
-          <div class="card">
-            <div class="card-content">
-              <p class="indexTitle">{{ event.type }}</p>
-              <p class="indexSubtitle">Event Name: {{ event.name }}</p>
-              <p class="indexSubtitle">visibility: {{ event.visibility }}</p>
-              <p class="indexSubtitle" ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
-              <p class="indexSubtitle" ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
+<section class="events-index">
+  <div class="container">
+    <h1 class="title is-1 has-text-centered">Discover your next stargazing adventure</h1>
+    <div class="container">
+      <div class="eventSubtitle is-3" ng-repeat="date in eventsIndex.dateObjects">
+        <h3 class="subtitle is-3">{{date.date | date }}</h3>
+        <ul class="columns is-multiline">
+          <li class="column is-one-quarter" ng-repeat="event in date.events">
+            <a ui-sref="eventsShow({ id: event._id })">
+              <div class="card">
+                <div class="card-content">
+                  <p class="indexTitle">{{ event.type }}</p>
+                  <p class="indexSubtitle">Event Name: {{ event.name }}</p>
+                  <p class="indexSubtitle">visibility: {{ event.visibility }}</p>
+                  <p class="indexSubtitle" ng-if="event.startTime">Start Time: {{ event.startTime | date: 'shortTime'}}</p>
+                  <p class="indexSubtitle" ng-if="event.endTime">End Time: {{ event.endTime | date: 'shortTime'}}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>

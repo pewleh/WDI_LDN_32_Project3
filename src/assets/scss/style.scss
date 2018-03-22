@@ -1,5 +1,51 @@
-*{
+* {
   font-family: 'Cormorant Garamond', serif;
+  body {
+    nav {
+      .navbar-brand {
+
+      }
+      .navbar-menu {
+
+      }
+    }
+    .notification {
+
+    }
+    .events-index {
+
+    }
+    .events-show {
+
+    }
+    .events-new {
+
+    }
+    .events-edit {
+
+    }
+    .places-index {
+
+    }
+    .places-show {
+
+    }
+    .places-new {
+
+    }
+    .places-edit{
+
+    }
+    .user-profile{
+
+    }
+    .about {
+
+    }
+    .404 {
+
+    }
+  }
 }
 
 
@@ -144,8 +190,8 @@ table{
   margin-left: 14%;
   .dropDowns{
     display: inline-flex;
-    .dropDown{
-      margin-left:70%;
+    .dropDown {
+      margin-left: 70%;
     }
   }
 }
@@ -168,7 +214,7 @@ table{
     margin-top: 5%;
     text-align: center;
   }
-  .newShowContainer{
+  .newShowContainer {
       margin-bottom: 40px;
   }
   .eventShowContainer{
