@@ -18,8 +18,7 @@ import Router from './config/router';
 import Auth from './config/auth';
 import Upload from './config/filestack';
 
-//Info controllers
-import InfoAboutCtrl from './controllers/infos/about';
+
 // Events Controllers
 import EventsIndexCtrl from './controllers/events/index';
 import EventsNewCtrl from './controllers/events/new';
@@ -56,7 +55,6 @@ angular.module('starGazer', ['ui.router', 'ngMessages', 'satellizer', 'angular-f
   .config(Auth)
   .config(Upload)
   .controller('MainCtrl', MainCtrl)
-  .controller('InfoAboutCtrl', InfoAboutCtrl)
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
   .controller('EventsShowCtrl', EventsShowCtrl)

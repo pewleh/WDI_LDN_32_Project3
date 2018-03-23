@@ -79,8 +79,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('about', {
       url: '/about',
-      templateUrl: 'views/info/about.html',
-      controller: 'InfoAboutCtrl as infoAbout'
+      templateUrl: 'views/info/about.html'
     })
     .state('404', {
       url: '/404',
