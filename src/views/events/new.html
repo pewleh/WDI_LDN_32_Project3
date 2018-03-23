@@ -1,9 +1,9 @@
 <section class="events-new">
   <div class="container">
-    <h1 class="title is-1">Know something we don't?</h1>
-    <h1 class="subtitle is-1">Add a celestial event below!</h1>
-    <div class="container event-form">
-      <form name="eventsNew.form" ng-submit="eventsNew.handleSubmit()">
+    <div class="event-container">
+      <h1 class="event-title is-1">Know something we don't?</h1>
+      <h1 class="event-subtitle is-1">Add a celestial event!</h1>
+      <form class=event-form name="eventsNew.form" ng-submit="eventsNew.handleSubmit()">
 
         <div class="field">
           <label for="name">Event Name</label>
@@ -68,7 +68,7 @@
           </div>
         </div>
 
-        <button class="button is-primary">Submit</button>
+        <button class="button" type="submit">Submit</button>
       </form>
     </div>
   </div>

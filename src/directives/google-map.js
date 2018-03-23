@@ -331,7 +331,6 @@ function googleMap() {
       const directionsDisplay = new google.maps.DirectionsRenderer();
       const directionsService = new google.maps.DirectionsService();
 
-      const directionsShow = document.getElementById('directions-show');
       // const origin = currentLocation;
       // console.log(origin);
 
@@ -348,7 +347,7 @@ function googleMap() {
         });
       }
 
-      directionsDisplay.setPanel(directionsShow);
+
 
       const marker = new google.maps.Marker({
         position: $scope.center,
