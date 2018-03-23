@@ -9,7 +9,7 @@ const eventData = require('./data/events');
 const Place = require('../models/place');
 const placeData = require('./data/places');
 
-const User = require('../models/User');
+const User = require('../models/user');
 const userData = require('./data/users');
 const dataRequests = require('../lib/dataRequests');
 
