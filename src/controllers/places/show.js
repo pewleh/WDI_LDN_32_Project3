@@ -1,14 +1,14 @@
 PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$auth'];
 
-function PlacesShowCtrl(Place, User, $state, $auth) {
+function PlacesShowCtrl(Place, User, $state) {
 
   const vm = this;
 
   this.place = {};
-  this.currentUser = $auth.getPayload().sub;
-  this.comment = {
-    userId: this.currentUser
-  };
+  // this.currentUser = $auth.getPayload().sub;
+  // this.comment = {
+  //   userId: this.currentUser
+  // };
 
   Place.findById($state.params.id)
     .then(res => this.place = res.data);

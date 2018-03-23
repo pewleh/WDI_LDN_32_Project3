@@ -5,8 +5,8 @@ MainCtrl.$inject = ['$auth', '$state', '$rootScope', '$timeout'];
 function MainCtrl($auth, $state, $rootScope, $timeout) {
   const vm = this;
 
-  vm.userId = $auth.getPayload().sub;
-  vm.admin = $auth.getPayload().admin;
+  // vm.userId = $auth.getPayload().sub;
+  // vm.admin = $auth.getPayload().admin;
   vm.clicked = false;
 
 
