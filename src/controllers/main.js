@@ -15,6 +15,10 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
     vm.admin = false;
     $auth.logout();
     $state.go('eventsIndex');
+    $rootScope.$broadcast('flashMessage', {
+      type: 'success',
+      content: 'See you when the sun goes down!'
+    });
   }
 
   vm.logout = logout;
@@ -30,7 +34,7 @@ function MainCtrl($auth, $state, $rootScope, $timeout) {
     console.log(data);
     vm.flashMessage = data;
 
-    $timeout(() => vm.flashMessage = null, 3000);
+    $timeout(() => vm.flashMessage = null, 4000);
   });
 
 }

@@ -1,20 +1,17 @@
 PlacesShowCtrl.$inject = ['Place', 'User', '$state', '$auth'];
 
-function PlacesShowCtrl(Place, User, $state) {
+function PlacesShowCtrl(Place, User, $state, $auth) {
 
   const vm = this;
 
   this.place = {};
-  // this.currentUser = $auth.getPayload().sub;
-  // this.comment = {
-  //   userId: this.currentUser
-  // };
-
+  
   Place.findById($state.params.id)
     .then(res => this.place = res.data);
 
   function addFavoriteLocation() {
-    User.findById(vm.currentUser)
+    const activeUser = $auth.getPayload().sub;
+    User.findById(activeUser)
       .then(user => {
         user.data.favoriteLocations.push($state.params.id);
         User.update(user.data);
@@ -31,8 +28,9 @@ function PlacesShowCtrl(Place, User, $state) {
   this.remove = remove;
 
   function submitComment() {
+    const activeUser = $auth.getPayload().sub;
     Place.createComment(vm.comment ,vm.place)
-      .then(() => User.findById(vm.currentUser))
+      .then(() => User.findById(activeUser))
       .then((user) => vm.comment.username = user.data.username)
       .then(() => vm.place.comments.push(vm.comment))
       .then(() => vm.comment = {});

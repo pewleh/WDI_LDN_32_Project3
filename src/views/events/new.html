@@ -15,7 +15,7 @@
 
         <div class="field">
           <label for="date">Event Date</label>
-          <input class="input" placeholder="Event Date" name="date" ng-model="eventsNew.newEvent.date" required />
+          <input class="input" placeholder="Event Date" name="date" ng-model="eventsNew.newEvent.date" type="date" required />
           <div ng-messages="eventsNew.form.name.$error" ng-if="placesNew.form.date.$dirty || eventsNew.form.$submitted">
             <div class="notification is-danger" ng-message="required">This field is required</div>
           </div>
