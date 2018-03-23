@@ -10,7 +10,7 @@ const Place = require('../models/place');
 const placeData = require('./data/places');
 
 const User = require('../models/User');
-const userData = require('./data/users');
+const userData = require('./data/Users');
 const dataRequests = require('../lib/dataRequests');
 
 
@@ -60,7 +60,7 @@ function getAsteroids() {
           // event.date data is transformed into unix timestamps in order to sort input from different formats by date easily
           event.date = (new Date(event.close_approach_data[0].close_approach_date)).getTime();
           event.missDistance = event.close_approach_data[0].miss_distance.kilometers;
-          event.visibility = 'telescope';
+          event.visibility = 'Telescope';
           event.type = 'Asteroid';
           allEvents.push(event);
         });
@@ -97,7 +97,7 @@ function normalizeTime() {
   });
 }
 mongoose.connect(dbURI, (err, db) => {
-  // addWeather();
+  addWeather();
   db.dropDatabase()
     .then(() => console.log('connected to db and cleared it'))
     .then(() => getAsteroids())

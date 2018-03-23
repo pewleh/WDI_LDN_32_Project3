@@ -323,6 +323,8 @@ $fifth-color: #2D3142;
           font-size: 1rem;
         }
         .comment-section{
+          color: $tertiary-color;
+          font-size: 1.25rem;
           padding-bottom: 10vh;
         }
 
@@ -459,7 +461,14 @@ $fifth-color: #2D3142;
         }
       }
     }
-    .404 {
+    .not-found {
+      height: 100vh;
+      font-size: 3.75rem;
+      font-weight: bold;
+      .container {
+        margin-top: 30vh;
+      }
+
 
     }
   }

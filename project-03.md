@@ -11,7 +11,7 @@ Your instructors will partner you with other classmates to design and collaborat
 
 This is the _most realistic_ stack that you have worked on during the course and will prepare you for working in the industry where the MEAN stack setup is still very popular.
 
-**This is meant to push you both technically and collaboratively.** It is a lot harder to work in a team than to work by yourself. However, it is very likely thank you are going to find yourself working in a teams throughout your development careers so **it's important to learn how to work together.**
+**This is meant to push you both technically and collaboratively.** It is a lot harder to work in a team than to work by yourself. However, it is very likely that you are going to find yourself working in a teams throughout your development careers so **it's important to learn how to work together.**
 
 Make it work, and make it awesome.
 

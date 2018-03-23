@@ -2,21 +2,14 @@ EventsShowCtrl.$inject = ['Event', 'User', 'Place', '$state', '$auth'];
 function EventsShowCtrl(Event, User, Place, $state, $auth) {
   const vm = this;
   this.event = {};
-  // this.currentUser = $auth.getPayload().sub;
-  // this.comment = {
-  //   userId: this.currentUser
-  // };
 
 
   vm.allPlaces = [];
   vm.event.image = null;
 
   Place.findPlace()
-    .then(res => vm.allPlaces = res.data)
-    .then(() => {
-      vm.currentUser = $auth.getPayload().sub;
-      console.log('user is',vm.currentUser);
-    });
+    .then(res => vm.allPlaces = res.data);
+
 
   Event.findById($state.params.id)
     .then(event => this.event = event.data);
@@ -28,9 +21,9 @@ function EventsShowCtrl(Event, User, Place, $state, $auth) {
   this.remove = remove;
 
   function submitComment() {
-
+    const activeUser = $auth.getPayload().sub;
     Event.createComment(vm.comment ,vm.event)
-      .then(() => User.findById(vm.currentUser))
+      .then(() => User.findById(activeUser))
       .then((user) => vm.comment.username = user.data.username)
       .then(() => vm.event.comments.push(vm.comment))
       .then(() => vm.comment = {} );
@@ -45,7 +38,8 @@ function EventsShowCtrl(Event, User, Place, $state, $auth) {
   this.deleteComment = deleteComment;
 
   function addFavoriteEvent() {
-    User.findById(vm.currentUser)
+    const activeUser = $auth.getPayload().sub;
+    User.findById(activeUser)
       .then(user => {
         user.data.favoriteEvents.push($state.params.id);
         return User.update(user.data);
