@@ -1,6 +1,5 @@
 GA WDI LDN Project 3
 
-
 ![image](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 # GA WDI-32 <br> Project 3 - StarGazer
 Set in teams of three we were given 7 days to create a MEAN stack application using:
