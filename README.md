@@ -93,10 +93,11 @@ _________________
 ###### PERSONAL INPUT
 
 My main responsibilities consisted of-
+<br>
 
 o Creating wireframes and initial layout.
-<img src="src/assets/images/wf.png" width="500px;">
-o Setting up the backend skeleton of the site and ensuring the routes work.<br>
+<img src="src/assets/images/wf.png" width="700px;"><br><br>
+o Setting up the backend skeleton of the site and ensuring the routes work.<br><br>
 o Backend testing.
 <img src="src/assets/images/test.png" width="500px;">
 
