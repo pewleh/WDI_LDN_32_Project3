@@ -343,9 +343,17 @@ $fifth-color: #2D3142;
           font-size: 1rem;
         }
         .comment-section{
+          margin-top: 18vh;
+          background-color: rgba(255, 255, 255, 0.5);
           color: $tertiary-color;
           font-size: 1.25rem;
           padding-bottom: 10vh;
+
+          .subtite{
+            color: black;
+            font-size: 30px;
+            margin-left: 2vw;
+          }
         }
 
         .googleBorder{
@@ -411,6 +419,7 @@ $fifth-color: #2D3142;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        margin-top: 12vh;
       }
       .change-picture {
         display: flex;
@@ -430,7 +439,7 @@ $fifth-color: #2D3142;
         // width: auto;
       }
       #username, .preferences {
-        // margin-left: 18.5%;
+        margin-right: 10vw;
         padding: 10px;
       }
       .preferences {
@@ -442,24 +451,80 @@ $fifth-color: #2D3142;
         }
       }
       #username {
-        font-size: 3rem;
-        display: flex;
-        justify-content: flex-end;
+        font-size: 5rem;
+        margin-top: 14vh;
+        margin-left: 3vw;
       }
-      // .change-picture {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-self: center;
-      // }
       .submit-button {
         margin-top: 10px;
+      }
+      .favorites{
+        margin-left: 3vw;
       }
     }
     .login {
       height: 100vh;
+      .loginContainer{
+        width: 75vw;
+        margin-left: 9vw;
+        margin-top: 3vh;
+        border-radius: 8px;
+        background-color: #ffffff4d;
+        height: 35vh;
+
+        .field{
+          font-size: 25px;
+          font-weight: bold;
+          text-align: center;
+          padding: 10px;
+          width: 68vw;
+          margin-left: 3.5vw;
+          margin-top: 3vh;
+          label{
+            color:black;
+          }
+          input{
+          border: 2px solid #2c2c2c;
+        }
+      }
+      button{
+        margin-left: 35vw;
+        font-size: 16px;
+      }
     }
+  }
     .register {
       height: 100vh;
+      .inner-reg-container{
+        width: 75vw;
+        margin-left: 9vw;
+        margin-top: 2vh;
+        border-radius: 8px;
+        background-color: #ffffff4d;
+      }
+      .field{
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        width: 68vw;
+        margin-left: 3.5vw;
+        label{
+          color:black;
+        }
+        input{
+        border: 2px solid #2c2c2c;
+      }
+    }
+
+      span.file-cta{
+        width: 15vw;
+        margin-left: 20vw;
+      }
+      button{
+        margin-left: 44vw;
+        margin-top: -4.5vh;
+      }
     }
     .about {
       height: 100vh;
@@ -470,6 +535,7 @@ $fifth-color: #2D3142;
       }
       .adminImages{
         display:inline-flex;
+        margin-left: 6vw;
       }
       .adminInfo {
         padding: 50px;

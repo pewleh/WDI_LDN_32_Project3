@@ -1,52 +1,46 @@
 <section class="register">
   <div class="container">
-    <h1 class="registerTitle">Register below</h1>
-    <form class="registerForm" ng-submit="authRegister.handleSubmit()">
-      <div class="field">
-        <label for="username">Username</label>
-        <input class="input" placeholder="Username" name="username" ng-model="authRegister.user.username" />
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input class="input" placeholder="Email" name="email" ng-model="authRegister.user.email" />
-      </div>
-      <div class="field">
-        <label for="password">Password</label>
-        <input type="password" class="input" placeholder="Password" name="password" ng-model="authRegister.user.password" />
-      </div>
-      <div class="field">
-        <label for="passwordConfirmation">Password Confirmation</label>
-        <input type="password" class="input" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
-      </div>
-
-
-      <img class="imagePreview" src="{{eventsShow.event.image}}">
-      <div class="control">
-        <div class="file">
-          <label class="file-label">
-            <input class="file-input" type="file" ng-model="authRegister.user.avatar" upload-image>
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fa fa-upload"></i>
-              </span>
-              <span class="file-label">
-                Choose a file…
-              </span>
-            </span>
-          </label>
+    <h1 class="centerTitle">Register below</h1>
+    <div class="inner-reg-container">
+      <form class="registerForm" ng-submit="authRegister.handleSubmit()">
+        <div class="field">
+          <label for="username">Username</label>
+          <input class="input" placeholder="Username" name="username" ng-model="authRegister.user.username" />
         </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" placeholder="Email" name="email" ng-model="authRegister.user.email" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" class="input" placeholder="Password" name="password" ng-model="authRegister.user.password" />
+        </div>
+        <div class="field">
+          <label for="passwordConfirmation">Password Confirmation</label>
+          <input type="password" class="input" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
+        </div>
+
+
+        <img class="imagePreview" src="{{eventsShow.event.image}}">
+        <div class="control">
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" ng-model="authRegister.user.avatar" upload-image>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a profile picture..
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <form ng-submit="authRegister.savePic()">
+          <button class="button is-submit submit-button" type="submit">Submit</button>
+        </form>
       </div>
-
-      <form ng-submit="authRegister.savePic()">
-        <button class="button is-submit submit-button" type="submit">Submit</button>
-      </form>
-      <!--
-      <button class="button is-primary">Submit</button>
-    </form> -->
-
-
   </div>
-
-  <!-- Consider filling the white space with either "personal images"-->
-
 </section>
