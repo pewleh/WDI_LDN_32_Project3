@@ -33,11 +33,11 @@ $fifth-color: #2D3142;
     // background-color: $primary-color;
     .card{
       border-radius: 10%;
-      padding:0.8vh;//it's bubbly but idk.
+      padding:0.8vh;
       background-color: $tertiary-color;
     }
 
-    .centerTitle{  //anything with registerTitle needs to change to centerTitle
+    .centerTitle{
       text-align: center;
       font-size: 5rem;
       padding:1.4vw;
@@ -61,13 +61,6 @@ $fifth-color: #2D3142;
           transition: color 0.3s ease;
           background-color: rgba(240, 142, 99, 0.85);
         }
-        // .navbar-item {
-        //   :hover {
-        //     text-decoration: underline;
-        //     text-decoration-color: $fourth-color;
-        //     transition: text-decoration 0.3s ease;
-        //   }
-        // }
       }
       .navbar-item {
         font-size: 20px;
@@ -122,11 +115,29 @@ $fifth-color: #2D3142;
         }
       }
     }
+
+    //SHOW EVENT
     .events-show {
       color: $tertiary-color;
+      height:100vh;
+
+      .event-title{
+        margin-top: 20vh;
+        margin-left: 10vw;
+        font-size: 76px;
+      }
+      .event-name{
+        margin-left: 20vw;
+        font-size: 30px;
+      }
+
+      .info{
+        display:inline-flex;
+        margin-top: 18vh;
+      }
       div {
         .event-data {
-          display: flex;
+          display: inline-flex;
           justify-content: space-between;
           .event-card {
             text-align: center;
@@ -136,8 +147,10 @@ $fifth-color: #2D3142;
             justify-content: space-between;
             .details {
               font-size: 1.5rem;
+
               .info-title {
                 font-weight: bold;
+                margin-left: 4vw;
               }
             }
             .event-buttons {
@@ -147,13 +160,18 @@ $fifth-color: #2D3142;
           }
           .event-image {
             width: 30vw;
+            margin-right: 5vw;
 
             img {
               border-radius: 10%;
+              margin-top: -20vh;
             }
           }
         }
-        .event-user-data {
+        .event-comments {
+          width: 70vw;
+          margin-top: 10vh;
+          margin-left: 8vw;
           .comments-list {
 
             .comment {
@@ -255,6 +273,8 @@ $fifth-color: #2D3142;
         color: $tertiary-color;
       }
     }
+
+
     .places-index {
       .cardImg{
         border-radius: 10% 10% 0 0;
